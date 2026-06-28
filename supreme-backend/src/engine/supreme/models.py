@@ -83,17 +83,21 @@ MEDIA_WEIGHTS: dict[MediaType, float] = {
     MediaType.PREVIEW: 0.5,
 }
 
+SEVERITY_ALFA: float = 1.0
+SEVERITY_BETA: float = 5.0
+SEVERITY_BETA_MIN_LEVEL: int = 4
+
 SEVERITY_WEIGHTS: dict[int, float] = {
-    1: 0.5,   # Very low — non erotic / contextual
-    2: 0.8,   # Low — nudity / non sexual
-    3: 1.0,   # Moderate — explicit sexual context
-    4: 1.3,   # High — severe sexual activity
-    5: 1.6,   # Extreme — extreme abuse
+    1: SEVERITY_ALFA,
+    2: SEVERITY_ALFA,
+    3: SEVERITY_ALFA,
+    4: SEVERITY_BETA,
+    5: SEVERITY_BETA,
 }
 
 
 def event_weight(media_type: MediaType, severity: int) -> float:
-    """W_k = severity_weight × media_weight (spec seção 34)."""
+    """W_evento = s_k . m_k, with Alfa/Beta severity weights."""
     return SEVERITY_WEIGHTS[severity] * MEDIA_WEIGHTS[media_type]
 
 
@@ -206,7 +210,7 @@ class WindowMetrics(BaseModel, frozen=True):
     window_start: date
     t_minutes:    float    # Exposure Time
     e_events:     int      # Event Count
-    v_volume:     float    # Exposure Volume = Σ W_k × duration
+    v_volume:     float    # V_log = log(1 + Σ W_evento * duration_min)
     d_density:    float    # Density = E / T (events/min)
     dq_score:     float    # Data Quality [0, 1]
 

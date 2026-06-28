@@ -6,7 +6,7 @@ Window Metrics Engine -- spec SUPREME V4 secoes 33-36.
 Para cada janela de 14 dias calcula:
     T = soma total de minutos de sessao na janela
     E = total de eventos validos
-    V = volume ponderado de exposicao (soma dos pesos W_k por evento)
+    V = V_log = log(1 + soma de W_evento * duracao_min)
     D = densidade de eventos: E / T  (eventos/min)
     DQ = Data Quality: proporcao de dias com evento sobre dias esperados
 """
@@ -14,6 +14,7 @@ Para cada janela de 14 dias calcula:
 from __future__ import annotations
 
 from datetime import date, timedelta
+from math import log1p
 from typing import Sequence
 
 from .models import EventRecord, SessionRecord, WindowMetrics, event_weight
@@ -64,15 +65,14 @@ def compute_window_metrics(
     # -- E: contagem de eventos validos ----------------------------------------
     e_events = len(window_events)
 
-    # -- V: volume ponderado = Sigma W_k (spec secao 34.3) --------------------
-    # V = Sigma W_evento = Sigma (COPINE_weight x media_multiplier) por evento.
-    # Derivacao da Etapa 3: V = Sigma_sessoes (IEO_window_raw x duration_min)
-    #   = Sigma_sessoes (Sigma W_evento / duration_min x duration_min) = Sigma W_evento.
-    # A duracao cancela-se algebricamente -- nao ha fator de duracao.
-    v_volume = sum(
-        event_weight(e.media_type, e.severity)
+    # -- V: volume ponderado canonico -----------------------------------------
+    # W_evento = severity_weight x media_multiplier. O volume bruto preserva a
+    # duracao de contato; o motor usa V_log = log(1 + volume_bruto).
+    raw_weighted_volume = sum(
+        event_weight(e.media_type, e.severity) * (e.duration_seconds / 60.0)
         for e in window_events
     )
+    v_volume = log1p(raw_weighted_volume)
 
     # -- D: densidade = E / T (eventos/min) ------------------------------------
     d_density = (e_events / t_minutes) if t_minutes > 0 else 0.0

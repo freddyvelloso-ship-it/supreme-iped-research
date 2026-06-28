@@ -25,10 +25,12 @@ class IEOParameters:
 
 @dataclass(frozen=True)
 class PSIParameters:
-    z_dass: float = 0.35
-    z_olbi: float = 0.30
-    z_srq: float = 0.20
-    z_panas_neg: float = 0.15
+    # Canonical hierarchy: proximity to acute exposure event.
+    # PSI = 0.40 PANAS_neg + 0.30 DASS_total + 0.20 OLBI_exh + 0.10 SRQ.
+    z_panas_neg: float = 0.40
+    z_dass: float = 0.30
+    z_olbi: float = 0.20
+    z_srq: float = 0.10
     psi_threshold: float = 0.0
     oei_threshold: float = 0.0
     min_history_for_baseline: int = 4

@@ -3,7 +3,7 @@ engine.supreme.psi
 ==================
 Pipeline PSI — Psychological Suffering Index.
 
-PSI = 0.35·z_DASS + 0.30·z_OLBI + 0.20·z_SRQ + 0.15·z_PANAS_neg
+PSI = 0.40·z_PANAS_neg + 0.30·z_DASS + 0.20·z_OLBI + 0.10·z_SRQ
 
 Normalizado ao baseline individual (mesmo protocolo do OEI).
 Classificação OEI-PSI: convergence | baseline | residual_burden | divergence
@@ -19,7 +19,7 @@ from .algorithm import ALGORITHM_SPEC, CURRENT_ALGORITHM_VERSION
 
 log = logging.getLogger("supreme.psi")
 
-# Pesos do PSI (artigo seção 4.3)
+# Pesos do PSI (tabela canonica, Behavioral Metrology sec. 4.4)
 W_DASS = ALGORITHM_SPEC.psi.z_dass
 W_OLBI = ALGORITHM_SPEC.psi.z_olbi
 W_SRQ = ALGORITHM_SPEC.psi.z_srq

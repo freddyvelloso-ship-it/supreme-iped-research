@@ -541,7 +541,7 @@ async def submit_psychometric(request: Request, body: SubmitRequest, db: AsyncSe
         elif body.instrument == "DASS21":
             score = score_dass21(body.responses)["total"]
         elif body.instrument == "OLBI":
-            score = score_olbi(body.responses)["total"]
+            score = score_olbi(body.responses)["exhaustion"]
         elif body.instrument == "SRQ20":
             score = float(score_srq20(body.responses)["total"])
         else:
