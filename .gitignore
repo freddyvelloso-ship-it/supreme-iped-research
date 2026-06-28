@@ -1,0 +1,86 @@
+# Secrets and environment files
+.env
+*.env
+.env.*
+.envrc
+!.env.example
+!.env.production.example
+!env/*.example
+**/.env
+**/.env.production
+**/.env.local
+**/.env.*.local
+**/secrets/
+**/secrets.*
+**/*secret*.local
+**/*token*.local
+.local/
+
+# TLS / private keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+certs/*.crt
+**/privkey.pem
+!certs/README.md
+
+# Prometheus and Alertmanager local files
+infra/prometheus/supreme-api-token.local
+infra/alertmanager/alertmanager.yml
+
+# Archives
+*.zip
+!IPED-local/**/*.zip
+*.tar.gz
+*.tar.bz2
+
+# Build artifacts
+*.class
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.venv/
+.venv*/
+**/.venv/
+.pytest_cache/
+**/.pytest_cache/
+*.egg-info/
+
+# Node / frontend build
+node_modules/
+dist/
+build/
+
+# Logs, databases and audit data
+tmp/
+*.log
+logs/
+audit.ndjson
+supreme_audit.ndjson
+*.sqlite
+*.sqlite3
+*.db
+*.duckdb
+backups/
+
+# Generated scan reports
+reports/security/
+
+# Forensic evidence and IPED case material
+*.E01
+*.Ex01
+*.aff4
+*.raw
+*.dd
+*.ad1
+*.l01
+*.L01
+
+# OS
+.DS_Store
+Thumbs.db

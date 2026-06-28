@@ -1,0 +1,82 @@
+name: supreme-v4-staging
+
+services:
+  nginx:
+    ports:
+      - "8080:80"
+      - "8443:443"
+
+  supreme-api:
+    env_file: ./supreme-backend/.env.staging.example
+    environment:
+      ENVIRONMENT: staging
+      ENABLE_DOCS: "false"
+      ENABLE_METRICS: "true"
+
+  supreme-worker:
+    env_file: ./supreme-backend/.env.staging.example
+    environment:
+      ENVIRONMENT: staging
+
+  sentinela:
+    env_file: ./sentinela/.env.staging.example
+    environment:
+      ENVIRONMENT: staging
+      ENABLE_DOCS: "false"
+      AUTO_INIT_DB: "false"
+
+  grafana:
+    environment:
+      GF_SERVER_ROOT_URL: ${STAGING_GRAFANA_ROOT_URL:-https://staging.example.org/grafana/}
+      GF_SERVER_SERVE_FROM_SUB_PATH: "true"
+
+  prometheus:
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=30d
+      - --web.enable-lifecycle
+
+  alertmanager:
+    command:
+      - --config.file=/etc/alertmanager/alertmanager.yml
+      - --storage.path=/alertmanager
+      - --web.external-url=${STAGING_ALERTMANAGER_URL:-https://staging.example.org/alertmanager}
+
+  supreme-iped-watcher:
+    profiles: ["iped-real"]
+    build:
+      context: ./supreme-iped-integration
+      dockerfile: Dockerfile
+    command: python supreme-watcher/watcher.py
+    restart: unless-stopped
+    environment:
+      SUPREME_API_URL: http://supreme-api:8000
+      SUPREME_API_TOKEN: ${API_INGEST_TOKEN:?defina API_INGEST_TOKEN}
+      SUPREME_SALT: ${SUPREME_SALT:?defina SUPREME_SALT}
+      SUPREME_AUDIT_LOG: /audit/supreme_audit.ndjson
+      WATCHER_POLL_SECS: "15"
+      SUPREME_USER_ID: perito_staging
+    volumes:
+      - ${IPED_AUDIT_DIR:?defina IPED_AUDIT_DIR para staging IPED real}:/audit:ro
+    networks:
+      - backend
+    depends_on:
+      supreme-api:
+        condition: service_healthy
+
+volumes:
+  supreme_pgdata:
+    name: supreme_v4_staging_supreme_pgdata
+  supreme_redisdata:
+    name: supreme_v4_staging_supreme_redisdata
+  sentinela_pgdata:
+    name: supreme_v4_staging_sentinela_pgdata
+  prometheus_data:
+    name: supreme_v4_staging_prometheus_data
+  grafana_data:
+    name: supreme_v4_staging_grafana_data
+  loki_data:
+    name: supreme_v4_staging_loki_data
+  alertmanager_data:
+    name: supreme_v4_staging_alertmanager_data
+

@@ -1,0 +1,210 @@
+[
+  {
+    "chain_hash": "db2920e1416dd251627c003bd514182be6d8e8a5dcba2c1c6f3e19e74a2cd2b3",
+    "chain_id": "phase5-input",
+    "index": 0,
+    "payload_hash": "2576894cb9159eabb99c6f22b06bec185e00c7fa19f3c4987189f9df1733f4ae",
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "record": {
+      "event_hash": "5cc3c2a5af1ca29207f97696ba67bf32e291f4fea427212065cd5d2d4ad69145",
+      "key_id": "phase5-demo-custody-key-v1",
+      "payload": {
+        "duration_seconds": 12.0,
+        "event_hash": "5cc3c2a5af1ca29207f97696ba67bf32e291f4fea427212065cd5d2d4ad69145",
+        "event_type": "image_view",
+        "media_type": "image",
+        "severity": 2,
+        "source_tool": "iped",
+        "timestamp": "2026-01-01T08:00:00+00:00",
+        "user_identifier": "9712a24b1bf12f5aead50a15c0987fd0e5c9f35d09a2b7209e85b3c78d690371"
+      },
+      "payload_hash": "c2fb380a2dc05d54cb73a899aebe8e846021d24b87ab04426117bb0bc041fd8c",
+      "signature": "244ed6ff316951b8758fb1753593390e2d42090da8c638e9f4070c05b00fb283",
+      "signature_algorithm": "HMAC-SHA256",
+      "signed_at": "2026-06-23T00:00:00+00:00",
+      "trusted_capture_point": "supreme-ingest-first-trusted-capture"
+    }
+  },
+  {
+    "chain_hash": "152ac63eb36f468801281ab98268c565b8e540062dd3f55f42713b654de4bc15",
+    "chain_id": "phase5-input",
+    "index": 1,
+    "payload_hash": "6651ae059655c8365f77e3b7a3f7331bea890b4143c7ce18ca8b14a338277059",
+    "previous_hash": "db2920e1416dd251627c003bd514182be6d8e8a5dcba2c1c6f3e19e74a2cd2b3",
+    "record": {
+      "event_hash": "73e30062c7316b23e6cff899865b7e0cf2e0c7d45e0de9d23236f8cbff3bddd8",
+      "key_id": "phase5-demo-custody-key-v1",
+      "payload": {
+        "duration_seconds": 55.0,
+        "event_hash": "73e30062c7316b23e6cff899865b7e0cf2e0c7d45e0de9d23236f8cbff3bddd8",
+        "event_type": "video_play",
+        "media_type": "video",
+        "severity": 2,
+        "source_tool": "iped",
+        "timestamp": "2026-01-01T08:07:00+00:00",
+        "user_identifier": "9712a24b1bf12f5aead50a15c0987fd0e5c9f35d09a2b7209e85b3c78d690371"
+      },
+      "payload_hash": "6c8adc3257f683fc12c0e483a635f8d7fb7df509dd1cd14a9ea29b3564ca9c83",
+      "signature": "2973a60a283e9c5d7e05193a07a2c96d840015648ce4180569ccac2cdfd45322",
+      "signature_algorithm": "HMAC-SHA256",
+      "signed_at": "2026-06-23T00:00:00+00:00",
+      "trusted_capture_point": "supreme-ingest-first-trusted-capture"
+    }
+  },
+  {
+    "chain_hash": "f5014a7855a652d63466d58b0a5fb4628170b55875c2cf9067d83e11c781b8c1",
+    "chain_id": "phase5-input",
+    "index": 2,
+    "payload_hash": "be20ac1f9b843d83341edf12b02b1940983935f2b44e1518791187b116391f2c",
+    "previous_hash": "152ac63eb36f468801281ab98268c565b8e540062dd3f55f42713b654de4bc15",
+    "record": {
+      "event_hash": "ecc7d9ed07153b2e3470b46dfdd5e5403c466783a9fa023e8b436d447db71ad6",
+      "key_id": "phase5-demo-custody-key-v1",
+      "payload": {
+        "duration_seconds": 15.0,
+        "event_hash": "ecc7d9ed07153b2e3470b46dfdd5e5403c466783a9fa023e8b436d447db71ad6",
+        "event_type": "image_view",
+        "media_type": "image",
+        "severity": 3,
+        "source_tool": "iped",
+        "timestamp": "2026-01-15T08:00:00+00:00",
+        "user_identifier": "9712a24b1bf12f5aead50a15c0987fd0e5c9f35d09a2b7209e85b3c78d690371"
+      },
+      "payload_hash": "2789ddf53bc2583c893cb5068d5e28e29857ba306013c83c0e9fd90e9d8a9fc3",
+      "signature": "03d4ed8221de4d457d2fad3784bdeb3ed0c015f3c6cab189097ac52d62881224",
+      "signature_algorithm": "HMAC-SHA256",
+      "signed_at": "2026-06-23T00:00:00+00:00",
+      "trusted_capture_point": "supreme-ingest-first-trusted-capture"
+    }
+  },
+  {
+    "chain_hash": "9e8cd54727024efc1d708a0357eb34fb29af0183a8925782681fe34fc1c4d9e3",
+    "chain_id": "phase5-input",
+    "index": 3,
+    "payload_hash": "910c755bf48caf7367f56721b78222e3d157e3fc952b9bb5436d09ea44b237b3",
+    "previous_hash": "f5014a7855a652d63466d58b0a5fb4628170b55875c2cf9067d83e11c781b8c1",
+    "record": {
+      "event_hash": "530b6b460a4118614c6b853c3e198ea03babd212f984beab94d0fe3e2a2ac524",
+      "key_id": "phase5-demo-custody-key-v1",
+      "payload": {
+        "duration_seconds": 70.0,
+        "event_hash": "530b6b460a4118614c6b853c3e198ea03babd212f984beab94d0fe3e2a2ac524",
+        "event_type": "video_play",
+        "media_type": "video",
+        "severity": 3,
+        "source_tool": "iped",
+        "timestamp": "2026-01-15T08:09:00+00:00",
+        "user_identifier": "9712a24b1bf12f5aead50a15c0987fd0e5c9f35d09a2b7209e85b3c78d690371"
+      },
+      "payload_hash": "ca8fa24d2682edb380acb3c39edcf190c6ae036c88a7e49fdc596375963ec371",
+      "signature": "ff33d9f81dcab02139a16bd0ffa266bb7007cb2275f22b3d5514d2c6b07838a3",
+      "signature_algorithm": "HMAC-SHA256",
+      "signed_at": "2026-06-23T00:00:00+00:00",
+      "trusted_capture_point": "supreme-ingest-first-trusted-capture"
+    }
+  },
+  {
+    "chain_hash": "f435e08a8f77284177b61c1aa21946bf3dc6d767d48d6f31472775be1152d44c",
+    "chain_id": "phase5-input",
+    "index": 4,
+    "payload_hash": "de85138560ae548d403dc87c251a4e82a474907ef3ae463f616fd0b5c8b0b61c",
+    "previous_hash": "9e8cd54727024efc1d708a0357eb34fb29af0183a8925782681fe34fc1c4d9e3",
+    "record": {
+      "event_hash": "882115701a0ea3ef19486568cbd104f440200ed0282faf93ea7f69736495ac95",
+      "key_id": "phase5-demo-custody-key-v1",
+      "payload": {
+        "duration_seconds": 20.0,
+        "event_hash": "882115701a0ea3ef19486568cbd104f440200ed0282faf93ea7f69736495ac95",
+        "event_type": "image_view",
+        "media_type": "image",
+        "severity": 4,
+        "source_tool": "iped",
+        "timestamp": "2026-01-29T08:00:00+00:00",
+        "user_identifier": "9712a24b1bf12f5aead50a15c0987fd0e5c9f35d09a2b7209e85b3c78d690371"
+      },
+      "payload_hash": "47c860f235a5d5299cf8ca0fa3fcbac69285f799d291cd79f5267a6d75e97f72",
+      "signature": "f30f0bc50b6feb184c13e4d16d317c78e2658ed535aa9008687853af16492b0b",
+      "signature_algorithm": "HMAC-SHA256",
+      "signed_at": "2026-06-23T00:00:00+00:00",
+      "trusted_capture_point": "supreme-ingest-first-trusted-capture"
+    }
+  },
+  {
+    "chain_hash": "08159e085ecad1d5b76a18da98a88b10295fe841e76172229ce62a806ddc13a4",
+    "chain_id": "phase5-input",
+    "index": 5,
+    "payload_hash": "1392e4c487cf9d7295a533d140abc6c2fde31bafbc3dbec35244adc1354ff5d2",
+    "previous_hash": "f435e08a8f77284177b61c1aa21946bf3dc6d767d48d6f31472775be1152d44c",
+    "record": {
+      "event_hash": "113257f95d0ee77c1f1e9ae28406d851ccb86e10b8d6fedf5c102dd0f889ea23",
+      "key_id": "phase5-demo-custody-key-v1",
+      "payload": {
+        "duration_seconds": 85.0,
+        "event_hash": "113257f95d0ee77c1f1e9ae28406d851ccb86e10b8d6fedf5c102dd0f889ea23",
+        "event_type": "video_play",
+        "media_type": "video",
+        "severity": 4,
+        "source_tool": "iped",
+        "timestamp": "2026-01-29T08:11:00+00:00",
+        "user_identifier": "9712a24b1bf12f5aead50a15c0987fd0e5c9f35d09a2b7209e85b3c78d690371"
+      },
+      "payload_hash": "10b8b73ff1f431de70f9093c06ec5df40e4ac274a32b01c1ec95053eba466e26",
+      "signature": "93a02970c224641664adf83054f62f7dd60549dabe8658ef9baa5778b66cd849",
+      "signature_algorithm": "HMAC-SHA256",
+      "signed_at": "2026-06-23T00:00:00+00:00",
+      "trusted_capture_point": "supreme-ingest-first-trusted-capture"
+    }
+  },
+  {
+    "chain_hash": "602bf8c04923077adf825a45dc26d3132f2289cbdbdaa9775e19502835bc481a",
+    "chain_id": "phase5-input",
+    "index": 6,
+    "payload_hash": "86a347f75b69ec47662ea40984a9d0609919878a96d4f138e6480420d6d9e6d4",
+    "previous_hash": "08159e085ecad1d5b76a18da98a88b10295fe841e76172229ce62a806ddc13a4",
+    "record": {
+      "event_hash": "3ddde40ae8acb845e2ab2227be0a33ff4efabf5b55a3e162c20d291ec77c360c",
+      "key_id": "phase5-demo-custody-key-v1",
+      "payload": {
+        "duration_seconds": 25.0,
+        "event_hash": "3ddde40ae8acb845e2ab2227be0a33ff4efabf5b55a3e162c20d291ec77c360c",
+        "event_type": "image_view",
+        "media_type": "image",
+        "severity": 5,
+        "source_tool": "iped",
+        "timestamp": "2026-02-12T08:00:00+00:00",
+        "user_identifier": "9712a24b1bf12f5aead50a15c0987fd0e5c9f35d09a2b7209e85b3c78d690371"
+      },
+      "payload_hash": "2586ec93c60fd7d9d6ce744833ae9599ae0c20e4d051a5d2b8f033397d966bd6",
+      "signature": "42472356040bf7d9287376ac54ba71b561bffc26f08d53a1bdb522b1f4d15331",
+      "signature_algorithm": "HMAC-SHA256",
+      "signed_at": "2026-06-23T00:00:00+00:00",
+      "trusted_capture_point": "supreme-ingest-first-trusted-capture"
+    }
+  },
+  {
+    "chain_hash": "018676727dd8bc2351fe95abe708c85f4edf5eadc9372c177ebf64a371731a73",
+    "chain_id": "phase5-input",
+    "index": 7,
+    "payload_hash": "c64adc7b24fe936be0f6a1e9ff74e1accca0c44f6a60d6f3bf8cb61f20fc4cd0",
+    "previous_hash": "602bf8c04923077adf825a45dc26d3132f2289cbdbdaa9775e19502835bc481a",
+    "record": {
+      "event_hash": "d0743a3be1d4ad8f9a03a83325d793d94d0d94c3367ba163b7f1a0861e1c3f2b",
+      "key_id": "phase5-demo-custody-key-v1",
+      "payload": {
+        "duration_seconds": 100.0,
+        "event_hash": "d0743a3be1d4ad8f9a03a83325d793d94d0d94c3367ba163b7f1a0861e1c3f2b",
+        "event_type": "video_play",
+        "media_type": "video",
+        "severity": 5,
+        "source_tool": "iped",
+        "timestamp": "2026-02-12T08:13:00+00:00",
+        "user_identifier": "9712a24b1bf12f5aead50a15c0987fd0e5c9f35d09a2b7209e85b3c78d690371"
+      },
+      "payload_hash": "dfd803e2f50618db9d6b2dd03ff21fdcb11b1d7019646e949edcd356ca961fd8",
+      "signature": "1e0e99e4dce888e50582ebbe309c5dc3c15d00783a8be74ea61a03f26e935d67",
+      "signature_algorithm": "HMAC-SHA256",
+      "signed_at": "2026-06-23T00:00:00+00:00",
+      "trusted_capture_point": "supreme-ingest-first-trusted-capture"
+    }
+  }
+]

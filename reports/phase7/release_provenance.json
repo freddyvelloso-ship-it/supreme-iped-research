@@ -1,0 +1,1445 @@
+﻿{
+    "artifact":  "SUPREME V4 phase 7 release provenance",
+    "generated_at_utc":  "2026-06-23T18:05:28.9969845Z",
+    "signing_mode":  "detached_digest_manifest",
+    "image_signing_policy":  "CI must sign container image digests or release digests before publication",
+    "file_count":  287,
+    "files":  [
+                  {
+                      "path":  ".env.example",
+                      "bytes":  1158,
+                      "sha256":  "83e4021df658c7f506f9ac1942ca1c52efc1d91ad29d68c2b6014c49e39d3576"
+                  },
+                  {
+                      "path":  ".env.production.example",
+                      "bytes":  1872,
+                      "sha256":  "43d5e3722b73aa7f01b47a872a9b9f1e3f86cc04804ba9072d4450b9cefcdd9c"
+                  },
+                  {
+                      "path":  ".gitignore",
+                      "bytes":  939,
+                      "sha256":  "f2bd0174d93d7a62d8a1b26e08805c7f6185e5a2ed8371014f41dbaaff0c05d1"
+                  },
+                  {
+                      "path":  "AUDITORIA_FINAL_E_LIMPEZA.md",
+                      "bytes":  14543,
+                      "sha256":  "933a559e0d5941e7ac47dcb63b5c2b12cc2c5436809f782ad28431976f4c9cfe"
+                  },
+                  {
+                      "path":  "AUDITORIA_PRODUCAO_READINESS.md",
+                      "bytes":  3503,
+                      "sha256":  "85bad28a957dbaaa263a6a07443b3104d9c0930859725113b7f7ee8f57e548b1"
+                  },
+                  {
+                      "path":  "AUDITORIA_TECNICA_6_CAMADAS.md",
+                      "bytes":  10525,
+                      "sha256":  "4b0403f0018a728ad4195aee0627d29db6d655f5256299b2f108ec61a20931d2"
+                  },
+                  {
+                      "path":  "BOOTSTRAP_SENTINELA.ps1",
+                      "bytes":  2273,
+                      "sha256":  "a5aa3f83e2c6dd18a6227ae139aa5bf0f0a2b6c1c2473a47df378ee22705db26"
+                  },
+                  {
+                      "path":  "CRIAR_ATALHOS.ps1",
+                      "bytes":  1476,
+                      "sha256":  "bb6d66164d05dc721655b2d4ac743c5de332883181f9ef6e947acb852e6899a1"
+                  },
+                  {
+                      "path":  "DEPLOY.md",
+                      "bytes":  5087,
+                      "sha256":  "cbe17ac6e915abfbfb0242d5129ea6a96c27db307ae4ef01fd8126af0db914bc"
+                  },
+                  {
+                      "path":  "docker-compose.local.yml",
+                      "bytes":  3896,
+                      "sha256":  "58f0719098c085cdcb7c9a4bf118d25b84e60c2f142a7ef7d833f3ff917605de"
+                  },
+                  {
+                      "path":  "docker-compose.production.yml",
+                      "bytes":  6632,
+                      "sha256":  "783900936f5ed01a39cd4281fc92d8a4b97b3440cb378144e769a2efa727171d"
+                  },
+                  {
+                      "path":  "docker-compose.staging.yml",
+                      "bytes":  2244,
+                      "sha256":  "9aeffbff7fc1d507e133b434375a9459b40e7fc98b3056a7b4e2a613f4643bd0"
+                  },
+                  {
+                      "path":  "fix_login.py",
+                      "bytes":  1399,
+                      "sha256":  "a9a7b8a3bae5933824e0707a633f8ea0083b5e9ea89a9e5e3cabc268b090c6fd"
+                  },
+                  {
+                      "path":  "INSTALAR_PATCH_IPED.ps1",
+                      "bytes":  6794,
+                      "sha256":  "805d1e9503cd2875d5d0a05e3d58f99ee07da066b082a08f9924b037494115d9"
+                  },
+                  {
+                      "path":  "LAUNCHER_IPED.ps1",
+                      "bytes":  11676,
+                      "sha256":  "8351b38c1b12e35bed0f73f17e7f719b7159b1b1f4fca4bf0c089c899582e640"
+                  },
+                  {
+                      "path":  "LEIA_PRIMEIRO_HANDOFF_FINAL_DEV.md",
+                      "bytes":  1039,
+                      "sha256":  "55d2dbe5c86b48fc88adff726248a430ed9c0d4a26f28f310f1419b73a0f9e3a"
+                  },
+                  {
+                      "path":  "README.md",
+                      "bytes":  2478,
+                      "sha256":  "458f9e4a034d562506d4fd413c27fc7f32fe3d6f94080725520a9a1c64245d83"
+                  },
+                  {
+                      "path":  "README_INSTALACAO.md",
+                      "bytes":  2866,
+                      "sha256":  "8bf7ec58079506b92b87838b8a434ed08f5aa6d6f9891918c97b2abe03fd158f"
+                  },
+                  {
+                      "path":  "RELATORIO_CORRECAO_TESTE_SENTINELA.md",
+                      "bytes":  3393,
+                      "sha256":  "0e9b634791851b8e0d5e7a2dfdf7500fa5d04210d4dbd90ccc4ab32e20bbaafb"
+                  },
+                  {
+                      "path":  "RELATORIO_CORRECOES_AUDITORIA_EXTERNA_V4.md",
+                      "bytes":  5405,
+                      "sha256":  "86073e2857a14f953898459d4bc94700b1602f32128fee3881147b862341298f"
+                  },
+                  {
+                      "path":  "RELATORIO_MUDANCAS_PRODUCAO_ENTERPRISE.md",
+                      "bytes":  2954,
+                      "sha256":  "2db201b4b9f4ff9b175ad0c45267a37df4c01e6a770133916e79d88d65af61bf"
+                  },
+                  {
+                      "path":  "SIMULAR_IPED.ps1",
+                      "bytes":  5932,
+                      "sha256":  "1793fcb07759eddf9ed090c35989b65b6379016bd5de3caa9dbeaaa523ddf2e0"
+                  },
+                  {
+                      "path":  "SUBIR_LOCAL.ps1",
+                      "bytes":  12727,
+                      "sha256":  "d839569db37a94251f29b98406f1c77036bc036834c1ccaab2b02e89c9ae439a"
+                  },
+                  {
+                      "path":  ".github/workflows/ci.yml",
+                      "bytes":  3776,
+                      "sha256":  "a2cc260a07cadab05c5e3d66564d5bec87543837f68dc3e1f7e07d7f6e29fd29"
+                  },
+                  {
+                      "path":  "docs/BACKUP_RESTORE_DR.md",
+                      "bytes":  680,
+                      "sha256":  "cbcbc94ac1178eccab35584295de4454e1c33947e34f27ed758a5cda66df666c"
+                  },
+                  {
+                      "path":  "docs/BOOTSTRAP_LOCAL_PLANO.md",
+                      "bytes":  1518,
+                      "sha256":  "a3b1773b48f9a7c9d83a16c4cda4bcd7c4dcaa86bce915ab58e4f4e4f5c29a81"
+                  },
+                  {
+                      "path":  "docs/DEV_HANDOFF_SUPREME_V4_PHASES_0_7.md",
+                      "bytes":  3874,
+                      "sha256":  "c6d4cfe366c2287d12f62a8acecfc5b84f19ad32a48bd0f06385c0038c437a4e"
+                  },
+                  {
+                      "path":  "docs/ENVIRONMENT_PROFILES.md",
+                      "bytes":  776,
+                      "sha256":  "770b431dca3c637fcda8c19bd5b707abf2cc9f9670e8954ff37c0269e1f6ef18"
+                  },
+                  {
+                      "path":  "docs/HANDOFF_FINAL_PRODUCAO_DEV.md",
+                      "bytes":  13073,
+                      "sha256":  "301e7039a41cf9ff8ee149be3dea88f98c2af3b61b8f725cf44eabe31c12c9f9"
+                  },
+                  {
+                      "path":  "docs/LOCAL_15_MINUTES.md",
+                      "bytes":  3240,
+                      "sha256":  "0f22aee761ce739823ed343d68f1460e29ce452b30634e8a6f11b5db02b331f2"
+                  },
+                  {
+                      "path":  "docs/MODEL_CARD_SUPREME.md",
+                      "bytes":  2003,
+                      "sha256":  "b97628360247514af2f4cd2b226c6d4e28bb74fe46ea2012d8535435a95d2219"
+                  },
+                  {
+                      "path":  "docs/OWASP_ASVS_PHASE2.md",
+                      "bytes":  3106,
+                      "sha256":  "3d282d47a0c1a984953211cce7af0af0af2e2a47a1a75cff5a779723f6e35f1c"
+                  },
+                  {
+                      "path":  "docs/PHASES_0_5_AUDIT_AND_GAPS.md",
+                      "bytes":  7242,
+                      "sha256":  "26c3e8981bdca854b5e4d4f847349d0f58d096dc16de3904cb30411f33c5764a"
+                  },
+                  {
+                      "path":  "docs/PHASE_0_7_AUDIT_RESULT.json",
+                      "bytes":  6126,
+                      "sha256":  "37ab718ce7a41a0310b2af7717cba310b679f8148011772ded82e8a965c020ac"
+                  },
+                  {
+                      "path":  "docs/PHASE_EXECUTION_LEDGER.md",
+                      "bytes":  46989,
+                      "sha256":  "48ae2637050a44024bb11e57f0f58e0c2965cc642ab60f838bb0b2584dad2e76"
+                  },
+                  {
+                      "path":  "docs/PHASE_FIVE_FORENSIC_CUSTODY.md",
+                      "bytes":  2426,
+                      "sha256":  "8af48fd8a2eafa300230681c58775cfbb44571cfec522c6aa33b687da6b846de"
+                  },
+                  {
+                      "path":  "docs/PHASE_FIVE_REAL_IPED_ACCEPTANCE.md",
+                      "bytes":  2275,
+                      "sha256":  "c4633e0924f7099f50cd2a59439af42cade39e43609e91d37013bb2255f9a800"
+                  },
+                  {
+                      "path":  "docs/PHASE_FIVE_REAL_IPED_TEST_20260623.md",
+                      "bytes":  6817,
+                      "sha256":  "dd73dab8d2312b63df5f694a99b0ff3962a8bb8bdcf7978d333e64d172619988"
+                  },
+                  {
+                      "path":  "docs/PHASE_FOUR_OPERATIONS_DR.md",
+                      "bytes":  2987,
+                      "sha256":  "385911694ce3f28b43cbeb6f6400b62f91d5247fb55c7873b47d521c3637e01b"
+                  },
+                  {
+                      "path":  "docs/PHASE_FOUR_SCIENTIFIC_VALIDATION.md",
+                      "bytes":  3046,
+                      "sha256":  "972d1d51b8961b075e52fa7454c5a15d1e7b37c0f2b4d69a8f19350dfe9e5249"
+                  },
+                  {
+                      "path":  "docs/PHASE_ONE_LOCAL_VALIDATION.md",
+                      "bytes":  2249,
+                      "sha256":  "dcb30097a0d08cfa9760c4b8640add3ee792af9dbd9c717763d204b588397a83"
+                  },
+                  {
+                      "path":  "docs/PHASE_SEVEN_NIST_CFTT_BENCHMARK.md",
+                      "bytes":  694,
+                      "sha256":  "7c8198accf85bb6b9c4d043e52ae3ffb6013e39c5d96bb8922b7e61c58d7769c"
+                  },
+                  {
+                      "path":  "docs/PHASE_SEVEN_WORLD_PRODUCTION.md",
+                      "bytes":  2584,
+                      "sha256":  "b1a72f77daf8b49bc8713fd6e4cbb350d52ce6f32bd1bc9eeee0e4d9219e761a"
+                  },
+                  {
+                      "path":  "docs/PHASE_SIX_SENTINELA_PRODUCT.md",
+                      "bytes":  3996,
+                      "sha256":  "ca8fff5f217abfbf730d7cd9765d959139e3aca71423c9e55e111c505d69c010"
+                  },
+                  {
+                      "path":  "docs/PHASE_SIX_SENTINELA_PRODUCT_EXECUTION.md",
+                      "bytes":  5045,
+                      "sha256":  "15b6dfe09acabcc9d36903a2cf37513b2b723322de1c6a16f3a24fd21f0fd9cd"
+                  },
+                  {
+                      "path":  "docs/PHASE_THREE_AUTOMATION_GATES.md",
+                      "bytes":  1671,
+                      "sha256":  "b3a2cd93f039be15c677bf753641be405ea43d182bd00dc058b11cf9a5d9bd32"
+                  },
+                  {
+                      "path":  "docs/PHASE_THREE_UNIFIED_ANALYTICS.md",
+                      "bytes":  4323,
+                      "sha256":  "26ae37c94e3af77f08796c9b68451ca3f33a81c3aa3cd9bbcae94c65dbe958c1"
+                  },
+                  {
+                      "path":  "docs/PHASE_TWO_HARDENING.md",
+                      "bytes":  1834,
+                      "sha256":  "256ce39f1c0f91d7f4086ce2bc219d7fc6f44a6f99960744c1ba8995ee5dbdda"
+                  },
+                  {
+                      "path":  "docs/PHASE_ZERO_ONE_AUDIT.md",
+                      "bytes":  5020,
+                      "sha256":  "86f1932aaab65d4e80f868f16504e4a3930adc0f74d1f5a9e1c1f9e2edbcc6fd"
+                  },
+                  {
+                      "path":  "docs/PHASE_ZERO_RELEASE.md",
+                      "bytes":  1985,
+                      "sha256":  "6b6ab360439c9d675f72d56e34b1da9ac1ae758908b3597bb496deaf3963f0da"
+                  },
+                  {
+                      "path":  "docs/PRODUCAO_ENTERPRISE.md",
+                      "bytes":  6854,
+                      "sha256":  "f75c3592cafe7fb02a59083d4b7c86d033ba6bd2613fd851f2695871b5a960b4"
+                  },
+                  {
+                      "path":  "docs/SECRET_MANAGEMENT.md",
+                      "bytes":  2027,
+                      "sha256":  "ae58a4db31a6f5870555c65de8c27fbfbb1cbbfd4d5686775ecd527f926e0091"
+                  },
+                  {
+                      "path":  "docs/SECURITY_KEY_ROTATION.md",
+                      "bytes":  1377,
+                      "sha256":  "1b77eb34d0eac3061017677d79b65c758ace9d1b9667c063b52beaf9feab60d7"
+                  },
+                  {
+                      "path":  "docs/SLO_OBSERVABILITY.md",
+                      "bytes":  751,
+                      "sha256":  "c3db19fd1a238ec38cb6bfe0766fd2789b9d4418da2d227b826f57cf8084a4eb"
+                  },
+                  {
+                      "path":  "docs/STAGING_DEPLOYMENT.md",
+                      "bytes":  1130,
+                      "sha256":  "7935fabd3eb84011387a9c8e678e04f5edb1902b51ceb0958cd76a8eefc613e2"
+                  },
+                  {
+                      "path":  "docs/TESTE_LOCAL.md",
+                      "bytes":  740,
+                      "sha256":  "814881b6bd77a49e6925ef61a841ca3b6c6aec7e5297fb25d4c1c21ea6f21f3e"
+                  },
+                  {
+                      "path":  "docs/WHITEPAPER_SUPREME_V4.md",
+                      "bytes":  1287,
+                      "sha256":  "296d9aab0461e80d39607661c0853bd988fb2e6784dabb6cd8f355ba0f789741"
+                  },
+                  {
+                      "path":  "docs/audit/SECURITY_EXTERNAL_AUDIT_PACKAGE.md",
+                      "bytes":  725,
+                      "sha256":  "b8f43983a7f12a659926d8ff606df06d71d11a5d6741436eed07dd13103fac91"
+                  },
+                  {
+                      "path":  "docs/audit/STATISTICAL_METHODOLOGICAL_AUDIT_PACKAGE.md",
+                      "bytes":  761,
+                      "sha256":  "9638cd504d095594bbe849cdb1f9f7648a0385fc035a59a556566b45a93acc91"
+                  },
+                  {
+                      "path":  "docs/phase4_validation/GROUND_TRUTH.md",
+                      "bytes":  1411,
+                      "sha256":  "413f952ceaa125ac116d31399a49fd60649c1f95ac29621922fa510fed891f37"
+                  },
+                  {
+                      "path":  "docs/phase4_validation/synthetic_ground_truth_dataset.jsonl",
+                      "bytes":  215990,
+                      "sha256":  "134777a79984ec6276c1fae998069d2fff358109b1ae96a2c77c88a4cb0d2a92"
+                  },
+                  {
+                      "path":  "docs/phase4_validation/validation_metrics.json",
+                      "bytes":  4952,
+                      "sha256":  "dbd9b3fd32dbe8bd469ef10dd6806cd1f03045656737d1c869f495272506bc63"
+                  },
+                  {
+                      "path":  "docs/phase5_forensic/admin_audit_log.jsonl",
+                      "bytes":  781,
+                      "sha256":  "e3f4b12b4b8e67b000c139fe613b94e425c0192cf0f9d6ce1889ffdb08fe2210"
+                  },
+                  {
+                      "path":  "docs/phase5_forensic/forensic_export.json",
+                      "bytes":  32270,
+                      "sha256":  "e496945f7167ca1ddb66bc95f732518ce2db4fb8885793c5e5c6bfad8edfb345"
+                  },
+                  {
+                      "path":  "docs/phase5_forensic/input_hash_chain.json",
+                      "bytes":  9814,
+                      "sha256":  "8f9014af860925a242f3e7fb37bd008055b00e4256c08a2f1a0e557243595558"
+                  },
+                  {
+                      "path":  "docs/phase5_forensic/integrity_report.json",
+                      "bytes":  1330,
+                      "sha256":  "a68a63497aa367cd26b3555b5ce9699711bc6c8463470ed8b8e0ff791c72591f"
+                  },
+                  {
+                      "path":  "docs/phase5_forensic/output_hash_chain.json",
+                      "bytes":  6545,
+                      "sha256":  "7f7520ad2698c9d765496380274b4220bca0a9d0102eaac41a6849910248595e"
+                  },
+                  {
+                      "path":  "docs/phase5_forensic/processing_hash_chain.json",
+                      "bytes":  2152,
+                      "sha256":  "033d1b00ef29c85b050feef09b493d9e10aa1c8746d8b2c59c7207fd4d7ead74"
+                  },
+                  {
+                      "path":  "docs/phase5_forensic/session_manifest.json",
+                      "bytes":  1130,
+                      "sha256":  "3953a83d90fc85bd6b2c9bc52e483a6833000225cab408111f223c574e3ec835"
+                  },
+                  {
+                      "path":  "docs/phase5_forensic/signed_events.jsonl",
+                      "bytes":  5929,
+                      "sha256":  "22df8a8153faccbfd95335949bb9c15bab46af8895f74280a7a422502e3f5591"
+                  },
+                  {
+                      "path":  "docs/phase7_benchmark/benchmark_report.json",
+                      "bytes":  1390,
+                      "sha256":  "98cdded1537f023839806be914d9ba6dd35be52e1972434ffee7680b6251a0c4"
+                  },
+                  {
+                      "path":  "docs/roles/AUDITOR.md",
+                      "bytes":  254,
+                      "sha256":  "0bdab7745e4e208a87124bdbc717f2f0ab86adf8ac2f0d4840c82a0f42570d33"
+                  },
+                  {
+                      "path":  "docs/roles/DEVELOPER.md",
+                      "bytes":  248,
+                      "sha256":  "cf0c53b02064df745cb367c24a65ba01969276dd24a88e54ed55a2b38ea18206"
+                  },
+                  {
+                      "path":  "docs/roles/OPERATOR.md",
+                      "bytes":  267,
+                      "sha256":  "60b4c95d23a24cfcbad25728dfb9dd6bed973e8b9ae42a78efc037e41becfd07"
+                  },
+                  {
+                      "path":  "docs/roles/RESEARCHER.md",
+                      "bytes":  247,
+                      "sha256":  "89486bbbbc102f65aa66dcba06bbd07af904264686966390c967a9baaf76b5c9"
+                  },
+                  {
+                      "path":  "docs/runbooks/API_DOWN.md",
+                      "bytes":  213,
+                      "sha256":  "3f7c72d4b35f8391620c8901a89a3648ea140435deb6f6d9c709671003dafde9"
+                  },
+                  {
+                      "path":  "docs/runbooks/DATABASE_UNAVAILABLE.md",
+                      "bytes":  171,
+                      "sha256":  "0f4f8123e39fd23577daf9f7cc122f1b2ffc4c5971eb7422cc219d483314fbf7"
+                  },
+                  {
+                      "path":  "docs/runbooks/DLQ_NON_EMPTY.md",
+                      "bytes":  165,
+                      "sha256":  "99873549707fb1613b1e49fa17cd6121bf7c68a3053e59e11a9233154360a818"
+                  },
+                  {
+                      "path":  "docs/runbooks/IPED_INGEST_STOPPED.md",
+                      "bytes":  194,
+                      "sha256":  "9f8500754cfe8201673dc71ddd8cecad941fa8d132318ffdeda9484ddce42444"
+                  },
+                  {
+                      "path":  "docs/runbooks/LGPD_REVOCATION.md",
+                      "bytes":  216,
+                      "sha256":  "2caffe28428dad4b482ed334309837754ca722b38220d8ab3c31e339ba41c0d7"
+                  },
+                  {
+                      "path":  "docs/runbooks/PIPELINE_STUCK.md",
+                      "bytes":  168,
+                      "sha256":  "291a6a7784d89cdeb9ae976e6278f23c574f27efdcbe33e35dfbe2f4a1a7f07b"
+                  },
+                  {
+                      "path":  "docs/runbooks/REDIS_UNAVAILABLE.md",
+                      "bytes":  189,
+                      "sha256":  "4726f2f12c366b064bef0e1de24dd8e02858a878a30aa1c8ee0a94d2c0bfb82d"
+                  },
+                  {
+                      "path":  "docs/runbooks/RESTORE_EMERGENCY.md",
+                      "bytes":  207,
+                      "sha256":  "32f2e66f5b208abcdda188b7b2bfbbd3cad1552a95b29c96a53ef6e142d7e3f0"
+                  },
+                  {
+                      "path":  "docs/runbooks/SECRET_LEAK.md",
+                      "bytes":  175,
+                      "sha256":  "435762888dc41464e2c2d99ebdc8c9449cb9892f8225582b679542711833e97b"
+                  },
+                  {
+                      "path":  "docs/runbooks/SENTINELA_DOWN.md",
+                      "bytes":  171,
+                      "sha256":  "a85a33ab2b27918afe3c036113bbf5b48e66f18873be97e6bcbc1585882d2102"
+                  },
+                  {
+                      "path":  "docs/runbooks/TLS_CERTIFICATE.md",
+                      "bytes":  157,
+                      "sha256":  "f354007ec74e4aca3856a7f843610de6e38fef3f672b98a3c00e3edc7cc2afda"
+                  },
+                  {
+                      "path":  "env/.env.demo.example",
+                      "bytes":  260,
+                      "sha256":  "14dfaba1c15926cd3116a52c8e3cb5108396ce391330703207eae010e22cfdad"
+                  },
+                  {
+                      "path":  "env/.env.homologation.example",
+                      "bytes":  345,
+                      "sha256":  "42b410f1481d917b8061ec3c0a5a2501a811327d8e6c7c17f3f0cc29563d3e5d"
+                  },
+                  {
+                      "path":  "env/.env.local.example",
+                      "bytes":  329,
+                      "sha256":  "e91f45dc4a7abe86ce097a714af7bad8592bf9c589eaeaf1e05c357bb6616d83"
+                  },
+                  {
+                      "path":  "env/.env.production.example",
+                      "bytes":  344,
+                      "sha256":  "0c3af62899e8c3ff943352fdeab03585021ec077ec66a3decc966be177a37113"
+                  },
+                  {
+                      "path":  "env/.env.staging.example",
+                      "bytes":  1151,
+                      "sha256":  "fc72b0ed85fd7c2d5a08f88d497a35149d192704032183208378ef6888b3e598"
+                  },
+                  {
+                      "path":  "env/README.md",
+                      "bytes":  487,
+                      "sha256":  "bf34fd1834ceaaef915dbeb956041805d96a74b1e6f22eb6a97ee110693e1456"
+                  },
+                  {
+                      "path":  "infra/alertmanager/alertmanager.yml.template",
+                      "bytes":  1230,
+                      "sha256":  "ac36d8a52b58111a8ab46aa2939e0c8d61715b61735be40d21c108d3b05947a5"
+                  },
+                  {
+                      "path":  "infra/grafana/dashboards/supreme-overview.json",
+                      "bytes":  12618,
+                      "sha256":  "0ad879d4fe353bb7d4faa8bef48d509170f30724767caa878d3273dd2653dcfc"
+                  },
+                  {
+                      "path":  "infra/grafana/provisioning/dashboards/dashboards.yml",
+                      "bytes":  152,
+                      "sha256":  "70daea2ddefc12b04714600acb1c325948a174e8be05df0e175e6381944f5f0e"
+                  },
+                  {
+                      "path":  "infra/grafana/provisioning/datasources/datasources.yml",
+                      "bytes":  224,
+                      "sha256":  "bea2bb0d09f176a129011f79c2ec6df2ab0f231fd5296cb8eba13a59d7aaa7d5"
+                  },
+                  {
+                      "path":  "infra/loki/local-config.yaml",
+                      "bytes":  669,
+                      "sha256":  "3d089d09cf149999aeca5c683450cbc81f1e57a3d86991c3e5731660a906d94c"
+                  },
+                  {
+                      "path":  "infra/nginx/nginx.conf",
+                      "bytes":  386,
+                      "sha256":  "d53d4ed914ea5ac28f11c3247b9d15780e80f547f17f07472c87a3bfec35b6c1"
+                  },
+                  {
+                      "path":  "infra/nginx/conf.d/supreme.conf",
+                      "bytes":  1213,
+                      "sha256":  "f7c11b9cbb69cc9ee4d4f19efa0ed36809ae7c80b61b9a859045513018c90eae"
+                  },
+                  {
+                      "path":  "infra/prometheus/alert_rules.yml",
+                      "bytes":  10868,
+                      "sha256":  "a9d7c89efddb2eea8b275e79afe8b57f63398d158e79be6cd16dad6a776cf567"
+                  },
+                  {
+                      "path":  "infra/prometheus/prometheus.yml",
+                      "bytes":  1908,
+                      "sha256":  "687bdce9296e506798cc2622d1f61de6c8cd336f72221ef43ad0f1d17e4594f3"
+                  },
+                  {
+                      "path":  "reports/phase7/release_provenance.json",
+                      "bytes":  73440,
+                      "sha256":  "d46667d3bba657fa2d3ba3d951b76efb09ef2db2b89c74a05bf0de772ee702d2"
+                  },
+                  {
+                      "path":  "reports/security/dependency_scan.json",
+                      "bytes":  151,
+                      "sha256":  "b4b3f00715c0bd84be2d38804c14695ac268fbde47fb7c2aac4e9665402b4add"
+                  },
+                  {
+                      "path":  "reports/security/sast_scan.json",
+                      "bytes":  147,
+                      "sha256":  "31d808172f88c70f81512882074b327a6d30088ff4ebf4b4a4710963d65006f0"
+                  },
+                  {
+                      "path":  "reports/security/sbom.cyclonedx.json",
+                      "bytes":  7894,
+                      "sha256":  "f7e12c9e863804c520cf3db7a8741847d014c291017520d0c9eff04e009200fa"
+                  },
+                  {
+                      "path":  "reports/security/secret_scan.json",
+                      "bytes":  105,
+                      "sha256":  "33a040b42c06fed0ee67a3d6a979526a551bf77f2b1e508bd54a923bced05dd2"
+                  },
+                  {
+                      "path":  "scripts/accept_iped_real_session.ps1",
+                      "bytes":  6015,
+                      "sha256":  "637751cc9a42ae2ae1241cd438fa56233091b51c829ea284e4cfd63ec9a9efc7"
+                  },
+                  {
+                      "path":  "scripts/apply_local_seed.ps1",
+                      "bytes":  1189,
+                      "sha256":  "0c84ff1dda392eb684eb37d83f066858d6ac060f32bff084ee03e45438b58fb5"
+                  },
+                  {
+                      "path":  "scripts/backup_postgres.ps1",
+                      "bytes":  2344,
+                      "sha256":  "369914c18b739464d577682f10d64b7a2f015de0c233056de3300fd941b107d4"
+                  },
+                  {
+                      "path":  "scripts/backup_postgres.sh",
+                      "bytes":  815,
+                      "sha256":  "7b287820cbd46d3f43b30d137d4e15223322667b9186ec36489852ad97d35734"
+                  },
+                  {
+                      "path":  "scripts/build_phase7_world_release.ps1",
+                      "bytes":  955,
+                      "sha256":  "56f6a62c5fc9bb36471fe7535f13f35a6400445628a41d6bf04941eb3a0603d4"
+                  },
+                  {
+                      "path":  "scripts/build_phase_zero_release.ps1",
+                      "bytes":  2714,
+                      "sha256":  "6aa1e790941b493885e005a015beb87743097ff0b897870db81bf61d7c017770"
+                  },
+                  {
+                      "path":  "scripts/check_iped_source_instrumentation.ps1",
+                      "bytes":  3036,
+                      "sha256":  "be21bccb874fc527433cb693c8a4a8956916f997ec71a22da01fd6cfedd93888"
+                  },
+                  {
+                      "path":  "scripts/dependency_scan.ps1",
+                      "bytes":  1932,
+                      "sha256":  "3b864ad8ed1f41a5a34ec251debad8d4d0c9ba1fcbcecc6a33b946c5b014aae3"
+                  },
+                  {
+                      "path":  "scripts/form_flow_e2e.ps1",
+                      "bytes":  508,
+                      "sha256":  "ad1dab31ffb528bf77504b34e48dca0a65f6dda7b831b4ce7a99ac3a2225742f"
+                  },
+                  {
+                      "path":  "scripts/form_flow_e2e.py",
+                      "bytes":  4571,
+                      "sha256":  "59d258bde7ff2dc33bb5b7d6eb27439c56c04b8cab60b0f3ab749c81d59ee25f"
+                  },
+                  {
+                      "path":  "scripts/generate_sbom.ps1",
+                      "bytes":  1445,
+                      "sha256":  "bbf8b7559a5e895e5256c42ab94b20ff76cb4a46fbca5f42bf0ff0fd53d5fdd6"
+                  },
+                  {
+                      "path":  "scripts/gerar_cert_local.ps1",
+                      "bytes":  626,
+                      "sha256":  "30192821adc134464c0e6c1b9a3677a5349de14aab533010116020589ab66908"
+                  },
+                  {
+                      "path":  "scripts/iped_operational_e2e.ps1",
+                      "bytes":  459,
+                      "sha256":  "2d52b8e6bf3c9d4b29df3db2040e4b3ce1ebd054718cc36ccd00d70d65e63e5f"
+                  },
+                  {
+                      "path":  "scripts/iped_operational_e2e.py",
+                      "bytes":  5836,
+                      "sha256":  "90cbc7c9e2c78556f50ab08fc1d0ea665c32d7e25520c606fb65a9076292a807"
+                  },
+                  {
+                      "path":  "scripts/local.ps1",
+                      "bytes":  3024,
+                      "sha256":  "9c8efe1ef6599d62140d4be161b6bfaeab5fa1d411fb00693b2824a1f710ea0d"
+                  },
+                  {
+                      "path":  "scripts/local_e2e_iped_to_sentinela.ps1",
+                      "bytes":  776,
+                      "sha256":  "e59019145ae6ecad10006ba0999a64e92e5bb2791c449c0c6935ac7a4eeca6d1"
+                  },
+                  {
+                      "path":  "scripts/local_e2e_iped_to_sentinela.py",
+                      "bytes":  7035,
+                      "sha256":  "2b49a54daf6fcfa103ee3a9c2673054fa4e51b426df901822df7ac8bf2094596"
+                  },
+                  {
+                      "path":  "scripts/observability_check.ps1",
+                      "bytes":  1318,
+                      "sha256":  "09ae446ce40be21568edfe49becc89710ca598066843457135d0f8bf0db522bd"
+                  },
+                  {
+                      "path":  "scripts/phase2_security_check.ps1",
+                      "bytes":  3774,
+                      "sha256":  "4134cdbcd020e33b7cc2c3f3184861c4203c40faab5387745b4e3f8792596d2e"
+                  },
+                  {
+                      "path":  "scripts/phase3_analytics_check.ps1",
+                      "bytes":  4388,
+                      "sha256":  "3b2a1255ec849888cd4aa6ae3e6cbd59c886d0076171dfd945a964493c59a9c3"
+                  },
+                  {
+                      "path":  "scripts/phase4_scientific_validation.py",
+                      "bytes":  31753,
+                      "sha256":  "9615abe791f797b98e4cae3d7a9b44cf737c8a05fa64edcb7cf74f2f487dbe59"
+                  },
+                  {
+                      "path":  "scripts/phase4_scientific_validation_check.ps1",
+                      "bytes":  2946,
+                      "sha256":  "8ea7446a1e2b7f06b454085ff93fc8983dbbd6c4a7c2b48358df3e3e6b4477c3"
+                  },
+                  {
+                      "path":  "scripts/phase5_forensic_custody.py",
+                      "bytes":  12199,
+                      "sha256":  "54836f73a01f72ead0608cb1966d90bd485052789b7fc7f0ec95ed340f56d58a"
+                  },
+                  {
+                      "path":  "scripts/phase5_forensic_custody_check.ps1",
+                      "bytes":  2890,
+                      "sha256":  "79511bb53f43bbac47f575e8fd28c35c6e4af04e06bce7ebe6cbd51732b8dac5"
+                  },
+                  {
+                      "path":  "scripts/phase6_sentinela_product_check.ps1",
+                      "bytes":  6729,
+                      "sha256":  "69753535e615b549451fbe6ef8e199ffdf82b20fe9f158120c3fc236e57c942f"
+                  },
+                  {
+                      "path":  "scripts/phase7_backup_restore_check.ps1",
+                      "bytes":  2859,
+                      "sha256":  "df12f62c48b107a9d438aeddd1b699d514bf85bbf4a4c274c7250a02f62d551d"
+                  },
+                  {
+                      "path":  "scripts/phase7_nist_cftt_benchmark.py",
+                      "bytes":  5112,
+                      "sha256":  "910c8c2a665090e544cea4a3e07617d00c7211a09224b31d75b99ab70a594732"
+                  },
+                  {
+                      "path":  "scripts/phase7_observability_slo_check.ps1",
+                      "bytes":  1627,
+                      "sha256":  "6e25b884bd7abcf9a314a2e28303b032e22a0c027af97d83e44535dfb3eb44a7"
+                  },
+                  {
+                      "path":  "scripts/phase7_release_provenance.ps1",
+                      "bytes":  2001,
+                      "sha256":  "5c632a4c386ae14e18f5c331502461dd98b437f5199f5d5212f320d0fa11feac"
+                  },
+                  {
+                      "path":  "scripts/phase7_world_production_check.ps1",
+                      "bytes":  5385,
+                      "sha256":  "5ee9f474058334b6e2aa483e944072a9056afb75d8ee24c7a0cb7358fab4b5fa"
+                  },
+                  {
+                      "path":  "scripts/phase_0_7_audit.ps1",
+                      "bytes":  6605,
+                      "sha256":  "182ce5a6c79e68b3495ee91a176279320a0bee2c54a9176049e5cddab002adcc"
+                  },
+                  {
+                      "path":  "scripts/phase_zero_audit.ps1",
+                      "bytes":  3407,
+                      "sha256":  "e79dc9bf46aba9a9ad0a62a2b35019084aee0ae46f5612f5d53866a566ac8081"
+                  },
+                  {
+                      "path":  "scripts/production_readiness_check.ps1",
+                      "bytes":  14080,
+                      "sha256":  "798d7cc019f9018dc72b6fb21d9eaef9b9a8cdd59ef85e2bbc5d4453d99d4971"
+                  },
+                  {
+                      "path":  "scripts/release_phase_zero_check.ps1",
+                      "bytes":  4081,
+                      "sha256":  "9dab7bf7fef382a32d881bc18d273d0b5b78dbcb235374f30c3eae9a663202d1"
+                  },
+                  {
+                      "path":  "scripts/render_alertmanager_config.ps1",
+                      "bytes":  2701,
+                      "sha256":  "6f00a27416bf5985bb96fce4993fda39a11f76340a60f9f6a38dc2c2e2496245"
+                  },
+                  {
+                      "path":  "scripts/restore_postgres.ps1",
+                      "bytes":  1311,
+                      "sha256":  "8a5d8ccd31de39fbc5b84c05a8ecb5f3f7e74496907cf84af217b0055b1ff822"
+                  },
+                  {
+                      "path":  "scripts/restore_postgres.sh",
+                      "bytes":  251,
+                      "sha256":  "d0246599a1e8371983ad1b342746ac6189ab11e49382069a242d77871b2026ad"
+                  },
+                  {
+                      "path":  "scripts/retention_cleanup.sh",
+                      "bytes":  298,
+                      "sha256":  "4b7aa20e0595efa3c9e8e223349b01612fa5c5efdeff3fff484994d705d5239f"
+                  },
+                  {
+                      "path":  "scripts/rotate_api_tokens.ps1",
+                      "bytes":  3186,
+                      "sha256":  "bffbc51bd0e8bc7d65ccef34f7be82c65451aba817685901d9795dc5e3d60758"
+                  },
+                  {
+                      "path":  "scripts/sast_scan.ps1",
+                      "bytes":  2022,
+                      "sha256":  "d5daf474d3c74cb661bb64f2e3a013db76bcb5b6844f73b105e9c56643ec4588"
+                  },
+                  {
+                      "path":  "scripts/secret_scan.ps1",
+                      "bytes":  2427,
+                      "sha256":  "7cfa43f4f680afb0fab9574cfc15bd92c6064abfdb251e11cf5cbb82936df378"
+                  },
+                  {
+                      "path":  "scripts/setup_env_local.ps1",
+                      "bytes":  4423,
+                      "sha256":  "a3d1397c5a11540662fb799065791549f16b153564118eb4d1895446955ae859"
+                  },
+                  {
+                      "path":  "scripts/smoke_test.ps1",
+                      "bytes":  3452,
+                      "sha256":  "c4f7af6f8376cd2e3042d5ba780c26e1206c1cc1c97e9da1d3f079015f4ab6cb"
+                  },
+                  {
+                      "path":  "scripts/smoke_test.sh",
+                      "bytes":  457,
+                      "sha256":  "e9287d581a3b8489c919538dff1041887cc7d90265dcdf9f4989ccae9e8b292e"
+                  },
+                  {
+                      "path":  "scripts/validate_local_health.ps1",
+                      "bytes":  3424,
+                      "sha256":  "0cd86451439f3e832f64ea0a7d1b7da402613a008d430b4e8c6f190dde42d6cc"
+                  },
+                  {
+                      "path":  "scripts/verify_iped_real_environment.ps1",
+                      "bytes":  9057,
+                      "sha256":  "e5d71eb5602a28ef9082897e175f28b6eeea7366b873cf846b092f45fa66d081"
+                  },
+                  {
+                      "path":  "scripts/verify_postgres_backup.ps1",
+                      "bytes":  1373,
+                      "sha256":  "c947d93f44dad8d42256e470f2db9bc88a47725b878f183c80aac280eadc86bb"
+                  },
+                  {
+                      "path":  "scripts/watch_iped_audit_tail.ps1",
+                      "bytes":  843,
+                      "sha256":  "b9915381ee67f504d59f2a9c96f8a19de2e77cdc16a073eb5bf47951fa806e0a"
+                  },
+                  {
+                      "path":  "scripts/windows_local_setup_validado.ps1",
+                      "bytes":  292,
+                      "sha256":  "e7d564e08e1299399cfae4d06304678493de5ec5ce0cd17e27dfc120f09ba17f"
+                  },
+                  {
+                      "path":  "seeds/local/README.md",
+                      "bytes":  338,
+                      "sha256":  "d7c9c6dd8c53bc7bf3f34877baafa11b8d3c9850903d90e0c39c7843c7bcc0ae"
+                  },
+                  {
+                      "path":  "seeds/local/clean/sentinela.sql",
+                      "bytes":  717,
+                      "sha256":  "2ffbf71cc0ce9fabdd1bbe579d7f932df7c24a96ffe6dbac99ec8b2426146bf8"
+                  },
+                  {
+                      "path":  "seeds/local/clean/supreme.sql",
+                      "bytes":  823,
+                      "sha256":  "b27b2142e737151bb679639e4486722f01d8f97ba1b3143afb2bf2867ff2d92c"
+                  },
+                  {
+                      "path":  "seeds/local/demo/sentinela.sql",
+                      "bytes":  1739,
+                      "sha256":  "d7e52c324b0a2f1181a20920c5abb23ac783bb9a11fc6dc5552b2eaa2b483c77"
+                  },
+                  {
+                      "path":  "seeds/local/demo/supreme.sql",
+                      "bytes":  525,
+                      "sha256":  "856ac25f5d9791bc4350e26344a504ad02e3819d46473e39cdc502cfd793da08"
+                  },
+                  {
+                      "path":  "sentinela/.dockerignore",
+                      "bytes":  173,
+                      "sha256":  "632c6477a4542a7eb410803e91cd4e1713e398bf086841b69c194196e910d315"
+                  },
+                  {
+                      "path":  "sentinela/.env.example",
+                      "bytes":  328,
+                      "sha256":  "0540c629411213466c55b621cd1f669f0645129628851192d67506d8d4292231"
+                  },
+                  {
+                      "path":  "sentinela/.env.production.example",
+                      "bytes":  1032,
+                      "sha256":  "3f79403666da31f65a449567ca5aebf892735c9c741e18abb425dd13a7dbb58b"
+                  },
+                  {
+                      "path":  "sentinela/.env.staging.example",
+                      "bytes":  466,
+                      "sha256":  "4203a46a9ec5f611c70d29933735893967e3179f9bdf13c823867124ff5bec05"
+                  },
+                  {
+                      "path":  "sentinela/docker-compose.yml",
+                      "bytes":  642,
+                      "sha256":  "b4fbbe0d3ba7d928e0093a901227859302834f731688b7f0b74b3d095cd29c6d"
+                  },
+                  {
+                      "path":  "sentinela/Dockerfile",
+                      "bytes":  332,
+                      "sha256":  "468fa1b9b29da043e214d47bd37995454266da723ccf88c0116ead42087852d3"
+                  },
+                  {
+                      "path":  "sentinela/install.sh",
+                      "bytes":  6834,
+                      "sha256":  "a118041c41568a751bb832cd6c2549c8f5ea0750c8e19b0323bd6afe0f0b8e1f"
+                  },
+                  {
+                      "path":  "sentinela/Makefile",
+                      "bytes":  2969,
+                      "sha256":  "438d50614729dbc7b85158205500fcde3344aedfb30f82a7d2f8b4e970d644ed"
+                  },
+                  {
+                      "path":  "sentinela/requirements.txt",
+                      "bytes":  338,
+                      "sha256":  "d090393d14bd85e47242044994fb9733962d8849e400635243cc3dd2d1e7206e"
+                  },
+                  {
+                      "path":  "sentinela/launcher/criar_atalho_sentinela.ps1",
+                      "bytes":  837,
+                      "sha256":  "5059be4bd69aa69535b2a67dfbfa1eddd7e4094e2bc355d7ce9624fe51a2dd12"
+                  },
+                  {
+                      "path":  "sentinela/launcher/launch_sentinela.ps1",
+                      "bytes":  1193,
+                      "sha256":  "e6ff76682aff939e2f485dcc290de026d544d860f4371999d46854b26620c4f9"
+                  },
+                  {
+                      "path":  "sentinela/migrations/001_sentinela_schema.sql",
+                      "bytes":  3044,
+                      "sha256":  "2d2b55db66821ecae37beb8c018ab5406d98da04b3fe8f408e5a9ff1117589e9"
+                  },
+                  {
+                      "path":  "sentinela/migrations/002_participant_lifecycle.sql",
+                      "bytes":  490,
+                      "sha256":  "ce63317e900c20646ccf1cc8c1b1e93c8744262a155c6b171d2f52f61ef4ff60"
+                  },
+                  {
+                      "path":  "sentinela/migrations/003_unified_analytics_viewer.sql",
+                      "bytes":  329,
+                      "sha256":  "547ca62870bb85ba3e192be2bf31d526a4526fc450fedc7d5fe6bd35ee061e20"
+                  },
+                  {
+                      "path":  "sentinela/migrations/004_security_rbac_scopes.sql",
+                      "bytes":  2706,
+                      "sha256":  "5b742ccc36c6ab41467265764ee471cd9be537f5db175ed86f444ee69fb65971"
+                  },
+                  {
+                      "path":  "sentinela/nginx/sentinela.conf",
+                      "bytes":  1629,
+                      "sha256":  "7f7d58aac47274e739024cb443f7a5633c8b319751c952adc8c903f5396156cb"
+                  },
+                  {
+                      "path":  "sentinela/src/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "sentinela/src/app/auth.py",
+                      "bytes":  10035,
+                      "sha256":  "4f9a57397ead50d31b23e853b9583b36db059195cb07d0b9839311b511ad98b9"
+                  },
+                  {
+                      "path":  "sentinela/src/app/config.py",
+                      "bytes":  2060,
+                      "sha256":  "4df6b6174ffdc9eb91fcabdf939a26a2e986c0536d3fbc5f9ea57271458ab88d"
+                  },
+                  {
+                      "path":  "sentinela/src/app/db.py",
+                      "bytes":  900,
+                      "sha256":  "19592319a3e46c42afd27cb6b88efa19f3ceac87191b2e1d9072b4d2737c8859"
+                  },
+                  {
+                      "path":  "sentinela/src/app/main.py",
+                      "bytes":  2712,
+                      "sha256":  "7fa6b073e530ddeb7c8c3ff381db6f11088ae5b0e612f6171fcda9e9fe0ab980"
+                  },
+                  {
+                      "path":  "sentinela/src/app/middleware.py",
+                      "bytes":  632,
+                      "sha256":  "9c530960fe53724ef8216b67a09b1a313d0f24288b6429939fa448d81a706dfd"
+                  },
+                  {
+                      "path":  "sentinela/src/app/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "sentinela/src/app/api/auth_router.py",
+                      "bytes":  8786,
+                      "sha256":  "488c58b2cd5b19088290dabfca9662f257822d659afd1a6dc1464fab60ef1649"
+                  },
+                  {
+                      "path":  "sentinela/src/app/api/dashboard.py",
+                      "bytes":  13157,
+                      "sha256":  "32d1be16b1dc7ec4f6aeb67006080e1f531b1ac432fbcc39aea082d96f0bb383"
+                  },
+                  {
+                      "path":  "sentinela/src/app/api/export.py",
+                      "bytes":  12093,
+                      "sha256":  "6f048917f9659a6239fc0ca3b413e98f145e3c4486662bdff779e85dd7068858"
+                  },
+                  {
+                      "path":  "sentinela/src/app/api/ingest.py",
+                      "bytes":  10479,
+                      "sha256":  "2cac159f5167b6b076ec678c755af0de488272e7417bec19644eba1576d929f0"
+                  },
+                  {
+                      "path":  "sentinela/src/app/api/product.py",
+                      "bytes":  14218,
+                      "sha256":  "e1c7314fbc99ab900deae528e5b55ddc6fb8bb42b7572d7bc68d82ce9a3f5ac0"
+                  },
+                  {
+                      "path":  "sentinela/src/app/api/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "sentinela/src/engine/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "sentinela/static/cyborg.jpg.jpeg",
+                      "bytes":  158395,
+                      "sha256":  "e143ca45112ff50bcce904f273f18ffde909f9bbe86a4793d438909c02167e2b"
+                  },
+                  {
+                      "path":  "sentinela/static/index.html",
+                      "bytes":  134028,
+                      "sha256":  "f26e9665e936c08cef9452cb942ca00bae94b82fe9e8407fee7ec88798ac9b63"
+                  },
+                  {
+                      "path":  "sentinela/static/sentinela-redesign.css",
+                      "bytes":  23581,
+                      "sha256":  "ac5dc759a52c12589870a47b97b25534f1e23de256d25a869ccd5e73acb86db3"
+                  },
+                  {
+                      "path":  "sentinela/static/sentinela-ux.js",
+                      "bytes":  5006,
+                      "sha256":  "9efe0d82b3425c21878a5ac96bd662a07983a82a99c2d49b12f64bb6e5ee496d"
+                  },
+                  {
+                      "path":  "sentinela/static/sentinela.jpg.jpeg",
+                      "bytes":  158395,
+                      "sha256":  "e143ca45112ff50bcce904f273f18ffde909f9bbe86a4793d438909c02167e2b"
+                  },
+                  {
+                      "path":  "sentinela/static/supreme_v4.mp4",
+                      "bytes":  2517681,
+                      "sha256":  "5a6819cc25d78be7534e75d8d3e657e1a7c610904ca2b47ca6be4742b9a544ed"
+                  },
+                  {
+                      "path":  "sentinela/static/war_room.html",
+                      "bytes":  88733,
+                      "sha256":  "1846b0047bc656965a7a9f07fcf19ccb85c75b794ce12d1e61b2b82bdd54a02a"
+                  },
+                  {
+                      "path":  "sentinela/tests/conftest.py",
+                      "bytes":  525,
+                      "sha256":  "2ded3c738e1236fb741930064080a93cee090ae545e6e4a7ffdff0aa3ac3556d"
+                  },
+                  {
+                      "path":  "sentinela/tests/test_auth_token.py",
+                      "bytes":  503,
+                      "sha256":  "9a6e6d982db38a49d80b646b73046dc078a259b25768675f05a7ef9e1adf3dfc"
+                  },
+                  {
+                      "path":  "sentinela/tests/test_ingest_security_and_routes.py",
+                      "bytes":  850,
+                      "sha256":  "11f44c845daf3ab084a5e265afd2a8bcfc38ad2840cca9790e3a8e8650fe86b1"
+                  },
+                  {
+                      "path":  "sentinela/tests/test_password_hashing.py",
+                      "bytes":  280,
+                      "sha256":  "7c858ff6df7f90b3c47732c0e95da4e7cee2ab830e3a92a78b36171076122ee0"
+                  },
+                  {
+                      "path":  "sentinela/tests/test_phase2_security.py",
+                      "bytes":  2868,
+                      "sha256":  "3bb62bcbe85f3350df73f7fc5563bc27250ee9a52867a93e43a1b160ec797da9"
+                  },
+                  {
+                      "path":  "sentinela/tests/test_phase3_viewer_only.py",
+                      "bytes":  1703,
+                      "sha256":  "8776e86d8c1b2b21d4d9020c1863688a9b0e501fdbd15c0c0e9897277bbd4221"
+                  },
+                  {
+                      "path":  "sentinela/tests/test_phase6_product.py",
+                      "bytes":  3766,
+                      "sha256":  "210b1e36290c499414dfe893faa9cb090ce2888f7fef4c13aa256889994ba297"
+                  },
+                  {
+                      "path":  "supreme-backend/.dockerignore",
+                      "bytes":  173,
+                      "sha256":  "632c6477a4542a7eb410803e91cd4e1713e398bf086841b69c194196e910d315"
+                  },
+                  {
+                      "path":  "supreme-backend/.env.example",
+                      "bytes":  398,
+                      "sha256":  "a470b6d2870cb47e9ad6bbed59b1bfe37db1d96fece975a28a69d6b7ecf47a17"
+                  },
+                  {
+                      "path":  "supreme-backend/.env.production.example",
+                      "bytes":  1536,
+                      "sha256":  "07ac0b0c369ad937373b10f46d30e1f16e9605ab67e55022d382531ce3f102df"
+                  },
+                  {
+                      "path":  "supreme-backend/.env.staging.example",
+                      "bytes":  1040,
+                      "sha256":  "e77510fc9e7edf4f5d258d94652f236cf65d7b4171f7683105e8a6c9bbb4b3b9"
+                  },
+                  {
+                      "path":  "supreme-backend/apply_migration_003.bat",
+                      "bytes":  356,
+                      "sha256":  "6b0ee7bd99b6943ed1d25d6ee574c61c75975db2f77f724703ae4ad88c248c88"
+                  },
+                  {
+                      "path":  "supreme-backend/docker-compose.observability.yml",
+                      "bytes":  276,
+                      "sha256":  "acb5b076fb4ff5cfa8be5420dd388b05fb733efdb69440c1b105fc1f361a2d4c"
+                  },
+                  {
+                      "path":  "supreme-backend/docker-compose.yml",
+                      "bytes":  2721,
+                      "sha256":  "04ffe2d9a6e99550679e8d431960aafe66d37732e505745dbed934c64f39c871"
+                  },
+                  {
+                      "path":  "supreme-backend/Dockerfile",
+                      "bytes":  800,
+                      "sha256":  "66d204db4f042479edc42150c4a6c906827d612084a310853157ce3af34fff03"
+                  },
+                  {
+                      "path":  "supreme-backend/pyproject.toml",
+                      "bytes":  1053,
+                      "sha256":  "560b830ead4491bd99addedc3b3cbaefb7fcff735fa44c67bdcc9c6cde8d5b9d"
+                  },
+                  {
+                      "path":  "supreme-backend/start.bat",
+                      "bytes":  1145,
+                      "sha256":  "c2e357dc789b48bfde881e56f97b635aaf796c4218295a3877299938749dd722"
+                  },
+                  {
+                      "path":  "supreme-backend/src/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/config.py",
+                      "bytes":  2930,
+                      "sha256":  "07313e77cfb6650a40eb82c20346659e0637228bb685974fd6ee8eb722e93941"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/db.py",
+                      "bytes":  30756,
+                      "sha256":  "e8524b07c3e2579cf5775ccd13f9726e4bf11adc6fa8333b6b11e471ecc2ebbe"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/main.py",
+                      "bytes":  4281,
+                      "sha256":  "b7be1c8dfcb0df669dc9554b04b1843c281c7af2dee44d047b61896ca8cdf7a3"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/middleware.py",
+                      "bytes":  1308,
+                      "sha256":  "62130ce0ae2c15f37c2192d91445e9bb53992c2382dcab1f935cbb31f9351617"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/observability.py",
+                      "bytes":  1470,
+                      "sha256":  "4d3a54653a7c484605dcd5409961fb6e4d0503f4b6f59397b0c0df8a5b2a0b94"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/queue.py",
+                      "bytes":  1831,
+                      "sha256":  "18ee9da11b612dfb4361ea0942289d51b448b6fb44cbfa5c9d62820bffa98000"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/security.py",
+                      "bytes":  1327,
+                      "sha256":  "3f65d67b7c8d4d0582e0638b0ec8c6e20090b28f01e013bd99f046483c129108"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/api/analytics.py",
+                      "bytes":  6127,
+                      "sha256":  "8b5e99dbf7d7684f3229c69ad3d662bfa4d69d8f92c866106ddeec0fd6fe45ad"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/api/governance.py",
+                      "bytes":  1537,
+                      "sha256":  "8eaa3d4d465bdb93881d199d67b311eb7bbcb33db6d75646be5efccd9c028e5f"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/api/ingest.py",
+                      "bytes":  3966,
+                      "sha256":  "1f1d2e87961dcf42eb53a99d26c68561231d2daac3e6a4833df6c79b13e7e0fb"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/api/psychometric.py",
+                      "bytes":  23876,
+                      "sha256":  "05b28f4dfc632596f4c76855957d65c672135a4ae1ca1b1478d7a4470160de80"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/api/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/forms/dass21.html",
+                      "bytes":  17727,
+                      "sha256":  "d22bc2cab288677ae2a86ff8bb76b92f40c81229db2bf1d1dd0cfac26ba2edc1"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/forms/olbi.html",
+                      "bytes":  15941,
+                      "sha256":  "c7d34c6d79b939784f2229f34aa3fa6c42e50abc0ac20eff095d3efdf32103da"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/forms/panas.html",
+                      "bytes":  14568,
+                      "sha256":  "925420d0d59ad2fb2f012c8b9659765a6284cec89b47942131936382b39163da"
+                  },
+                  {
+                      "path":  "supreme-backend/src/app/forms/srq20.html",
+                      "bytes":  16254,
+                      "sha256":  "443d86fbb3634abe35351690b9a126da965b50708388ba90fdcf0cf57a4b77dc"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/algorithm.py",
+                      "bytes":  1487,
+                      "sha256":  "91b171684a79b9ac2ba61944273c22cdd8d7b1be35f8fc1c061d7782d8c7c372"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/forensic.py",
+                      "bytes":  13929,
+                      "sha256":  "321eb154311e1f23313a85b8470497e130781019c7d8e91163a912091c0718b5"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/ieo.py",
+                      "bytes":  7693,
+                      "sha256":  "3548de897bf23955ef4dac6a17d7bbeffb6da86a7774d3cb66d36c7b6c209247"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/metrics.py",
+                      "bytes":  4428,
+                      "sha256":  "f9a682e7c8a1bb94280a3a592ebaf50e1c16f450218c14c59e13414d2fbf641f"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/models.py",
+                      "bytes":  10772,
+                      "sha256":  "3a2e260fcf75301fa76dd1bf6c5b111ab7ceb02149615918f04f8778eb6a1f5d"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/psi.py",
+                      "bytes":  7402,
+                      "sha256":  "00e61be57efa6744a67724e847e5caed0c1f6c9e2b2ef3f33b36de5418b0a78a"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/red_flags.py",
+                      "bytes":  5504,
+                      "sha256":  "fbf3419ee4ff79af1db7614f03df4dfea47e90ab2e459ea30c96b337c63c89ee"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/risk.py",
+                      "bytes":  5146,
+                      "sha256":  "a8d53dc39ef6164c25ebecd860a2734f2317d487ded0134cc3a5c8e37d164c9a"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/sentinela_push.py",
+                      "bytes":  5557,
+                      "sha256":  "d0c38d2250ec745fbbf4f4686921f14da3edbdf4503d67c1ed466bce34b48150"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/session.py",
+                      "bytes":  3775,
+                      "sha256":  "58663daf6ee27cc7d91999796b51cae48c075a4e702916f974bc30e1002f4d16"
+                  },
+                  {
+                      "path":  "supreme-backend/src/engine/supreme/__init__.py",
+                      "bytes":  26,
+                      "sha256":  "952b3e745d524cf6ad00007dc8bbaee0f195ce2537d976ba24f63134de8b83b1"
+                  },
+                  {
+                      "path":  "supreme-backend/src/worker/pipeline.py",
+                      "bytes":  20264,
+                      "sha256":  "f2f5f0e505a58cf9ace4438c2271a7d82131645556c7d53626817388c766c0ca"
+                  },
+                  {
+                      "path":  "supreme-backend/src/worker/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  },
+                  {
+                      "path":  "supreme-backend/supabase/migrations/001_supreme_schema.sql",
+                      "bytes":  16655,
+                      "sha256":  "e60e9665262f8ec4f47f764f2c6d405fc78fb4f93c3389e859a02f0ac028fb8c"
+                  },
+                  {
+                      "path":  "supreme-backend/supabase/migrations/002_events_raw_unique_constraint.sql",
+                      "bytes":  2805,
+                      "sha256":  "704fb978b7af89a9deff5f5bcbcc634bf20b7c302d296e21a71a9a6efee92e1a"
+                  },
+                  {
+                      "path":  "supreme-backend/supabase/migrations/003_psychometric_module.sql",
+                      "bytes":  4577,
+                      "sha256":  "d9d8ad68b97913d1a56a732175619ce95f253da24984624864a44c8c0c3ccff0"
+                  },
+                  {
+                      "path":  "supreme-backend/supabase/migrations/004_psychometric_submissions.sql",
+                      "bytes":  785,
+                      "sha256":  "46dc0f9af8e29e08211dcb57b36d7d9b8dcb15357fef83a902472e59098f734d"
+                  },
+                  {
+                      "path":  "supreme-backend/supabase/migrations/005_enterprise_production.sql",
+                      "bytes":  1943,
+                      "sha256":  "361c2478eead15721a64ea658ba9ccf4bdbba79aca6ee273cb01817c09358d5c"
+                  },
+                  {
+                      "path":  "supreme-backend/supabase/migrations/006_hardening_audit_fixes.sql",
+                      "bytes":  3708,
+                      "sha256":  "bd3ce4abf3dd92eaaa53b3f4d6b5ffe021f9c8dea14b0e6b2fbaa7900609e2e1"
+                  },
+                  {
+                      "path":  "supreme-backend/supabase/migrations/007_unified_analytics_engine.sql",
+                      "bytes":  3031,
+                      "sha256":  "9a74eec6b4de153bde9273e7c93b6b16ca4839ad1faa5ca3c273442abb88f0ca"
+                  },
+                  {
+                      "path":  "supreme-backend/supreme_backend.egg-info/dependency_links.txt",
+                      "bytes":  1,
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+                  },
+                  {
+                      "path":  "supreme-backend/supreme_backend.egg-info/PKG-INFO",
+                      "bytes":  864,
+                      "sha256":  "8ec3f629bc3acb7a0144c42d4f2dd9e4cb55842ceea27dd90a7961c4e4aa2f9d"
+                  },
+                  {
+                      "path":  "supreme-backend/supreme_backend.egg-info/requires.txt",
+                      "bytes":  306,
+                      "sha256":  "ef68f6c0c80c072728341fa53c3d431044f4bcc82de7a0c7558d8a53b294e6e2"
+                  },
+                  {
+                      "path":  "supreme-backend/supreme_backend.egg-info/SOURCES.txt",
+                      "bytes":  1113,
+                      "sha256":  "c0bc543b374c8b6706f9071ccbd9705337d42adc663f9a7e2fb8accb463b20aa"
+                  },
+                  {
+                      "path":  "supreme-backend/supreme_backend.egg-info/top_level.txt",
+                      "bytes":  4,
+                      "sha256":  "ef8aed55fba64258003f3479ff60a060ddb8301d170110a0d2dfa0ce4ea04eb3"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/conftest.py",
+                      "bytes":  685,
+                      "sha256":  "2aa78aecb1e8013876d845efbd9468d6dec95454360029e3f16ff92958054cec"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_event_hash_identity.py",
+                      "bytes":  580,
+                      "sha256":  "809d2772619e2882321a3deb0b0262f9624c4870a879e4060f37a3d7b110816a"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_phase2_form_security.py",
+                      "bytes":  453,
+                      "sha256":  "cc3a6a48118047fc97c2b6d307d7d14bbf0ba0ae67c5645108ada8ecc5c34b78"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_phase3_determinism_and_versioning.py",
+                      "bytes":  2697,
+                      "sha256":  "a62018cd444bb2771f89f5f0b696d56c460ff0b76786f1d634ed84d8d5df45ba"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_phase4_scientific_validation.py",
+                      "bytes":  2021,
+                      "sha256":  "f3c4da1fc0f30311373e26ae01615562dd12e475d5b61de07c087ad4ecd3efbb"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_phase5_forensic_custody.py",
+                      "bytes":  4733,
+                      "sha256":  "ae051a7c8617efea06a4b9d70e7b37931009670900f165d182be85cb4087441b"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_psychometric_form_security.py",
+                      "bytes":  2931,
+                      "sha256":  "44fe1be694571ecebeb7c14e52437486b704ab5b6c3ef0414a5c48071f4ab8c7"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_security_dependency.py",
+                      "bytes":  1054,
+                      "sha256":  "c0f445bdfbb226593b2aa73eb746c0d73142fbc3dbc9b4e5a7c8e967ad8192b1"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_unified_ieo_math.py",
+                      "bytes":  1611,
+                      "sha256":  "1faadb325232e6816a00920dc7d9d26d9a88c2d77641a9548013a3e196e867f5"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_unified_psi_math.py",
+                      "bytes":  1449,
+                      "sha256":  "575f1f8b128ef31f32bc4752c71427fecc8570dacee143b64186ec6e64dd4d64"
+                  },
+                  {
+                      "path":  "supreme-backend/tests/test_unified_red_flags_math.py",
+                      "bytes":  2158,
+                      "sha256":  "7abb9413085e0209410ed7d29baf4635f7eb7883281745aa7a714cab20043b28"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/build_patch.bat",
+                      "bytes":  3159,
+                      "sha256":  "7fc4c1b5bb91d092a3b1e36e9d59b2f92487388af6cf8f531546281629bc8d16"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/Dockerfile",
+                      "bytes":  124,
+                      "sha256":  "f3d09e1cdb908e00d32fb1403f3bf205a51b9c872ed238bf934852668b7d19d2"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/README.md",
+                      "bytes":  4698,
+                      "sha256":  "dc33886aeeac0fd0daab0acbb82c0481b53bbff2be24b0baa3625589cf6e2c9f"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/requirements.txt",
+                      "bytes":  68,
+                      "sha256":  "9f531e8a5eb0a6f36ab7481a00d11f554da0e86d007e8bf9cd11394c365c3854"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/iped-patch/BUILD.md",
+                      "bytes":  6045,
+                      "sha256":  "f116b85075cca9f15886bfec19a90f62918014fbff241f67f79be163d9952f00"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/iped-patch/pom.xml",
+                      "bytes":  3745,
+                      "sha256":  "17d80e36c1134b437ad89eea13d4f386d0d04de5b27e4d8a6333835609f2d860"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/iped-patch/ResultTableListener.patch",
+                      "bytes":  4370,
+                      "sha256":  "39a4e7167886020210310f86854251ac1810e9cf8f59186107ef7b9a3466f03f"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/iped-patch/src/main/java/iped/app/ui/SupremeAuditLogger.java",
+                      "bytes":  6202,
+                      "sha256":  "95e907452c5ee964758e10793cb5b908ac7a50866d9f52c6ab2e21473093b4b6"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/launcher/launch_iped.bat",
+                      "bytes":  4795,
+                      "sha256":  "be29dc952cac9d066db62de9353d725a22625c8e1a8dd3024bbd19706f29ba6e"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/launcher/launch_iped.ps1",
+                      "bytes":  5295,
+                      "sha256":  "c81f7e26d699af28667b19ddc7697f94b61fba80c2526568a107d7d298444d93"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/launcher/launch_iped.sh",
+                      "bytes":  5502,
+                      "sha256":  "61321b4f8fac963c5858ca588ae64b67af8e1fac748610d5635b96dff37ab9aa"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/launcher/launch_iped.vbs",
+                      "bytes":  276,
+                      "sha256":  "e13a3476964fe0a252dbc183601330a727a046f8075e83d9a7d1d1bfd934ce66"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/supreme-proxy/proxy.py",
+                      "bytes":  16702,
+                      "sha256":  "674da268c59ac4a7c4a2d7ac4ba760c3251b2fc2016c5bc71314eb040c1c593a"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/supreme-watcher/watcher.py",
+                      "bytes":  10877,
+                      "sha256":  "faf5740cea8db68852c6a778544d8fe8608d95720c6cdf59958f58db942734d9"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/tests/conftest.py",
+                      "bytes":  271,
+                      "sha256":  "ad7e7a6374dcd2f36808f932c1379579bd6f12af6069ed0f55bef37e7911940a"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/tests/test_proxy.py",
+                      "bytes":  7402,
+                      "sha256":  "4a5bf422b96b606eac59de21f1cba291a9bb0b31042fc183b3a37c4bcc459156"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/tests/test_watcher.py",
+                      "bytes":  9047,
+                      "sha256":  "30e7e35b9e0e3b0dc30acff83b4e18af58e65c8dd24680c18b1f54e9f1f030cd"
+                  },
+                  {
+                      "path":  "supreme-iped-integration/tests/__init__.py",
+                      "bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                  }
+              ],
+    "provenance_signature_sha256":  "e723a238507533094edb54882b8f610ef731ef0e51b32c6cc82be1d0560965e0"
+}

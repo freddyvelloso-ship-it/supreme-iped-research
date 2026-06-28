@@ -1,0 +1,58 @@
+[
+  {
+    "chain_hash": "da0a27a622923bf99b3900dddbb538953e33c6fcef7ee8a310b4d32285567fb9",
+    "chain_id": "phase5-processing",
+    "index": 0,
+    "payload_hash": "5b321831fbcb4cfd492582e746a6691f6402d2cade8b8bd84d342cec7c37467a",
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "record": {
+      "event_count": 8,
+      "stage": "events_loaded"
+    }
+  },
+  {
+    "chain_hash": "94e78fb1d704da4215397930c5b2b8aab97acc1bc8362a3683a826697fcc3191",
+    "chain_id": "phase5-processing",
+    "index": 1,
+    "payload_hash": "43d909e04b885e15215ee5fc30f60880c69ac14257954074d4be4e39bfef13d5",
+    "previous_hash": "da0a27a622923bf99b3900dddbb538953e33c6fcef7ee8a310b4d32285567fb9",
+    "record": {
+      "session_count": 4,
+      "stage": "sessions_derived"
+    }
+  },
+  {
+    "chain_hash": "ad68a2009d2b17694f95cf6a8cc567ec08feb940ef260ac4d8108b26adb739fb",
+    "chain_id": "phase5-processing",
+    "index": 2,
+    "payload_hash": "fa9f35e854dac2c8c91f5e49dfd7fe08d132dc7832c1ed942400ab7cd48103cb",
+    "previous_hash": "94e78fb1d704da4215397930c5b2b8aab97acc1bc8362a3683a826697fcc3191",
+    "record": {
+      "stage": "windows_computed",
+      "window_count": 4
+    }
+  },
+  {
+    "chain_hash": "03c049bea2e501845a81cdba5702357261e491155558b09a6f7acd5f16928db6",
+    "chain_id": "phase5-processing",
+    "index": 3,
+    "payload_hash": "3f7edc19af50e85dba08600a03a73f8aac9610cdec9ca250dd92c6482ac18089",
+    "previous_hash": "ad68a2009d2b17694f95cf6a8cc567ec08feb940ef260ac4d8108b26adb739fb",
+    "record": {
+      "baseline_window_count": 4,
+      "stage": "baseline_computed"
+    }
+  },
+  {
+    "chain_hash": "b2f3ccb8b61b3393438e0849642c0d08606138c50e42dc4e4d4d785b432b66ff",
+    "chain_id": "phase5-processing",
+    "index": 4,
+    "payload_hash": "550db88c5a3940f54e9f354977298a5ef4c1bf86bfb0cda754ef6056d5f78892",
+    "previous_hash": "03c049bea2e501845a81cdba5702357261e491155558b09a6f7acd5f16928db6",
+    "record": {
+      "algorithm_version": "SUPREME-ANALYTICS-1.0.0",
+      "output_count": 4,
+      "stage": "outputs_computed"
+    }
+  }
+]

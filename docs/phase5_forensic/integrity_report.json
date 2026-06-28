@@ -1,0 +1,25 @@
+{
+  "admin_audit_chain_tip": "be18c20f8498950e3563e7fad4a881a3f2138acf025690138f60a23500f8d893",
+  "algorithm_parameters_digest": "f502c0b0170b80930efec9978c724af06f27153f62103e923be50f7bc6a2bf6c",
+  "evidence_mode": "simulated_iped",
+  "input_chain_tip": "018676727dd8bc2351fe95abe708c85f4edf5eadc9372c177ebf64a371731a73",
+  "manifest_hash": "2c7f269956e88ccb07898925b189ba259568da07c5a39ad1edc2843ab15e0fec",
+  "output_chain_tip": "f4c8d0e6f736dd229930eeed6b1b3a5d4e9704d4191fd81e976296470d9bddd0",
+  "output_count": 4,
+  "processing_chain_tip": "b2f3ccb8b61b3393438e0849642c0d08606138c50e42dc4e4d4d785b432b66ff",
+  "reconstruction_rule": "verify signatures, verify hash chains, replay signed payloads, compare output chain tip",
+  "replay_digest": "34b1762004564e85b893a09b52a0e0a497eec3925481751ebe14ca084ca40beb",
+  "report_version": "SUPREME-PHASE5-INTEGRITY-1.0.0",
+  "session_id": "phase5-simulated-iped-session-001",
+  "signed_event_count": 8,
+  "status": "verifiable",
+  "versions": {
+    "algorithm": "SUPREME-ANALYTICS-1.0.0",
+    "iped": "simulated-iped-fixture-1.0.0",
+    "iped_patch": "supreme-iped-audit-patch-1.0.0",
+    "proxy": "supreme-iped-proxy-1.0.0",
+    "sentinela": "SENTINELA-PRODUCT-V1",
+    "supreme": "SUPREME-V4",
+    "watcher": "supreme-watch-iped-audit-tail-1.0.0"
+  }
+}

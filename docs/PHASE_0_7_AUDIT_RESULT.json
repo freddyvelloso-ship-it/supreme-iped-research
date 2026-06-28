@@ -1,0 +1,140 @@
+﻿{
+    "generated_at":  "2026-06-22T20:23:55",
+    "pass":  13,
+    "warn":  9,
+    "fail":  0,
+    "results":  [
+                    {
+                        "phase":  "Fase 0",
+                        "check":  "release gate existe",
+                        "status":  "PASS",
+                        "evidence":  "scripts\\release_phase_zero_check.ps1"
+                    },
+                    {
+                        "phase":  "Fase 0",
+                        "check":  "env examples existem",
+                        "status":  "PASS",
+                        "evidence":  ".env.production.example + apps"
+                    },
+                    {
+                        "phase":  "Fase 0",
+                        "check":  "identidade V4 sem V5 fora de historico",
+                        "status":  "WARN",
+                        "evidence":  "2 ocorrencia(s) potenciais"
+                    },
+                    {
+                        "phase":  "Fase 0",
+                        "check":  "encoding/mojibake",
+                        "status":  "PASS",
+                        "evidence":  "0 ocorrencia(s) potenciais"
+                    },
+                    {
+                        "phase":  "Fase 1",
+                        "check":  "setup local unico",
+                        "status":  "PASS",
+                        "evidence":  "SUBIR_LOCAL.ps1"
+                    },
+                    {
+                        "phase":  "Fase 1",
+                        "check":  "compose local",
+                        "status":  "PASS",
+                        "evidence":  "docker-compose.local.yml"
+                    },
+                    {
+                        "phase":  "Fase 1",
+                        "check":  "smoke/form/IPED E2E",
+                        "status":  "PASS",
+                        "evidence":  "scripts E2E"
+                    },
+                    {
+                        "phase":  "Fase 2",
+                        "check":  "sessao web sem storage JS",
+                        "status":  "WARN",
+                        "evidence":  "17 uso(s) de storage no cliente"
+                    },
+                    {
+                        "phase":  "Fase 2",
+                        "check":  "RBAC granular",
+                        "status":  "WARN",
+                        "evidence":  "45 referencias; roles atuais ainda precisam ser expandidos"
+                    },
+                    {
+                        "phase":  "Fase 2",
+                        "check":  "rotacao de tokens",
+                        "status":  "PASS",
+                        "evidence":  "scripts\\rotate_api_tokens.ps1"
+                    },
+                    {
+                        "phase":  "Fase 2",
+                        "check":  "SAST/SBOM/dependency scan",
+                        "status":  "WARN",
+                        "evidence":  "CI atual nao inclui trilha completa"
+                    },
+                    {
+                        "phase":  "Fase 3",
+                        "check":  "motor SUPREME IEO/PSI/risk",
+                        "status":  "PASS",
+                        "evidence":  "engine supreme"
+                    },
+                    {
+                        "phase":  "Fase 3",
+                        "check":  "SENTINELA sem engine analitico legado",
+                        "status":  "WARN",
+                        "evidence":  "sentinela\\src\\engine\\red_flags.py"
+                    },
+                    {
+                        "phase":  "Fase 3",
+                        "check":  "algorithm registry",
+                        "status":  "PASS",
+                        "evidence":  "versionamento encontrado"
+                    },
+                    {
+                        "phase":  "Fase 4",
+                        "check":  "E2E operacional IPED",
+                        "status":  "PASS",
+                        "evidence":  "scripts\\iped_operational_e2e.py"
+                    },
+                    {
+                        "phase":  "Fase 4",
+                        "check":  "dataset ground truth/model card",
+                        "status":  "WARN",
+                        "evidence":  "pendente se nao houver model card/validacao cientifica"
+                    },
+                    {
+                        "phase":  "Fase 5",
+                        "check":  "gate IPED real",
+                        "status":  "PASS",
+                        "evidence":  "scripts de aceite real"
+                    },
+                    {
+                        "phase":  "Fase 5",
+                        "check":  "hash chain/event signature/replay",
+                        "status":  "WARN",
+                        "evidence":  "ainda deve virar implementacao forense"
+                    },
+                    {
+                        "phase":  "Fase 6",
+                        "check":  "especificacao produto SENTINELA",
+                        "status":  "PASS",
+                        "evidence":  "docs\\PHASE_SIX_SENTINELA_PRODUCT.md"
+                    },
+                    {
+                        "phase":  "Fase 6",
+                        "check":  "export CSV/JSON/Parquet/dicionario",
+                        "status":  "WARN",
+                        "evidence":  "CSV existe; JSON/Parquet/dicionario pendentes"
+                    },
+                    {
+                        "phase":  "Fase 7",
+                        "check":  "especificacao producao mundial",
+                        "status":  "PASS",
+                        "evidence":  "docs\\PHASE_SEVEN_WORLD_PRODUCTION.md"
+                    },
+                    {
+                        "phase":  "Fase 7",
+                        "check":  "CI/CD completo",
+                        "status":  "WARN",
+                        "evidence":  "CI existe, mas falta secret/dependency/SAST/SBOM/assinatura"
+                    }
+                ]
+}

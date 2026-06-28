@@ -1,0 +1,51 @@
+name: supreme-v4-test-clone
+
+services:
+  nginx:
+    ports: !override
+      - "8088:80"
+      - "8448:443"
+
+  supreme-db:
+    ports: !override
+      - "16433:5432"
+
+  sentinela-db:
+    ports: !override
+      - "16434:5432"
+
+  supreme-redis:
+    ports: !override
+      - "17379:6379"
+
+  supreme-api:
+    ports: !override
+      - "18100:8000"
+
+  sentinela:
+    ports: !override
+      - "18101:8001"
+
+  grafana:
+    ports: !override
+      - "3300:3000"
+
+  prometheus:
+    ports: !override
+      - "9190:9090"
+
+  alertmanager:
+    ports: !override
+      - "9193:9093"
+
+  mailpit:
+    ports: !override
+      - "8026:8025"
+
+  loki:
+    ports: !override
+      - "3111:3100"
+
+  supreme-iped-proxy:
+    ports: !override
+      - "8181:8081"

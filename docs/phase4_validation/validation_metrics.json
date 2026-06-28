@@ -1,0 +1,176 @@
+{
+  "algorithm_parameters": {
+    "ieo": {
+      "logistic_k": 1.0,
+      "logistic_x0": 1.0,
+      "z_d_delta": 0.1,
+      "z_e": 0.3,
+      "z_t": 0.5,
+      "z_v": 0.2
+    },
+    "psi": {
+      "min_history_for_baseline": 4,
+      "oei_threshold": 0.0,
+      "psi_threshold": 0.0,
+      "z_dass": 0.35,
+      "z_olbi": 0.3,
+      "z_panas_neg": 0.15,
+      "z_srq": 0.2
+    },
+    "red_flags": {
+      "chronic_windows": 2,
+      "exposure_z_threshold": 1.5,
+      "major_exposure_z_threshold": 2.0,
+      "psychometric_high_z_threshold": 1.0
+    },
+    "version": "SUPREME-ANALYTICS-1.0.0"
+  },
+  "algorithm_version": "SUPREME-ANALYTICS-1.0.0",
+  "classification_metrics": {
+    "aggregate": {
+      "f1": 1.0,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 0.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tn": 288,
+      "tp": 72
+    },
+    "by_scenario": {
+      "baixo_risco": {
+        "convergence_match_rate": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "fn": 0,
+        "fp": 0,
+        "samples": 24,
+        "tn": 72,
+        "tp": 0
+      },
+      "convergencia_critica": {
+        "convergence_match_rate": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "fn": 0,
+        "fp": 0,
+        "samples": 24,
+        "tn": 72,
+        "tp": 0
+      },
+      "cronicidade": {
+        "convergence_match_rate": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "fn": 0,
+        "fp": 0,
+        "samples": 24,
+        "tn": 48,
+        "tp": 24
+      },
+      "dissonancia": {
+        "convergence_match_rate": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "fn": 0,
+        "fp": 0,
+        "samples": 24,
+        "tn": 48,
+        "tp": 24
+      },
+      "reatividade": {
+        "convergence_match_rate": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "fn": 0,
+        "fp": 0,
+        "samples": 24,
+        "tn": 48,
+        "tp": 24
+      }
+    }
+  },
+  "dataset": {
+    "digest_sha256": "845ef619dc74bc5fa30475a89e96ab044412ae3c6bf84370498cd37f728f17a3",
+    "evaluation_windows": 120,
+    "path": "docs/phase4_validation/synthetic_ground_truth_dataset.jsonl",
+    "records": 240,
+    "scenarios": [
+      "baixo_risco",
+      "reatividade",
+      "dissonancia",
+      "cronicidade",
+      "convergencia_critica"
+    ]
+  },
+  "external_independent_validation": "not_performed",
+  "generated_at_utc": "REPRODUCIBLE_RUN_TIMESTAMP",
+  "limits": [
+    "Synthetic ground truth is engineered for internal validation and is not clinical validation.",
+    "The outputs are not diagnosis, psychological assessment or automatic causal attribution.",
+    "External independent statistical and domain review remains required before scientific claims."
+  ],
+  "low_quality_sensitivity": {
+    "max_f1_drop_from_full_quality": 0.0,
+    "quality_levels": [
+      {
+        "dq_score": 1.0,
+        "f1": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "note": "DQ is carried as data-quality evidence; current analytic equations do not attenuate IEO by DQ."
+      },
+      {
+        "dq_score": 0.7,
+        "f1": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "note": "DQ is carried as data-quality evidence; current analytic equations do not attenuate IEO by DQ."
+      },
+      {
+        "dq_score": 0.4,
+        "f1": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "note": "DQ is carried as data-quality evidence; current analytic equations do not attenuate IEO by DQ."
+      }
+    ]
+  },
+  "seed": 424242,
+  "validation_type": "internal_synthetic_scientific_validation",
+  "validation_version": "SUPREME-PHASE4-VALIDATION-1.0.0",
+  "volume_stability": {
+    "levels": [
+      {
+        "f1": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "mean_ieo_score": 0.468366,
+        "mean_psi_score": 0.375316,
+        "samples_per_scenario": 5,
+        "total_evaluation_windows": 25
+      },
+      {
+        "f1": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "mean_ieo_score": 0.467475,
+        "mean_psi_score": 0.374843,
+        "samples_per_scenario": 20,
+        "total_evaluation_windows": 100
+      },
+      {
+        "f1": 1.0,
+        "false_negative_rate": 0.0,
+        "false_positive_rate": 0.0,
+        "mean_ieo_score": 0.467534,
+        "mean_psi_score": 0.375016,
+        "samples_per_scenario": 100,
+        "total_evaluation_windows": 500
+      }
+    ],
+    "max_f1_delta": 0.0,
+    "max_false_positive_rate_delta": 0.0
+  }
+}

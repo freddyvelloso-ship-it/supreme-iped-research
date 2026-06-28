@@ -1,0 +1,111 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  production-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Template readiness gate
+        shell: pwsh
+        run: ./scripts/production_readiness_check.ps1 -TemplateMode -SkipDockerCompose
+      - name: Release cleanliness gate
+        shell: pwsh
+        run: ./scripts/release_phase_zero_check.ps1 -Root .
+      - name: Phase 2 security gate
+        shell: pwsh
+        run: ./scripts/phase2_security_check.ps1 -Root .
+      - name: Phase 3 unified analytics gate
+        shell: pwsh
+        run: ./scripts/phase3_analytics_check.ps1 -Root .
+      - name: Phase 4 scientific validation gate
+        shell: pwsh
+        run: ./scripts/phase4_scientific_validation_check.ps1 -Root . -PythonExe python
+      - name: Phase 5 forensic custody gate
+        shell: pwsh
+        run: ./scripts/phase5_forensic_custody_check.ps1 -Root . -PythonExe python
+      - name: Phase 6 SENTINELA product gate
+        shell: pwsh
+        run: ./scripts/phase6_sentinela_product_check.ps1 -Root .
+      - name: Phase 7 benchmark
+        run: python scripts/phase7_nist_cftt_benchmark.py --root .
+      - name: Phase 7 observability SLO gate
+        shell: pwsh
+        run: ./scripts/phase7_observability_slo_check.ps1 -Root .
+      - name: Phase 7 release provenance
+        shell: pwsh
+        run: ./scripts/phase7_release_provenance.ps1 -Root .
+      - name: Phase 7 world production gate
+        shell: pwsh
+        run: ./scripts/phase7_world_production_check.ps1 -Root . -PythonExe python -SkipDockerChecks
+      - name: Secret scan
+        shell: pwsh
+        run: ./scripts/secret_scan.ps1 -Root .
+      - name: Dependency scan
+        shell: pwsh
+        run: ./scripts/dependency_scan.ps1 -Root .
+      - name: SAST scan
+        shell: pwsh
+        run: ./scripts/sast_scan.ps1 -Root .
+      - name: SBOM
+        shell: pwsh
+        run: ./scripts/generate_sbom.ps1 -Root .
+      - name: Upload security and phase artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: supreme-v4-ci-evidence
+          path: |
+            reports/security/*.json
+            reports/phase7/*.json
+            docs/phase7_benchmark/*.json
+
+  supreme-backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: supreme-backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -e '.[dev]' prometheus-client ruff
+      - run: ruff check src tests
+      - run: pytest -q
+      - run: docker build -t supreme-backend:ci .
+      - name: Save backend image digest artifact
+        run: |
+          docker save supreme-backend:ci -o supreme-backend-ci.tar
+          sha256sum supreme-backend-ci.tar > supreme-backend-ci.tar.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: supreme-backend-image-digest
+          path: |
+            supreme-backend/supreme-backend-ci.tar.sha256
+
+  sentinela:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sentinela
+    env:
+      PYTHONPATH: .
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt pytest
+      - run: pytest -q
+      - run: docker build -t sentinela:ci .
+      - name: Save SENTINELA image digest artifact
+        run: |
+          docker save sentinela:ci -o sentinela-ci.tar
+          sha256sum sentinela-ci.tar > sentinela-ci.tar.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sentinela-image-digest
+          path: |
+            sentinela/sentinela-ci.tar.sha256

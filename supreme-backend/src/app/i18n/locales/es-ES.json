@@ -1,0 +1,12 @@
+{
+  "locale": "es-ES",
+  "product": "SUPREME V4",
+  "fallback": "pt-BR",
+  "status": "scaffold",
+  "messages": {
+    "not_clinical_diagnosis": "No es un diagnóstico clínico.",
+    "not_automatic_causal_nexus": "No establece nexo causal automático.",
+    "not_universal_legal_admissibility": "No garantiza admisibilidad jurídica universal.",
+    "psychometric_screening": "Tamizaje psicométrico"
+  }
+}

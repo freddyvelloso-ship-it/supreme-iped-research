@@ -1,0 +1,220 @@
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./infra/nginx:/etc/nginx
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - supreme-api
+      - sentinela
+    networks: [backend]
+
+  supreme-db:
+    image: timescale/timescaledb:2.16.1-pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: supreme
+      POSTGRES_USER: supreme
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD}
+    volumes:
+      - supreme_pgdata:/var/lib/postgresql/data
+      - ./supreme-backend/supabase/migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U supreme -d supreme"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks: [backend]
+
+  supreme-redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD:?defina REDIS_PASSWORD}", "--save", "900", "1", "--save", "300", "10", "--save", "60", "10000"]
+    volumes:
+      - supreme_redisdata:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a $$REDIS_PASSWORD ping | grep PONG"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks: [backend]
+
+  supreme-api:
+    build:
+      context: ./supreme-backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    command: uvicorn src.app.main:app --host 0.0.0.0 --port 8000 --workers ${SUPREME_API_WORKERS:-2}
+    env_file: ${SUPREME_ENV_FILE:-./supreme-backend/.env.production}
+    environment:
+      ENVIRONMENT: production
+      ENABLE_DOCS: "false"
+      ENABLE_METRICS: "true"
+      DATABASE_URL: postgresql+asyncpg://supreme:${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD}@supreme-db:5432/supreme
+      REDIS_URL: redis://:${REDIS_PASSWORD:?defina REDIS_PASSWORD}@supreme-redis:6379/0
+    depends_on:
+      supreme-db:
+        condition: service_healthy
+      supreme-redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8000/health\", timeout=5).read()'"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks: [backend]
+
+  supreme-worker:
+    build:
+      context: ./supreme-backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    command: rq worker analytics dead_letter --url redis://:${REDIS_PASSWORD:?defina REDIS_PASSWORD}@supreme-redis:6379/0
+    deploy:
+      replicas: ${SUPREME_WORKER_REPLICAS:-2}
+    env_file: ${SUPREME_ENV_FILE:-./supreme-backend/.env.production}
+    environment:
+      DATABASE_URL: postgresql+asyncpg://supreme:${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD}@supreme-db:5432/supreme
+      REDIS_URL: redis://:${REDIS_PASSWORD:?defina REDIS_PASSWORD}@supreme-redis:6379/0
+    depends_on:
+      supreme-db:
+        condition: service_healthy
+      supreme-redis:
+        condition: service_healthy
+    networks: [backend]
+
+  sentinela-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: sentinela
+      POSTGRES_USER: sentinela
+      POSTGRES_PASSWORD: ${SENTINELA_POSTGRES_PASSWORD:?defina SENTINELA_POSTGRES_PASSWORD}
+    volumes:
+      - sentinela_pgdata:/var/lib/postgresql/data
+      - ./sentinela/migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sentinela -d sentinela"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks: [backend]
+
+  sentinela:
+    build:
+      context: ./sentinela
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ${SENTINELA_ENV_FILE:-./sentinela/.env.production}
+    environment:
+      AUTO_INIT_DB: "false"
+      DATABASE_URL: postgresql+asyncpg://sentinela:${SENTINELA_POSTGRES_PASSWORD:?defina SENTINELA_POSTGRES_PASSWORD}@sentinela-db:5432/sentinela
+    depends_on:
+      sentinela-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8001/health\", timeout=5).read()'"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks: [backend]
+
+  # Metrics exporters
+
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:v0.15.0
+    restart: unless-stopped
+    environment:
+      DATA_SOURCE_NAME: "postgresql://supreme:${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD}@supreme-db:5432/supreme?sslmode=disable"
+    depends_on:
+      supreme-db:
+        condition: service_healthy
+    networks: [backend]
+
+  redis-exporter:
+    image: oliver006/redis_exporter:v1.62.0
+    restart: unless-stopped
+    environment:
+      REDIS_ADDR: redis://supreme-redis:6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?defina REDIS_PASSWORD}
+    depends_on:
+      - supreme-redis
+    networks: [backend]
+
+  # Alerting
+
+  alertmanager:
+    image: prom/alertmanager:v0.27.0
+    restart: unless-stopped
+    ports:
+      - "9093:9093"
+    command:
+      - --config.file=/etc/alertmanager/alertmanager.yml
+      - --storage.path=/alertmanager
+      - --web.external-url=http://alertmanager:9093
+    volumes:
+      - ./infra/alertmanager:/etc/alertmanager:ro
+      - alertmanager_data:/alertmanager
+    networks: [backend]
+
+  # Observability
+
+  prometheus:
+    image: prom/prometheus:v2.52.0
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=15d
+      - --web.enable-lifecycle
+    volumes:
+      - ./infra/prometheus:/etc/prometheus:ro
+      - prometheus_data:/prometheus
+    depends_on:
+      - alertmanager
+    networks: [backend]
+
+  grafana:
+    image: grafana/grafana:11.0.0
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SERVER_ROOT_URL: ${GRAFANA_ROOT_URL:-http://localhost:3000/}
+      GF_INSTALL_PLUGINS: ""
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./infra/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./infra/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - prometheus
+    networks: [backend]
+
+  loki:
+    image: grafana/loki:3.0.0
+    restart: unless-stopped
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - ./infra/loki:/etc/loki:ro
+      - loki_data:/loki
+    networks: [backend]
+
+volumes:
+  supreme_pgdata:
+  supreme_redisdata:
+  sentinela_pgdata:
+  prometheus_data:
+  grafana_data:
+  loki_data:
+  alertmanager_data:
+
+networks:
+  backend:
+    driver: bridge
