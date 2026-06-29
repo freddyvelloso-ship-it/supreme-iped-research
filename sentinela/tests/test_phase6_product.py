@@ -115,3 +115,25 @@ def test_phase6_war_room_dashboard_return_does_not_flash_login():
     assert 'href="/sentinela/?section=overview&from=warroom"' in war_room
     assert "const DASHBOARD_URL = '/sentinela/?section=overview&from=warroom';" in war_room
     assert "window.location.href = '/';" not in war_room
+
+
+def test_phase6_login_transition_uses_authenticated_state_not_inline_display():
+    index = (ROOT / "static" / "index.html").read_text(encoding="utf-8")
+    css = (ROOT / "static" / "sentinela-redesign.css").read_text(encoding="utf-8")
+
+    assert "document.body.classList.add('sentinela-authenticated')" in index
+    assert "document.body.classList.remove('sentinela-authenticated')" in index
+    assert "body.sentinela-authenticated #login-screen.sentinela-lab-login" in css
+    assert "display: none !important" in css
+    assert "document.getElementById('login-screen').style.display = 'none'" not in index
+    assert "document.getElementById('login-screen').style.display = 'flex'" not in index
+
+
+def test_phase6_login_hero_title_is_localized_in_all_supported_languages():
+    index = (ROOT / "static" / "index.html").read_text(encoding="utf-8")
+    ux = (ROOT / "static" / "sentinela-ux.js").read_text(encoding="utf-8")
+
+    assert 'data-i18n="heroTitle"' in index
+    assert 'heroTitle: "Governança longitudinal da exposição em perícia digital"' in ux
+    assert 'heroTitle: "Longitudinal governance of digital forensics exposure"' in ux
+    assert 'heroTitle: "Gobernanza longitudinal de la exposición en pericia digital"' in ux
