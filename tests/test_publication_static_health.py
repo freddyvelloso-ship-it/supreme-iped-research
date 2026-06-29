@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,3 +48,20 @@ def test_iped_journey_gate_uses_hex64_pseudonym_for_ingest_events():
     assert 'digest("hex")' in gate
     assert "const idHash = pseudonymize(`journey-gate-${Date.now()}`);" in gate
     assert "const idHash = `journey-gate-${Date.now()}`;" not in gate
+
+
+def test_sentinela_ux_has_no_dead_code_after_localized_wrappers():
+    ux = (ROOT / "sentinela" / "static" / "sentinela-ux.js").read_text(encoding="utf-8")
+
+    wrapper_names = (
+        "ensureJurisdictionSwitch",
+        "ensureTopbar",
+        "refreshCommandCenter",
+        "enhanceSectionLanguage",
+    )
+    for name in wrapper_names:
+        match = re.search(rf"function {name}\(\) \{{(?P<body>.*?)\n  \}}", ux, re.S)
+        assert match, f"{name} wrapper is missing"
+        body = match.group("body").strip()
+        assert body.startswith("return ")
+        assert body.count("\n") == 0, f"{name} contains unreachable legacy code"
