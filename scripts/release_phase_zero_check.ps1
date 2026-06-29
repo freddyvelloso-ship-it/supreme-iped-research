@@ -84,21 +84,22 @@ try {
 
   foreach ($file in $scanFiles) {
     $relative = $file.FullName.Substring($rootPath.Length + 1)
+    $relativePortable = $relative -replace "\\", "/"
     try {
       $content = Get-Content -LiteralPath $file.FullName -Raw -ErrorAction Stop
     } catch {
       continue
     }
 
-    $isReleaseGate = $relative -eq "scripts\release_phase_zero_check.ps1"
-    $isPhaseZeroBuild = $relative -eq "scripts\build_phase_zero_release.ps1"
-    $isPhaseZeroDoc = $relative -eq "docs\PHASE_ZERO_RELEASE.md"
+    $isReleaseGate = $relativePortable -eq "scripts/release_phase_zero_check.ps1"
+    $isPhaseZeroBuild = $relativePortable -eq "scripts/build_phase_zero_release.ps1"
+    $isPhaseZeroDoc = $relativePortable -eq "docs/PHASE_ZERO_RELEASE.md"
 
     if (-not $isReleaseGate -and -not $isPhaseZeroBuild -and -not $isPhaseZeroDoc -and $content -match "SUPREME V5|SUPREME_V5|V4/V5") {
       Add-Failure "Identidade de versao inconsistente em: $relative"
     }
 
-    $isExample = $relative -match "\.md$|\.example$|\.env\.example$|\.env\.production\.example$|README|docs\\|AUDITORIA|RELATORIO|tests\\|env\\|scripts\\release_phase_zero_check\.ps1"
+    $isExample = $relativePortable -match "\.md$|\.example$|\.env\.example$|\.env\.production\.example$|README|docs/|AUDITORIA|RELATORIO|tests/|env/|scripts/release_phase_zero_check\.ps1"
     if (-not $isExample) {
       if ($content -match "(?m)^\s*(API_SECRET_KEY|API_INGEST_TOKEN|SUPREME_SALT|BOOTSTRAP_TOKEN|GRAFANA_ADMIN_PASSWORD)\s*=\s*(?!CHANGE_ME|GERE_|dev_|test_|<|\$|%|\{)") {
         Add-Failure "Possivel segredo real em: $relative"
