@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import subprocess
 import sys
+import uuid
 from pathlib import Path
 
 
@@ -14,6 +15,7 @@ def run_isolated_pytest(project: str, *, pythonpath: str | None = None) -> None:
     env = os.environ.copy()
     env.pop("PYTHONPATH", None)
     base_temp = TMP / project
+    run_temp = base_temp / f"run-{uuid.uuid4().hex}"
     env["TEMP"] = str(base_temp)
     env["TMP"] = str(base_temp)
     if pythonpath:
@@ -29,7 +31,7 @@ def run_isolated_pytest(project: str, *, pythonpath: str | None = None) -> None:
             "-p",
             "no:cacheprovider",
             "--basetemp",
-            str(base_temp / "run"),
+            str(run_temp),
         ],
         cwd=ROOT / project,
         env=env,
