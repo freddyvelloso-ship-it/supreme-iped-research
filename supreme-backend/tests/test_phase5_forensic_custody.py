@@ -7,8 +7,8 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from src.engine.supreme.algorithm import CURRENT_ALGORITHM_VERSION
-from src.engine.supreme.forensic import (
+from src.engine.supreme.algorithm import CURRENT_ALGORITHM_VERSION  # noqa: E402
+from src.engine.supreme.forensic import (  # noqa: E402
     build_forensic_export,
     build_hash_chain,
     build_integrity_report,
