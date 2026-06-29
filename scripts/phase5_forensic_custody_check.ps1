@@ -60,7 +60,8 @@ if (Test-Path -LiteralPath $exportPath) {
 if ($failures.Count -eq 0) {
     Push-Location $rootPath
     try {
-        & $PythonExe "scripts\phase5_forensic_custody.py" check
+        $custodyScript = Join-Path $rootPath "scripts/phase5_forensic_custody.py"
+        & $PythonExe $custodyScript check
         if ($LASTEXITCODE -ne 0) {
             Add-Failure "Verificacao deterministica da cadeia forense falhou."
         }

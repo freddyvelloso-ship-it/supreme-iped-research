@@ -33,6 +33,7 @@ $rootPath = (Resolve-Path -LiteralPath $Root).Path
 Push-Location $rootPath
 try {
   Write-Host "SUPREME V4 Phase 7 world production gate" -ForegroundColor Cyan
+  $powerShellExe = if ($PSVersionTable.PSEdition -eq "Desktop") { "powershell" } else { "pwsh" }
 
   $ledger = Get-Content -LiteralPath "docs\PHASE_EXECUTION_LEDGER.md" -Raw
   foreach ($phase in 0..6) {
@@ -92,14 +93,17 @@ try {
   Require-Text "sentinela\src\app\api\product.py" "viewer-only" "SENTINELA product remains viewer-only"
   Require-Text "docs\PHASE_FIVE_REAL_IPED_TEST_20260623.md" "Real IPED acceptance is APPROVED" "Real IPED acceptance recorded"
 
-  & $PythonExe scripts\phase7_nist_cftt_benchmark.py --root .
+  $benchmarkScript = Join-Path $rootPath "scripts/phase7_nist_cftt_benchmark.py"
+  & $PythonExe $benchmarkScript --root $rootPath
   if ($LASTEXITCODE -ne 0) { Fail "Phase 7 benchmark failed" } else { Pass "Phase 7 benchmark passed" }
 
-  & powershell -NoProfile -ExecutionPolicy Bypass -File scripts\phase7_observability_slo_check.ps1 -Root .
+  $sloScript = Join-Path $rootPath "scripts/phase7_observability_slo_check.ps1"
+  & $powerShellExe -NoProfile -ExecutionPolicy Bypass -File $sloScript -Root $rootPath
   if ($LASTEXITCODE -ne 0) { Fail "Phase 7 SLO gate failed" } else { Pass "Phase 7 SLO gate passed" }
 
   if (-not (Test-Path -LiteralPath "reports\phase7\release_provenance.json")) {
-    & powershell -NoProfile -ExecutionPolicy Bypass -File scripts\phase7_release_provenance.ps1 -Root .
+    $provenanceScript = Join-Path $rootPath "scripts/phase7_release_provenance.ps1"
+    & $powerShellExe -NoProfile -ExecutionPolicy Bypass -File $provenanceScript -Root $rootPath
   }
   Require-File "reports\phase7\release_provenance.json"
   Require-Text "reports\phase7\release_provenance.json" "provenance_signature_sha256" "Release provenance is signed by digest"
