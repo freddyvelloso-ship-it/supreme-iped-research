@@ -1440,46 +1440,10 @@
 
   function ensureJurisdictionSwitch() {
     return ensureLocalizedJurisdictionSwitch();
-    const actions = document.querySelector(".header-actions");
-    if (!actions || document.getElementById("foc-jurisdiction-switch")) return;
-    const current = normalizeJurisdiction(decodeURIComponent(getCookie("sentinela_jurisdiction") || "BR"));
-    const wrap = document.createElement("div");
-    wrap.id = "foc-jurisdiction-switch";
-    wrap.className = "foc-jurisdiction-switch";
-    wrap.setAttribute("aria-label", "Selecionar jurisdição");
-    wrap.innerHTML = JURISDICTIONS.map((item) =>
-      `<button type="button" data-jurisdiction="${item.id}" class="${item.id === current ? "active" : ""}">${item.label}</button>`
-    ).join("");
-    wrap.addEventListener("click", (event) => {
-      const btn = event.target.closest("button[data-jurisdiction]");
-      if (!btn) return;
-      setJurisdictionCookie(normalizeJurisdiction(btn.dataset.jurisdiction));
-      wrap.querySelectorAll("button").forEach((item) => item.classList.toggle("active", item === btn));
-      const topJurisdiction = document.getElementById("foc-topbar-jurisdiction");
-      if (topJurisdiction) topJurisdiction.textContent = btn.textContent.trim();
-    });
-    actions.appendChild(wrap);
   }
 
   function ensureTopbar() {
     return ensureLocalizedTopbar();
-    const headerTop = document.querySelector(".header-top");
-    const meta = document.querySelector(".header-meta");
-    if (!headerTop || !meta) return;
-    let strip = document.getElementById("foc-topbar-strip");
-    if (!strip) {
-      strip = document.createElement("div");
-      strip.id = "foc-topbar-strip";
-      strip.className = "foc-topbar-strip";
-      strip.innerHTML = `
-        <span><b>ENV</b><em>LOCAL</em></span>
-        <span><b>INST</b><em id="foc-topbar-institution">Escopo atual</em></span>
-        <span><b>SYNC</b><em id="foc-topbar-sync">Pipeline nominal</em></span>
-        <span><b>IPED</b><em id="foc-topbar-iped">Aguardando ingestão</em></span>
-        <span><b>JUR</b><em id="foc-topbar-jurisdiction">Brasil</em></span>
-      `;
-      headerTop.insertBefore(strip, meta);
-    }
   }
 
   function enhanceNav() {
@@ -1550,35 +1514,10 @@
 
   function refreshCommandCenter() {
     return refreshLocalizedCommandCenter();
-    if (!document.getElementById("foc-command-panels")) return;
-    const participants = shortText("kpi-participants", "0");
-    const flags = shortText("kpi-flags", "0");
-    const ieo = shortText("kpi-ieo", "--");
-    const psi = shortText("kpi-psi", "--");
-    const lastWindow = shortText("kpi-window", "aguardando");
-    const lastUpdate = shortText("last-update-label", "aguardando");
-    const set = (id, value) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = value;
-    };
-    set("foc-risk-participants", participants);
-    set("foc-risk-flags", flags);
-    set("foc-risk-convergence", `${ieo}/${psi}`);
-    set("foc-events-count", participants);
-    set("foc-last-session", lastWindow);
-    set("foc-topbar-iped", lastUpdate === "aguardando" ? "Aguardando ingestão" : `Última ingestão ${lastUpdate}`);
-    set("foc-feed-time", lastUpdate);
-    set("foc-status-mode", Number(flags) > 0 ? "Risco agregado elevado" : "Pipeline nominal");
   }
 
   function enhanceSectionLanguage() {
     return enhanceLocalizedSectionLanguage();
-    const overviewSub = document.querySelector("#section-overview .section-sub");
-    if (overviewSub) overviewSub.textContent = "Coleta, risco e próxima ação operacional.";
-    const studiesSub = document.querySelector("#section-studies .section-sub");
-    if (studiesSub) studiesSub.textContent = "Matriz de instituição, estudo, caso, coleta e integridade.";
-    const participantsSub = document.querySelector("#section-participants .section-sub");
-    if (participantsSub) participantsSub.textContent = "Matriz operacional por participante pseudonimizado.";
   }
 
   function wireTableActions() {
