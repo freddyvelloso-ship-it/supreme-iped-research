@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 
 const PRE_INSTRUMENTS = {
@@ -31,9 +32,14 @@ async function requestJson(url, { method = "GET", token, body } = {}) {
   const text = await response.text();
   const payload = text ? JSON.parse(text) : {};
   if (!response.ok) {
-    throw new Error(`HTTP ${response.status} ${url}: ${payload.detail || text}`);
+    const detail = payload.detail ? JSON.stringify(payload.detail) : text;
+    throw new Error(`HTTP ${response.status} ${url}: ${detail}`);
   }
   return payload;
+}
+
+function pseudonymize(value) {
+  return createHash("sha256").update(value, "utf8").digest("hex");
 }
 
 function composePsql(service, database, user, sql) {
@@ -140,7 +146,7 @@ async function main() {
 
   assertLauncherOrdering();
 
-  const idHash = `journey-gate-${Date.now()}`;
+  const idHash = pseudonymize(`journey-gate-${Date.now()}`);
   const initialDue = await dueNow(baseUrl, apiSecret, idHash);
   for (const instrument of Object.keys(PRE_INSTRUMENTS)) {
     assert(initialDue.has(instrument), `Agenda inicial nao marcou ${instrument} como devido.`);
