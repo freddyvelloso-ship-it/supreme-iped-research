@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import copy
 from datetime import datetime
-from typing import Any, Mapping
+from typing import Any
 
 SUPPORTED_LOCALES = ("pt-BR", "en-US", "es-ES")
 DEFAULT_LOCALE = "pt-BR"

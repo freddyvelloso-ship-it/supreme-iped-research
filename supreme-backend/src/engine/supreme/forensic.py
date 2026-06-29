@@ -11,7 +11,7 @@ import hashlib
 import hmac
 import json
 from datetime import date, datetime, timezone
-from typing import Any, Iterable, Mapping, Sequence
+from typing import Any, Mapping, Sequence
 
 from .algorithm import CURRENT_ALGORITHM_VERSION, algorithm_parameters
 from .ieo import compute_baseline, compute_ieo

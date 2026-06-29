@@ -5,6 +5,8 @@
 .envrc
 !.env.example
 !.env.production.example
+!.env.staging.example
+!**/.env.staging.example
 !env/*.example
 **/.env
 **/.env.production

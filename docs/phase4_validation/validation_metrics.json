@@ -8,6 +8,24 @@
       "z_t": 0.5,
       "z_v": 0.2
     },
+    "longitudinal_profile": {
+      "critical_psi_threshold": 1.0,
+      "elevated_psi_threshold": 0.8,
+      "high_ieo_threshold": 0.65,
+      "junior_confidence": 0.7,
+      "junior_max_baseline_windows": 4,
+      "junior_volatility_threshold": 0.35,
+      "low_psi_threshold": 0.3,
+      "medium_confidence": 0.6,
+      "min_history_windows": 4,
+      "provisional_confidence": 0.25,
+      "resilient_confidence": 0.78,
+      "senior_confidence": 0.76,
+      "senior_max_abs_slope": 0.15,
+      "senior_max_avg_ieo": 0.45,
+      "senior_min_windows": 8,
+      "vulnerable_confidence": 0.84
+    },
     "psi": {
       "min_history_for_baseline": 4,
       "oei_threshold": 0.0,
