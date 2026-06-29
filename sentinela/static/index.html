@@ -2205,16 +2205,18 @@ async function logout() {
   role = email = null;
   if (refreshTimer) clearInterval(refreshTimer);
   document.body.classList.remove('auth-restoring');
+  document.body.classList.remove('sentinela-authenticated');
   document.getElementById('app-shell').style.display = 'none';
-  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('login-screen').style.display = '';
   resumeLoginVideo();
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 function initApp() {
   document.body.classList.remove('auth-restoring');
+  document.body.classList.add('sentinela-authenticated');
   stopLoginVideo();
-  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('login-screen').style.display = '';
   document.getElementById('app-shell').style.display = 'block';
 
   document.getElementById('user-email-label').textContent = email;
@@ -3600,7 +3602,8 @@ document.getElementById('history-participant-select').addEventListener('change',
     initApp();
   } catch (_) {
     document.body.classList.remove('auth-restoring');
-    document.getElementById('login-screen').style.display = 'flex';
+    document.body.classList.remove('sentinela-authenticated');
+    document.getElementById('login-screen').style.display = '';
   }
 })();
 
