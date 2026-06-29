@@ -14,6 +14,7 @@ Add-Type -AssemblyName System.Windows.Forms
 $IPED_HOME = $env:IPED_HOME
 if (-not $IPED_HOME) {
     $candidates = @(
+        "$PSScriptRoot\IPED-local",
         "$PSScriptRoot\IPED-local\iped",
         "C:\iped-test-case", "C:\iped", "C:\IPED", "C:\iped-4.2", "C:\iped-4.1",
         "$env:ProgramFiles\IPED", "$env:LOCALAPPDATA\IPED"
@@ -264,8 +265,17 @@ Write-Host "Abrindo IPED em: $IPED_HOME" -ForegroundColor Cyan
 # Detectar executavel do IPED
 $ipedExe = $null
 $ipedJar = $null
+$ipedRuntimeDir = $IPED_HOME
+if (Test-Path "$IPED_HOME\iped\lib\iped-search-app.jar") {
+    $ipedRuntimeDir = "$IPED_HOME\iped"
+}
 
-if (Test-Path "$IPED_HOME\iped.exe") {
+if (Test-Path "$ipedRuntimeDir\lib\iped-search-app.jar") {
+    # Prefer the Java entrypoint for the bundled/instrumented runtime. Some
+    # native launchers detach immediately and make the workflow think IPED was
+    # closed, which would incorrectly trigger post-session forms.
+    $ipedJar = "$ipedRuntimeDir\lib\iped-search-app.jar"
+} elseif (Test-Path "$IPED_HOME\iped.exe") {
     $ipedExe = "$IPED_HOME\iped.exe"
 } elseif (Test-Path "$IPED_HOME\IPED-SearchApp.exe") {
     $ipedExe = "$IPED_HOME\IPED-SearchApp.exe"
@@ -273,8 +283,8 @@ if (Test-Path "$IPED_HOME\iped.exe") {
     $ipedExe = "$IPED_HOME\bin\IPED-SearchApp.exe"
 } elseif (Test-Path "$IPED_HOME\iped-searchapp.jar") {
     $ipedJar = "$IPED_HOME\iped-searchapp.jar"
-} elseif (Test-Path "$IPED_HOME\lib\iped-search-app.jar") {
-    $ipedJar = "$IPED_HOME\lib\iped-search-app.jar"
+} elseif (Test-Path "$ipedRuntimeDir\lib\iped-search-app.jar") {
+    $ipedJar = "$ipedRuntimeDir\lib\iped-search-app.jar"
 } elseif (Test-Path "$IPED_HOME\iped.jar") {
     $ipedJar = "$IPED_HOME\iped.jar"
 } else {
@@ -282,16 +292,19 @@ if (Test-Path "$IPED_HOME\iped.exe") {
     if ($jars) { $ipedJar = $jars[0].FullName }
 }
 
-if (-not $ipedExe -and -not [string]::IsNullOrWhiteSpace($CasePath) -and (Test-Path "$IPED_HOME\lib\iped-search-app.jar")) {
+if (-not $ipedExe -and -not [string]::IsNullOrWhiteSpace($CasePath) -and (Test-Path "$ipedRuntimeDir\lib\iped-search-app.jar")) {
     # The native launcher may detach from Java and return before the real UI
     # session ends. For real acceptance with an external case path, run the
     # instrumented JVM entrypoint directly so -case and environment variables
     # are inherited by the process the gate is waiting on.
     $ipedExe = $null
-    $ipedJar = "$IPED_HOME\lib\iped-search-app.jar"
+    $ipedJar = "$ipedRuntimeDir\lib\iped-search-app.jar"
 }
 
 $patchJar = "$IPED_HOME\plugins\supreme-audit-patch.jar"
+if (-not (Test-Path $patchJar) -and (Test-Path "$ipedRuntimeDir\plugins\supreme-audit-patch.jar")) {
+    $patchJar = "$ipedRuntimeDir\plugins\supreme-audit-patch.jar"
+}
 $extraCp  = ""
 if (Test-Path $patchJar) {
     $extraCp = ";" + $patchJar
@@ -302,31 +315,58 @@ if (Test-Path $patchJar) {
 
 $env:SUPREME_AUDIT_LOG = $auditLog
 $env:SUPREME_USER_ID   = $userId
+$ipedStarted = $false
+$minimumVisibleSeconds = 8
 
 if ($ipedExe) {
     $args = @()
     if (-not [string]::IsNullOrWhiteSpace($CasePath)) {
         $args += @("-case", $CasePath)
     }
-    Start-Process $ipedExe -ArgumentList $args -WorkingDirectory $IPED_HOME -Wait
+    $proc = Start-Process $ipedExe -ArgumentList $args -WorkingDirectory $IPED_HOME -PassThru
+    Start-Sleep -Seconds $minimumVisibleSeconds
+    if ($proc.HasExited) {
+        [System.Windows.Forms.MessageBox]::Show(
+            "O IPED foi iniciado, mas encerrou imediatamente. O fluxo pos-sessao nao sera aberto.`n`nVerifique o caminho do IPED ou abra novamente pelo atalho.",
+            "SUPREME V4 - IPED nao iniciou", "OK", "Error") | Out-Null
+        exit 1
+    }
+    $ipedStarted = $true
+    $proc.WaitForExit()
 } elseif ($ipedJar) {
     $libCp = ""
-    if (Test-Path "$IPED_HOME\lib") {
-        $libCp = ";" + (Join-Path $IPED_HOME "lib\*")
+    if (Test-Path "$ipedRuntimeDir\lib") {
+        $libCp = ";" + (Join-Path $ipedRuntimeDir "lib\*")
     }
     $javaArgs = "-cp `"" + $ipedJar + $libCp + $extraCp + "`" iped.app.ui.AppMain"
     if (-not [string]::IsNullOrWhiteSpace($CasePath)) {
         $javaArgs += " -case `"$CasePath`""
     }
     $javaExe = "java"
-    if (Test-Path "$IPED_HOME\jre\bin\java.exe") {
-        $javaExe = "$IPED_HOME\jre\bin\java.exe"
+    if (Test-Path "$ipedRuntimeDir\jre\bin\java.exe") {
+        $javaExe = "$ipedRuntimeDir\jre\bin\java.exe"
     }
-    Start-Process $javaExe -ArgumentList $javaArgs -WorkingDirectory $IPED_HOME -Wait
+    $proc = Start-Process $javaExe -ArgumentList $javaArgs -WorkingDirectory $ipedRuntimeDir -PassThru
+    Start-Sleep -Seconds $minimumVisibleSeconds
+    if ($proc.HasExited) {
+        [System.Windows.Forms.MessageBox]::Show(
+            "O IPED foi iniciado, mas encerrou imediatamente. O fluxo pos-sessao nao sera aberto.`n`nVerifique o runtime Java/IPED e tente novamente.",
+            "SUPREME V4 - IPED nao iniciou", "OK", "Error") | Out-Null
+        exit 1
+    }
+    $ipedStarted = $true
+    $proc.WaitForExit()
 } else {
     [System.Windows.Forms.MessageBox]::Show(
         "IPED nao encontrado em: $IPED_HOME",
         "SUPREME V4 - Erro", "OK", "Error") | Out-Null
+    exit 1
+}
+
+if (-not $ipedStarted) {
+    [System.Windows.Forms.MessageBox]::Show(
+        "O IPED nao foi iniciado. O fluxo pos-sessao nao sera aberto.",
+        "SUPREME V4 - IPED nao iniciou", "OK", "Error") | Out-Null
     exit 1
 }
 
