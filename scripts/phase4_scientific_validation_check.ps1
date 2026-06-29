@@ -62,7 +62,8 @@ if (Test-Path -LiteralPath $metricsPath) {
 if ($failures.Count -eq 0) {
     Push-Location $rootPath
     try {
-        & $PythonExe "scripts\phase4_scientific_validation.py" check
+        $validationScript = Join-Path $rootPath "scripts/phase4_scientific_validation.py"
+        & $PythonExe $validationScript check
         if ($LASTEXITCODE -ne 0) {
             Add-Failure "Recomputacao deterministica da validacao falhou."
         }
