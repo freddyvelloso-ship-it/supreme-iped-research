@@ -16,7 +16,7 @@ Related PR stack:
 
 `healthy_for_publication`
 
-The source tree is healthy for controlled publication after this branch is merged. The local workstation still contains ignored release-blocking artifacts (`.env`, production env files, TLS certificates, `IPED-local`, and `tmp/pytest`), so final release packaging must be run from a clean clone or after removing those ignored local artifacts from the working copy.
+The source tree is healthy for controlled publication after this branch is merged. Phase Zero was validated from a clean clone and passed. The local development workstation still contains ignored release-blocking artifacts (`.env`, production env files, TLS certificates, `IPED-local`, and `tmp/pytest`), so final release packaging must be run from a clean clone or after removing those ignored local artifacts from the working copy.
 
 ## Bugs Found
 
@@ -134,6 +134,40 @@ The source tree is healthy for controlled publication after this branch is merge
     - env/cert/tmp files are not tracked.
     - `IPED-local` was tracked before this audit and is removed from Git tracking in this branch.
 
+### Clean Clone Release Validation
+
+Clean clone path: `C:\Users\nunas\Documents\Codex\2026-06-27\co\release-clean-check\supreme-iped-research`
+
+Validated branch: `codex/full-system-production-health-audit`
+
+Validated commit: `b2c4a802ddc26ac000ffdee73d3b47ba9c27edc8`
+
+Commands executed:
+
+- `git clone https://github.com/freddyvelloso-ship-it/supreme-iped-research C:\Users\nunas\Documents\Codex\2026-06-27\co\release-clean-check\supreme-iped-research`
+- `git checkout codex/full-system-production-health-audit`
+- `git ls-files IPED-local`
+- `git ls-files .env supreme-backend/.env.production sentinela/.env.production certs/fullchain.pem certs/privkey.pem tmp`
+- `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\release_phase_zero_check.ps1`
+- `C:\Users\nunas\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m pytest -q`
+- `C:\Users\nunas\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m ruff check .`
+- `git diff --check`
+
+Results:
+
+- `IPED-local` tracked files in clean clone: `0`.
+- `.env`, production env files, certificates and `tmp` tracked files in clean clone: `0`.
+- `release_phase_zero_check.ps1`: passed with `0 falha(s)`.
+- Root pytest: passed with `8 passed`.
+- Root ruff: passed.
+- `git diff --check`: passed.
+
+Conclusion:
+
+The previous Phase Zero failure was caused by ignored local development artifacts on the workstation, not by tracked release content. The clean clone is ready for Phase Zero release packaging.
+
+Decision: `phase_zero_release_ready`
+
 ## Manual / Local UI Validation
 
 Validated against `http://localhost:18001/sentinela`.
@@ -165,7 +199,7 @@ Docker: backend and Sentinela images build successfully.
 
 Security/sanitization: scans passed with zero critical findings.
 
-Production gates: passed, except expected local release-packaging blockers caused by ignored local artifacts in this workstation.
+Production gates: passed. Phase Zero also passes in a clean clone; local release-packaging blockers remain only in this workstation because ignored development artifacts are present on disk.
 
 ## Remaining Publication Notes
 
