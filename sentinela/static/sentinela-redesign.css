@@ -3151,3 +3151,471 @@ body.forensic-console.participant-dossier-open #side-panel-overlay {
     grid-template-columns: 1fr !important;
   }
 }
+
+/*
+  SUPREME Lab visual identity override
+  Escopo: identidade visual apenas. Estrutura, IDs, scripts, rotas e contratos
+  da Sentinela permanecem inalterados.
+*/
+:root {
+  --bg: #f4f6f8 !important;
+  --bg2: #eef2f6 !important;
+  --bg3: #e6ecf2 !important;
+  --surface: #ffffff !important;
+  --surface-2: #fbfcfe !important;
+  --border: #d7dee7 !important;
+  --border-strong: #c8d1dc !important;
+  --text: #1d232b !important;
+  --muted: #66717f !important;
+  --accent: #184e77 !important;
+  --accent2: #2f80ed !important;
+  --green: #198754 !important;
+  --green2: #198754 !important;
+  --amber: #b76b00 !important;
+  --amber2: #b76b00 !important;
+  --red: #b42318 !important;
+  --purple: #6650a4 !important;
+  --gold: #9a6700 !important;
+  --gold2: #9a6700 !important;
+  --circuit: #2f80ed !important;
+  --foc-bg: #f4f6f8 !important;
+  --foc-panel: #ffffff !important;
+  --foc-panel-2: #fbfcfe !important;
+  --foc-border: #d7dee7 !important;
+  --foc-text: #1d232b !important;
+  --foc-muted: #66717f !important;
+  --foc-cyan: #2f80ed !important;
+  --foc-amber: #b76b00 !important;
+  --foc-red: #b42318 !important;
+  --foc-green: #198754 !important;
+  --foc-mono: "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+html,
+body,
+body.forensic-console {
+  background:
+    linear-gradient(90deg, rgba(16, 24, 32, .035) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(16, 24, 32, .028) 1px, transparent 1px),
+    #f4f6f8 !important;
+  background-size: 48px 48px, 48px 48px, auto !important;
+  color: var(--text) !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+body::before,
+body::after,
+.forensic-console::before,
+.forensic-console::after,
+#bokeh-canvas,
+.scan-line,
+.login-card-scan,
+.login-card::before,
+.login-card::after,
+.kpi-card::before,
+.section-title::after,
+.conv-card::after {
+  display: none !important;
+}
+
+*, *::before, *::after {
+  letter-spacing: 0 !important;
+  text-shadow: none !important;
+}
+
+a {
+  color: var(--accent2) !important;
+}
+
+/* Login no padrão SUPREME Lab */
+#login-screen {
+  background:
+    linear-gradient(90deg, rgba(16, 24, 32, .045) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(16, 24, 32, .035) 1px, transparent 1px),
+    #f4f6f8 !important;
+  background-size: 52px 52px, 52px 52px, auto !important;
+}
+
+.login-image-panel {
+  background: #101820 !important;
+  flex: 0 0 48% !important;
+}
+
+.login-image-panel img,
+.login-image-panel video {
+  filter: grayscale(.14) saturate(.78) contrast(.98) brightness(.72) !important;
+}
+
+.login-image-panel::before {
+  display: block !important;
+  background:
+    linear-gradient(90deg, rgba(16, 24, 32, .12), rgba(16, 24, 32, .76)),
+    linear-gradient(90deg, rgba(47, 128, 237, .08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(47, 128, 237, .06) 1px, transparent 1px) !important;
+  background-size: auto, 42px 42px, 42px 42px !important;
+}
+
+.login-image-panel::after {
+  background: linear-gradient(90deg, rgba(16, 24, 32, .12), rgba(16, 24, 32, .88)) !important;
+}
+
+.login-data-overlay,
+.data-chip {
+  display: none !important;
+}
+
+.login-image-caption {
+  max-width: 580px !important;
+  padding: 48px !important;
+}
+
+.login-image-caption .badge {
+  background: rgba(255,255,255,.12) !important;
+  color: #f7fbff !important;
+  border: 1px solid rgba(255,255,255,.26) !important;
+  border-radius: 999px !important;
+}
+
+.login-image-caption h1,
+.login-image-caption h2 {
+  color: #f7fbff !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-weight: 780 !important;
+}
+
+.login-image-caption p {
+  color: rgba(247, 251, 255, .78) !important;
+  line-height: 1.55 !important;
+}
+
+.entry-status-grid div {
+  background: rgba(247, 251, 255, .08) !important;
+  border: 1px solid rgba(216, 232, 248, .18) !important;
+  border-radius: 8px !important;
+}
+
+.entry-status-grid span {
+  color: rgba(216, 232, 248, .66) !important;
+}
+
+.entry-status-grid strong {
+  color: #f7fbff !important;
+}
+
+.login-form-panel {
+  background: transparent !important;
+  padding: 48px !important;
+}
+
+.login-card {
+  width: min(460px, 100%) !important;
+  background: #ffffff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  color: var(--text) !important;
+  box-shadow: 0 18px 48px rgba(15, 23, 42, .08) !important;
+}
+
+.login-logo-icon {
+  background: #2f80ed !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+}
+
+.login-logo,
+.login-title {
+  color: var(--text) !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+.login-sub,
+.login-subtitle {
+  color: var(--muted) !important;
+}
+
+.login-card input[type="email"],
+.login-card input[type="password"],
+input,
+select,
+textarea {
+  background: #ffffff !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: 6px !important;
+}
+
+.login-card input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent2) !important;
+  outline: 2px solid rgba(47, 128, 237, .16) !important;
+  outline-offset: 0 !important;
+}
+
+button,
+.btn,
+.login-btn,
+.export-btn,
+.refresh-btn,
+.foc-table-action,
+.panel-close,
+.war-room-link {
+  border-radius: 6px !important;
+  border: 1px solid #184e77 !important;
+  background: #184e77 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+button:hover,
+.btn:hover,
+.login-btn:hover,
+.export-btn:hover,
+.refresh-btn:hover,
+.foc-table-action:hover,
+.war-room-link:hover {
+  background: #143f61 !important;
+  border-color: #143f61 !important;
+}
+
+/* Console institucional */
+.nav,
+.forensic-console .nav,
+.tabs-bar {
+  background: #101820 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+.nav-tab,
+.forensic-console .nav-tab {
+  color: #d8e8f8 !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+  text-transform: none !important;
+}
+
+.nav-tab:hover,
+.forensic-console .nav-tab:hover {
+  background: #1c2a36 !important;
+  color: #ffffff !important;
+}
+
+.nav-tab.active,
+.forensic-console .nav-tab.active {
+  background: #2f80ed !important;
+  color: #ffffff !important;
+  border-color: #2f80ed !important;
+}
+
+.main,
+.section,
+.tab-panel,
+.forensic-console .main,
+.forensic-console .section {
+  background: transparent !important;
+  color: var(--text) !important;
+}
+
+.section-title,
+.forensic-console .section-title {
+  color: var(--text) !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-weight: 760 !important;
+}
+
+.section-sub,
+.kpi-sub,
+.forensic-console .section-sub,
+.forensic-console .kpi-sub,
+.muted {
+  color: var(--muted) !important;
+}
+
+.kpi-card,
+.card,
+.panel,
+.conv-card,
+.flag-card,
+.profile-card,
+.evidence-card,
+.governance-card,
+.war-card,
+.forensic-console .kpi-card,
+.forensic-console .card,
+.forensic-console .foc-participants-card,
+.forensic-console .foc-empty-panel,
+.forensic-console .foc-participant-raw-table {
+  background: #ffffff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+}
+
+.kpi-card:hover,
+.card:hover,
+.panel:hover,
+.forensic-console .kpi-card:hover {
+  border-color: var(--border-strong) !important;
+  transform: none !important;
+}
+
+.kpi-icon,
+.logo-dot,
+.status-dot,
+.login-image-caption .badge::before {
+  background: #2f80ed !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.kpi-label,
+.panel-title,
+.forensic-console .panel-title {
+  color: #405164 !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+  text-transform: none !important;
+}
+
+.kpi-value,
+.metric-value,
+.forensic-console .kpi-value {
+  color: var(--text) !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+.badge,
+.chip,
+.flag-tag,
+.role-badge,
+.user-badge,
+.pipeline-status,
+.api-status-badge,
+.refresh-counter,
+.mission-clock,
+.status-dot-wrap {
+  background: #edf2f7 !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 999px !important;
+  color: #405164 !important;
+  box-shadow: none !important;
+}
+
+.flag-tag.critical,
+.flag-tag.high,
+.badge.danger,
+.status-danger {
+  background: #fff1f0 !important;
+  color: #b42318 !important;
+  border-color: #f3b6b1 !important;
+}
+
+.flag-tag.warning,
+.badge.warning,
+.status-warning {
+  background: #fff7e6 !important;
+  color: #9a6700 !important;
+  border-color: #f1cf8a !important;
+}
+
+.flag-tag.ok,
+.badge.ok,
+.status-ok {
+  background: #edf8f2 !important;
+  color: #198754 !important;
+  border-color: #a9dbc1 !important;
+}
+
+.table-wrap,
+table,
+.forensic-console .foc-participants-table,
+.forensic-console #side-panel table {
+  background: #ffffff !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+th,
+td,
+.forensic-console .foc-participants-table th,
+.forensic-console .foc-participants-table td {
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+  background: #ffffff !important;
+}
+
+th,
+.forensic-console .foc-participants-table th {
+  background: #edf2f7 !important;
+  color: #405164 !important;
+  font-weight: 700 !important;
+}
+
+.forensic-console .foc-participant-id span,
+code,
+pre {
+  color: #184e77 !important;
+  font-family: Consolas, "Courier New", monospace !important;
+}
+
+pre,
+#console-log {
+  background: #101820 !important;
+  color: #e8f3ff !important;
+  border-radius: 8px !important;
+}
+
+canvas {
+  background: transparent !important;
+}
+
+.chart-wrap,
+.forensic-console #side-panel .chart-wrap {
+  background: #fbfcfe !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+}
+
+/* Dossiê lateral/modal mantém a função, mas recebe a identidade limpa */
+.forensic-console #side-panel-overlay {
+  background: rgba(16, 24, 32, .42) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+.forensic-console #side-panel {
+  background: #ffffff !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 28px 90px rgba(15, 23, 42, .22) !important;
+}
+
+.forensic-console #side-panel .panel-header {
+  background: #101820 !important;
+  border-bottom: 1px solid #1c2a36 !important;
+}
+
+.forensic-console #side-panel .panel-title {
+  color: #f7fbff !important;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+.forensic-console #side-panel .panel-body {
+  background: #f4f6f8 !important;
+}
+
+@media (max-width: 900px) {
+  .login-form-panel {
+    padding: 24px !important;
+  }
+
+  .nav,
+  .forensic-console .nav,
+  .tabs-bar {
+    overflow-x: auto !important;
+  }
+}
