@@ -8,10 +8,10 @@
   const I18N = {
     "pt-BR": {
       brand: "SENTINELA",
-      loginSub: "SUPREME V4 - Console de pesquisa",
+      loginSub: "SUPREME Longitudinal Console",
       accessTitle: "Acesso restrito",
       accessBody: "Entre para revisar sinais agregados, priorizar acompanhamento e registrar decisões responsáveis.",
-      heroBadge: "Ambiente local ativo",
+      heroBadge: "Ambiente local seguro",
       heroBody:
         "Centro de acompanhamento para exposição ocupacional em perícia digital. Leitura longitudinal, dados pseudonimizados e acesso sob responsabilidade designada.",
       heroApiStatus: "conectada",
@@ -817,6 +817,41 @@
       },
     },
   };
+
+  Object.assign(I18N["pt-BR"], {
+    loginSub: "SUPREME Longitudinal Console",
+    accessBody: "Entre para revisar sinais agregados, bloqueios de governança e evidências longitudinais.",
+    heroBadge: "Ambiente local seguro",
+    heroBody:
+      "Centro visual para IEO/OEI, PSI, baselines, red flags e evidências, exibindo apenas dados analíticos pseudonimizados.",
+    noClinicalTitle: "Sem diagnóstico automático",
+    noClinicalBody: "O console apoia governança e revisão humana.",
+    privacyBody: "Sem mídia, paths ou identificadores crus.",
+  });
+
+  Object.assign(I18N["en-US"], {
+    loginSub: "SUPREME Longitudinal Console",
+    accessBody: "Sign in to review aggregate signals, governance locks and longitudinal evidence.",
+    heroBadge: "Local secure environment",
+    heroBody:
+      "Visual center for IEO/OEI, PSI, baselines, red flags and evidence, showing only pseudonymized analytic data.",
+    noClinicalTitle: "No automatic diagnosis",
+    noClinicalBody: "The console supports governance and mandatory human review.",
+    privacyBody: "No media, paths or raw identifiers.",
+  });
+
+  Object.assign(I18N["es-ES"], {
+    loginSub: "SUPREME Longitudinal Console",
+    accessBody: "Ingrese para revisar señales agregadas, bloqueos de gobernanza y evidencias longitudinales.",
+    heroBadge: "Entorno local seguro",
+    heroBody:
+      "Centro visual para IEO/OEI, PSI, baselines, red flags y evidencias, mostrando solo datos analíticos seudonimizados.",
+    noClinicalTitle: "Sin diagnóstico automático",
+    noClinicalBody: "La consola apoya gobernanza y revisión humana obligatoria.",
+    privacyTitle: "Privacidad por diseño",
+    privacyBody: "Sin medios, paths ni identificadores crudos.",
+  });
+
   function getCookie(name) {
     return document.cookie
       .split(";")

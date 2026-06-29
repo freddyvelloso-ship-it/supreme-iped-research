@@ -1318,60 +1318,50 @@ tbody td {
   .rpt-sig{border-top-color:#94a3b8!important;color:#64748b!important}
 }
 </style>
-<link rel="stylesheet" href="/sentinela/static/sentinela-redesign.css?v=foc-20260626-participants2"/>
-<script defer src="/sentinela/static/sentinela-ux.js?v=foc-20260626-participants2"></script>
+<link rel="stylesheet" href="/sentinela/static/sentinela-redesign.css?v=lab-login-final-20260629"/>
+<script defer src="/sentinela/static/sentinela-ux.js?v=lab-login-final-20260629"></script>
 </head>
 <body class="auth-restoring">
 
 <!-- LOGIN SCREEN -->
 
 
-<div id="login-screen">
+<div id="login-screen" class="login-screen sentinela-lab-login">
 
-  <!-- Painel esquerdo: entrada operacional -->
-  <div class="login-image-panel">
-    <div class="biometric-field" aria-hidden="true">
-      <div class="fingerprint-mark"></div>
-      <div class="code-stream code-a">0101 1100 · custody.hash · verify()</div>
-      <div class="code-stream code-b">iped.session → supreme.pipeline → sentinela.viewer</div>
-      <div class="code-stream code-c">algorithm_version: SUPREME-ANALYTICS</div>
-    </div>
+  <!-- Painel esquerdo: identidade visual Sentinela SUPREME Lab -->
+  <div class="login-image-panel" aria-hidden="true">
+    <video id="hero-video" autoplay muted loop playsinline
+           onerror="this.style.display='none'">
+      <source src="/sentinela/static/supreme_v4.mp4" type="video/mp4"/>
+    </video>
     <div class="scan-line"></div>
-    <div class="login-data-overlay">
-      <div class="data-chip blue"><span class="chip-dot"></span>SYS · ONLINE</div>
-      <div class="data-chip"><span class="chip-dot"></span>IEO · ATIVO</div>
-      <div class="data-chip orange"><span class="chip-dot"></span>ALERT · 0</div>
-    </div>
+    <button class="sound-btn" id="soundBtn" onclick="toggleSound()" title="Ativar som">🔇</button>
     <div class="login-image-caption">
-      <div class="entry-video-frame">
-        <video id="hero-video" autoplay loop muted playsinline
-               onerror="this.closest('.entry-video-frame').style.display='none'">
-          <source src="/sentinela/static/supreme_v4.mp4" type="video/mp4"/>
-        </video>
-        <button class="sound-btn" id="soundBtn" onclick="toggleSound()" title="Ativar som">🔇</button>
-      </div>
-      <div class="badge" data-i18n="heroBadge">Ambiente local ativo</div>
-      <h2>SENTINELA<br/>SUPREME V4</h2>
-      <p data-i18n="heroBody">Centro de acompanhamento para exposição ocupacional em perícia digital. Leitura longitudinal, dados pseudonimizados e acesso sob responsabilidade designada.</p>
+      <span class="badge" data-i18n="heroBadge">Ambiente local seguro</span>
+      <h2>Governança longitudinal da exposição em perícia digital</h2>
+      <p data-i18n="heroBody">Centro visual para IEO/OEI, PSI, baselines, red flags e evidências, exibindo apenas dados analíticos pseudonimizados.</p>
       <div class="entry-status-grid">
-        <div><span>API</span><strong data-i18n="heroApiStatus">conectada</strong></div>
-        <div><span data-i18n="heroData">Dados</span><strong data-i18n="heroDataStatus">pseudonimizados</strong></div>
-        <div><span data-i18n="heroUse">Uso</span><strong data-i18n="heroUseStatus">pesquisa e governança</strong></div>
+        <div><span>SUPREME</span><strong>runtime IPED</strong></div>
+        <div><span>SENTINELA</span><strong>console de gestão</strong></div>
+        <div><span>GATE</span><strong>produção bloqueada</strong></div>
       </div>
     </div>
   </div>
 
-  <!-- Painel direito: formulário -->
+  <!-- Painel direito: autenticação preservada -->
   <div class="login-form-panel">
+    <div class="global-lang-switch login-language" id="login-lang-switch" aria-label="Selecionar idioma"></div>
     <div class="login-card">
-      <div class="global-lang-switch" id="login-lang-switch" aria-label="Selecionar idioma"></div>
-      <div class="login-logo-icon">S</div>
-      <div class="login-logo" data-i18n="brand">SENTINELA</div>
-      <div class="login-card-scan"></div>
-      <div class="login-sub" data-i18n="loginSub">SUPREME V4 · Console de pesquisa</div>
-      <div class="entry-brief">
+      <div class="brand compact">
+        <img src="/sentinela/static/sentinela.jpg.jpeg" alt=""/>
+        <div>
+          <strong data-i18n="brand">Sentinela</strong>
+          <span data-i18n="loginSub">SUPREME Longitudinal Console</span>
+        </div>
+      </div>
+      <div class="login-intro">
         <strong data-i18n="accessTitle">Acesso restrito</strong>
-        <span data-i18n="accessBody">Entre para revisar sinais agregados, priorizar acompanhamento e registrar decisões responsáveis.</span>
+        <span data-i18n="accessBody">Entre para revisar sinais agregados, bloqueios de governança e evidências longitudinais.</span>
       </div>
       <div class="form-group">
         <label data-i18n="loginEmailLabel">Identificação</label>
@@ -1388,9 +1378,9 @@ tbody td {
       </label>
       <button class="btn-primary" id="btn-login" data-i18n="loginButton">Entrar no console</button>
       <div id="login-error"></div>
-      <div class="entry-assurance">
-        <div><strong data-i18n="noClinicalTitle">Sem diagnóstico clínico automático</strong><span data-i18n="noClinicalBody">O sistema apoia triagem e governança; decisões exigem responsável humano.</span></div>
-        <div><strong data-i18n="privacyTitle">Privacidade por desenho</strong><span data-i18n="privacyBody">Identificadores são tratados de forma pseudonimizada no fluxo operacional.</span></div>
+      <div class="login-guardrails">
+        <article><strong data-i18n="noClinicalTitle">Sem diagnóstico automático</strong><span data-i18n="noClinicalBody">O console apoia governança e revisão humana.</span></article>
+        <article><strong data-i18n="privacyTitle">Privacidade por desenho</strong><span data-i18n="privacyBody">Sem mídia, paths ou identificadores crus.</span></article>
       </div>
     </div>
   </div>
