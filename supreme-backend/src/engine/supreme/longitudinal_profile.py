@@ -93,7 +93,7 @@ def classify_longitudinal_profile(
 
     evidence = {
         "classification_basis": "operational_longitudinal_profile",
-        "non_diagnostic_notice": "operational_classification_not_clinical_diagnosis",
+        "non_diagnostic_notice": "operational_classification_requires_human_review",
         "n_windows": len(ordered),
         "n_ieo_windows": len(ieo_values),
         "n_psi_windows": len(psi_values),

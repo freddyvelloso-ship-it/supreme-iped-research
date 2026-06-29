@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import ssl
@@ -71,6 +72,10 @@ def sql_literal(value: str) -> str:
     return "'" + value.replace("'", "''") + "'"
 
 
+def pseudonymize(value: str) -> str:
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
 def wait_for(label: str, timeout_seconds: int, predicate):
     deadline = time.time() + timeout_seconds
     last = None
@@ -126,7 +131,7 @@ def main() -> int:
 
     base = args.base_url.rstrip("/")
     run_id = int(time.time())
-    id_hash = f"phase1-e2e-{run_id}"
+    id_hash = pseudonymize(f"phase1-e2e-{run_id}")
     id_sql = sql_literal(id_hash)
 
     request_json(

@@ -16,6 +16,7 @@ MEDIA_EXT_RE = re.compile(r"\.(?:jpg|jpeg|png|gif|webp|bmp|mp4|mov|avi|mkv|wmv|p
 RAW_HASH_RE = re.compile(r"\b[a-fA-F0-9]{32,128}\b")
 
 SAFE_HASH_KEYS = {"id_hash", "event_hash"}
+SAFE_ANALYTIC_KEYS = {"ieo_linear"}
 SENSITIVE_KEY_FRAGMENTS = {
     "userid",
     "user_id",
@@ -54,6 +55,13 @@ FORBIDDEN_TEXT = {
 }
 
 
+def _is_sensitive_key(key_lower: str) -> bool:
+    if key_lower in SENSITIVE_KEY_FRAGMENTS:
+        return True
+    tokens = set(re.split(r"[^a-z0-9]+", key_lower))
+    return any(fragment in tokens for fragment in SENSITIVE_KEY_FRAGMENTS)
+
+
 def validate_id_hash(value: str) -> str:
     if not HEX64_RE.fullmatch(value or ""):
         raise ValueError("id_hash deve ser pseudonimo SHA-256 hexadecimal")
@@ -72,8 +80,10 @@ def assert_no_sensitive_payload(payload: Any, path: str = "payload") -> None:
         for key, value in payload.items():
             key_text = str(key)
             key_lower = key_text.lower()
-            if key_lower not in SAFE_HASH_KEYS and any(
-                fragment in key_lower for fragment in SENSITIVE_KEY_FRAGMENTS
+            if (
+                key_lower not in SAFE_HASH_KEYS
+                and key_lower not in SAFE_ANALYTIC_KEYS
+                and _is_sensitive_key(key_lower)
             ):
                 raise ValueError(f"campo proibido em {path}.{key_text}")
             assert_no_sensitive_payload(value, f"{path}.{key_text}")

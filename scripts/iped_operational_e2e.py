@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import ssl
@@ -58,6 +59,10 @@ def compose_exec(service: str, *args: str) -> str:
 
 def sql_literal(value: str) -> str:
     return "'" + value.replace("'", "''") + "'"
+
+
+def pseudonymize(value: str) -> str:
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
 def psql(service: str, user: str, db: str, sql: str) -> str:
@@ -123,7 +128,7 @@ def main() -> int:
 
     base = args.base_url.rstrip("/")
     run_id = int(time.time())
-    id_hash = f"phase4-iped-e2e-{run_id}"
+    id_hash = pseudonymize(f"phase4-iped-e2e-{run_id}")
     request_json(
         f"{base}/v1/governance/consent/{id_hash}",
         method="POST",
