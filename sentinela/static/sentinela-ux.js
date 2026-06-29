@@ -822,6 +822,7 @@
     loginSub: "SUPREME Longitudinal Console",
     accessBody: "Entre para revisar sinais agregados, bloqueios de governança e evidências longitudinais.",
     heroBadge: "Ambiente local seguro",
+    heroTitle: "Governança longitudinal da exposição em perícia digital",
     heroBody:
       "Centro visual para IEO/OEI, PSI, baselines, red flags e evidências, exibindo apenas dados analíticos pseudonimizados.",
     noClinicalTitle: "Sem diagnóstico automático",
@@ -833,6 +834,7 @@
     loginSub: "SUPREME Longitudinal Console",
     accessBody: "Sign in to review aggregate signals, governance locks and longitudinal evidence.",
     heroBadge: "Local secure environment",
+    heroTitle: "Longitudinal governance of digital forensics exposure",
     heroBody:
       "Visual center for IEO/OEI, PSI, baselines, red flags and evidence, showing only pseudonymized analytic data.",
     noClinicalTitle: "No automatic diagnosis",
@@ -844,6 +846,7 @@
     loginSub: "SUPREME Longitudinal Console",
     accessBody: "Ingrese para revisar señales agregadas, bloqueos de gobernanza y evidencias longitudinales.",
     heroBadge: "Entorno local seguro",
+    heroTitle: "Gobernanza longitudinal de la exposición en pericia digital",
     heroBody:
       "Centro visual para IEO/OEI, PSI, baselines, red flags y evidencias, mostrando solo datos analíticos seudonimizados.",
     noClinicalTitle: "Sin diagnóstico automático",
