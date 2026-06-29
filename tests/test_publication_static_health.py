@@ -29,12 +29,29 @@ def test_sentinela_lab_primary_layer_is_dominant():
     assert "body.sentinela-lab-primary" in primary_css
     assert "SENTINELA_LAB_PRIMARY" in ux
     assert "ensureLabShell" in ux
+    assert "function showAuthenticatedShell()" in index
+    assert "function showLoginShell()" in index
+    assert "if (loginScreen) loginScreen.style.display = 'none';" in index
+    assert "if (appShell) appShell.style.display = 'grid';" in index
+    assert "document.getElementById('login-screen').style.display = ''" not in index
+    assert "if (!hasAuthenticatedSession())" in index
     assert 'panel.className = "ux-decision-panel"' not in ux
     assert "addDashboardUX" not in ux
     assert "body.sentinela-authenticated #login-screen.sentinela-lab-login" in redesign_css
     assert "display: none !important" in redesign_css
     assert '<div class="login-card-scan"' not in index
     assert '<div class="biometric-field"' not in index
+
+
+def test_sentinela_lab_menu_is_not_fixed_or_cut_by_header():
+    primary_css = (ROOT / "sentinela" / "static" / "sentinela-lab-primary.css").read_text(encoding="utf-8")
+
+    nav_block = primary_css.split("body.sentinela-lab-primary .nav {", 1)[1].split("}", 1)[0]
+    main_block = primary_css.split("body.sentinela-lab-primary .main {", 1)[1].split("}", 1)[0]
+    assert "position: sticky !important" in nav_block
+    assert "position: fixed !important" not in nav_block
+    assert "grid-row: 2 !important" in nav_block
+    assert "grid-row: 2 !important" in main_block
 
 
 def test_login_i18n_has_no_fixed_hero_title():

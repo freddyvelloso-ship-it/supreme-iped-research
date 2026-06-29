@@ -35,7 +35,6 @@ infra/alertmanager/alertmanager.yml
 
 # Archives
 *.zip
-!IPED-local/**/*.zip
 *.tar.gz
 *.tar.bz2
 
@@ -74,6 +73,7 @@ backups/
 reports/security/
 
 # Forensic evidence and IPED case material
+IPED-local/
 *.E01
 *.Ex01
 *.aff4

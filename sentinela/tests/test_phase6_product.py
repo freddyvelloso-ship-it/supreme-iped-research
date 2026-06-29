@@ -128,12 +128,27 @@ def test_phase6_lab_primary_ui_controls_authenticated_console():
     assert "body.sentinela-lab-primary" in primary_css
     assert "SENTINELA_LAB_PRIMARY" in ux
     assert "ensureLabShell" in ux
+    assert "function showAuthenticatedShell()" in index
+    assert "function showLoginShell()" in index
+    assert "if (loginScreen) loginScreen.style.display = 'none';" in index
+    assert "if (appShell) appShell.style.display = 'grid';" in index
+    assert "document.getElementById('login-screen').style.display = ''" not in index
+    assert "if (!hasAuthenticatedSession())" in index
     assert 'panel.className = "ux-decision-panel"' not in ux
     assert "addDashboardUX" not in ux
     assert "body.sentinela-authenticated #login-screen.sentinela-lab-login" in redesign_css
     assert "display: none !important" in redesign_css
-    assert "document.getElementById('login-screen').style.display = 'none'" not in index
-    assert "document.getElementById('login-screen').style.display = 'flex'" not in index
+
+
+def test_phase6_lab_primary_menu_is_in_app_grid_flow():
+    primary_css = (ROOT / "static" / "sentinela-lab-primary.css").read_text(encoding="utf-8")
+
+    nav_block = primary_css.split("body.sentinela-lab-primary .nav {", 1)[1].split("}", 1)[0]
+    main_block = primary_css.split("body.sentinela-lab-primary .main {", 1)[1].split("}", 1)[0]
+    assert "position: sticky !important" in nav_block
+    assert "position: fixed !important" not in nav_block
+    assert "grid-row: 2 !important" in nav_block
+    assert "grid-row: 2 !important" in main_block
 
 
 def test_phase6_login_hero_title_is_localized_in_all_supported_languages():

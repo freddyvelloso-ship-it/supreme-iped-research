@@ -5,12 +5,7 @@ Cobrem: pseudonimizacao, parsing de eventos NDJSON, deduplicacao por hash.
 import hashlib
 import json
 import sys
-import os
-import tempfile
 from pathlib import Path
-from unittest.mock import MagicMock, patch
-
-import pytest
 
 # Adiciona o diretório raiz da integração ao path
 sys.path.insert(0, str(Path(__file__).parent.parent / "supreme-watcher"))
@@ -80,13 +75,13 @@ class TestNDJSONParsing:
     def test_multiple_events_parsed(self):
         events = [make_event(artifact_id=f"item_{i}") for i in range(5)]
         ndjson = "\n".join(json.dumps(e) for e in events)
-        parsed = [json.loads(l) for l in ndjson.strip().splitlines() if l.strip()]
+        parsed = [json.loads(line) for line in ndjson.strip().splitlines() if line.strip()]
         assert len(parsed) == 5
         assert parsed[2]["artifact_id"] == "item_2"
 
     def test_empty_lines_skipped(self):
         lines = [json.dumps(make_event()), "", "  ", json.dumps(make_event(artifact_id="b"))]
-        parsed = [json.loads(l) for l in lines if l.strip()]
+        parsed = [json.loads(line) for line in lines if line.strip()]
         assert len(parsed) == 2
 
     def test_malformed_line_does_not_crash(self):
@@ -223,6 +218,6 @@ class TestWatcherState:
             f.seek(old_size)
             new_content = f.read().decode()
 
-        new_events = [json.loads(l) for l in new_content.splitlines() if l.strip()]
+        new_events = [json.loads(line) for line in new_content.splitlines() if line.strip()]
         assert len(new_events) == 1
         assert new_events[0]["artifact_id"] == "novo"
