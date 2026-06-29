@@ -172,9 +172,6 @@ function Wait-RequiredForms {
 
     if ($RequiredInstruments.Count -eq 0) { return }
 
-    $reopenIntervalSeconds = 30
-    $lastReopenAt = Get-Date
-
     while ($true) {
         try {
             $due = Get-DueInstruments
@@ -199,17 +196,7 @@ function Wait-RequiredForms {
 
         $nomesPendentes = ($pending | ForEach-Object { $_.label }) -join ", "
         Write-Host "Aguardando conclusao dos questionarios: $nomesPendentes" -ForegroundColor Yellow
-
-        $now = Get-Date
-        if (($now - $lastReopenAt).TotalSeconds -ge $reopenIntervalSeconds) {
-            Write-Host "Reabrindo links pendentes: $nomesPendentes" -ForegroundColor Yellow
-            foreach ($inst in $pending) {
-                $formUrl = New-FormLink $inst.key
-                Open-Url $formUrl
-                Start-Sleep -Seconds 1
-            }
-            $lastReopenAt = $now
-        }
+        Write-Host "Os links ja foram abertos uma vez nesta sessao; nao serao reabertos automaticamente." -ForegroundColor DarkYellow
 
         Start-Sleep -Seconds 3
     }
