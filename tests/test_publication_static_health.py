@@ -18,13 +18,21 @@ def test_launcher_blocks_post_session_when_iped_does_not_start():
     assert "encerrou imediatamente. O fluxo pos-sessao nao sera aberto." in launcher
 
 
-def test_sentinela_login_not_hybrid_after_authentication():
+def test_sentinela_lab_primary_layer_is_dominant():
     index = (ROOT / "sentinela" / "static" / "index.html").read_text(encoding="utf-8")
-    css = (ROOT / "sentinela" / "static" / "sentinela-redesign.css").read_text(encoding="utf-8")
+    redesign_css = (ROOT / "sentinela" / "static" / "sentinela-redesign.css").read_text(encoding="utf-8")
+    primary_css = (ROOT / "sentinela" / "static" / "sentinela-lab-primary.css").read_text(encoding="utf-8")
+    ux = (ROOT / "sentinela" / "static" / "sentinela-ux.js").read_text(encoding="utf-8")
 
     assert 'class="login-screen sentinela-lab-login"' in index
-    assert "body.sentinela-authenticated #login-screen.sentinela-lab-login" in css
-    assert "display: none !important" in css
+    assert "/sentinela/static/sentinela-lab-primary.css" in index
+    assert "body.sentinela-lab-primary" in primary_css
+    assert "SENTINELA_LAB_PRIMARY" in ux
+    assert "ensureLabShell" in ux
+    assert 'panel.className = "ux-decision-panel"' not in ux
+    assert "addDashboardUX" not in ux
+    assert "body.sentinela-authenticated #login-screen.sentinela-lab-login" in redesign_css
+    assert "display: none !important" in redesign_css
     assert '<div class="login-card-scan"' not in index
     assert '<div class="biometric-field"' not in index
 
@@ -43,7 +51,7 @@ def test_iped_journey_gate_uses_hex64_pseudonym_for_ingest_events():
     gate = (ROOT / "scripts" / "iped_journey_gate.mjs").read_text(encoding="utf-8")
 
     assert 'import { createHash } from "node:crypto";' in gate
-    assert 'function pseudonymize(value)' in gate
+    assert "function pseudonymize(value)" in gate
     assert 'digest("hex")' in gate
     assert "const idHash = pseudonymize(`journey-gate-${Date.now()}`);" in gate
     assert "const idHash = `journey-gate-${Date.now()}`;" not in gate

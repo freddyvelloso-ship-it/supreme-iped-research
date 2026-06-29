@@ -1,0 +1,503 @@
+/*
+  Sentinela SUPREME Lab primary UI layer.
+  This file is intentionally loaded last. It makes the SUPREME Lab visual
+  system the dominant presentation layer while preserving existing API IDs.
+*/
+:root {
+  --lab-bg: #f4f6f8;
+  --lab-sidebar: #101820;
+  --lab-sidebar-hover: #1c2a36;
+  --lab-panel: #ffffff;
+  --lab-panel-soft: #fbfcfe;
+  --lab-border: #d7dee7;
+  --lab-border-strong: #c8d1dc;
+  --lab-text: #1d232b;
+  --lab-muted: #66717f;
+  --lab-accent: #184e77;
+  --lab-accent-2: #2f80ed;
+  --lab-ok: #198754;
+  --lab-warn: #9a6700;
+  --lab-danger: #b42318;
+}
+
+body.sentinela-lab-primary,
+body.sentinela-lab-primary #app-shell,
+body.sentinela-lab-primary .main,
+body.sentinela-lab-primary .section {
+  background: var(--lab-bg) !important;
+  color: var(--lab-text) !important;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif !important;
+  text-shadow: none !important;
+}
+
+body.sentinela-lab-primary::before,
+body.sentinela-lab-primary::after,
+body.sentinela-lab-primary .ux-decision-panel,
+body.sentinela-lab-primary .foc-command-panels,
+body.sentinela-lab-primary .foc-zone-title,
+body.sentinela-lab-primary .foc-sidebar-brand,
+body.sentinela-lab-primary .scan-line,
+body.sentinela-lab-primary #bokeh-canvas {
+  display: none !important;
+}
+
+body.sentinela-lab-primary * {
+  letter-spacing: 0 !important;
+  box-shadow: none !important;
+}
+
+body.sentinela-lab-primary #app-shell {
+  min-height: 100vh !important;
+  display: grid !important;
+  grid-template-columns: 260px minmax(0, 1fr) !important;
+}
+
+body.sentinela-lab-primary .header {
+  position: sticky !important;
+  top: 0 !important;
+  grid-column: 1 / -1 !important;
+  z-index: 20 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  overflow: visible !important;
+}
+
+body.sentinela-lab-primary .header-top {
+  display: grid !important;
+  grid-template-columns: 260px auto minmax(0, 1fr) auto !important;
+  min-height: 76px !important;
+  height: auto !important;
+  align-items: center !important;
+  gap: 18px !important;
+  padding: 16px 24px 16px 0 !important;
+  background: var(--lab-bg) !important;
+  border-bottom: 1px solid var(--lab-border) !important;
+}
+
+body.sentinela-lab-primary .logo {
+  min-height: 76px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: 0 24px !important;
+  color: #f7fbff !important;
+  background: var(--lab-sidebar) !important;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 760 !important;
+  -webkit-text-fill-color: #f7fbff !important;
+}
+
+body.sentinela-lab-primary .logo span {
+  margin-top: 3px !important;
+  color: #d8e8f8 !important;
+  -webkit-text-fill-color: #d8e8f8 !important;
+  font-size: 12px !important;
+  text-transform: none !important;
+}
+
+body.sentinela-lab-primary .header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+}
+
+body.sentinela-lab-primary .lab-context-strip {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  min-width: 0 !important;
+}
+
+body.sentinela-lab-primary .lab-context-strip span,
+body.sentinela-lab-primary .status-dot-wrap,
+body.sentinela-lab-primary .refresh-countdown,
+body.sentinela-lab-primary .user-badge,
+body.sentinela-lab-primary .role-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-height: 32px !important;
+  padding: 6px 10px !important;
+  border: 1px solid var(--lab-border) !important;
+  border-radius: 999px !important;
+  background: #ffffff !important;
+  color: var(--lab-muted) !important;
+  font-size: 12px !important;
+}
+
+body.sentinela-lab-primary .lab-context-strip b {
+  color: var(--lab-accent) !important;
+}
+
+body.sentinela-lab-primary .lab-context-strip em {
+  font-style: normal !important;
+  color: var(--lab-text) !important;
+}
+
+body.sentinela-lab-primary .header-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-end !important;
+}
+
+body.sentinela-lab-primary .global-lang-switch {
+  display: inline-flex !important;
+  gap: 4px !important;
+  padding: 3px !important;
+  border: 1px solid var(--lab-border) !important;
+  border-radius: 999px !important;
+  background: #ffffff !important;
+}
+
+body.sentinela-lab-primary .global-lang-switch button,
+body.sentinela-lab-primary .btn-logout,
+body.sentinela-lab-primary .war-room-link,
+body.sentinela-lab-primary button,
+body.sentinela-lab-primary .foc-table-action {
+  border: 1px solid var(--lab-accent) !important;
+  border-radius: 6px !important;
+  background: var(--lab-accent) !important;
+  color: #ffffff !important;
+  font: inherit !important;
+  font-weight: 650 !important;
+  min-height: 38px !important;
+}
+
+body.sentinela-lab-primary .global-lang-switch button {
+  min-width: 34px !important;
+  min-height: 28px !important;
+  padding: 4px 8px !important;
+  background: transparent !important;
+  color: var(--lab-muted) !important;
+  border-color: transparent !important;
+}
+
+body.sentinela-lab-primary .global-lang-switch button.active {
+  background: var(--lab-accent-2) !important;
+  color: #ffffff !important;
+}
+
+body.sentinela-lab-primary .btn-logout {
+  background: #ffffff !important;
+  color: var(--lab-danger) !important;
+  border-color: #f3b6b1 !important;
+}
+
+body.sentinela-lab-primary .war-room-link {
+  background: #fff1f0 !important;
+  color: var(--lab-danger) !important;
+  border-color: #f3b6b1 !important;
+}
+
+body.sentinela-lab-primary .nav {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  position: fixed !important;
+  top: 76px !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 260px !important;
+  display: grid !important;
+  align-content: start !important;
+  gap: 8px !important;
+  padding: 24px !important;
+  background: var(--lab-sidebar) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  border: 0 !important;
+}
+
+body.sentinela-lab-primary .nav-tab {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  padding: 10px 12px !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  color: #d8e8f8 !important;
+  background: transparent !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+body.sentinela-lab-primary .nav-tab:hover {
+  background: var(--lab-sidebar-hover) !important;
+  color: #ffffff !important;
+}
+
+body.sentinela-lab-primary .nav-tab.active {
+  background: var(--lab-accent-2) !important;
+  border-color: var(--lab-accent-2) !important;
+  color: #ffffff !important;
+}
+
+body.sentinela-lab-primary .sentinela-nav-code {
+  display: grid !important;
+  place-items: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, .12) !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: 760 !important;
+}
+
+body.sentinela-lab-primary .main {
+  grid-column: 2 !important;
+  width: 100% !important;
+  max-width: 1480px !important;
+  margin: 0 auto !important;
+  padding: 28px !important;
+}
+
+body.sentinela-lab-primary .section-title {
+  color: var(--lab-text) !important;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+  font-weight: 760 !important;
+  margin-bottom: 4px !important;
+}
+
+body.sentinela-lab-primary .section-sub,
+body.sentinela-lab-primary .kpi-sub,
+body.sentinela-lab-primary .empty-state,
+body.sentinela-lab-primary .loading-msg {
+  color: var(--lab-muted) !important;
+  font-size: 14px !important;
+}
+
+body.sentinela-lab-primary .lab-overview {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, .8fr) minmax(260px, .8fr) !important;
+  gap: 14px !important;
+  margin: 18px 0 !important;
+}
+
+body.sentinela-lab-primary .lab-panel,
+body.sentinela-lab-primary .card,
+body.sentinela-lab-primary .kpi-card,
+body.sentinela-lab-primary .flag-card,
+body.sentinela-lab-primary .conv-card,
+body.sentinela-lab-primary .param-card,
+body.sentinela-lab-primary .foc-participants-card,
+body.sentinela-lab-primary .foc-empty-panel,
+body.sentinela-lab-primary .foc-participant-raw-table,
+body.sentinela-lab-primary .chart-wrap {
+  background: var(--lab-panel) !important;
+  color: var(--lab-text) !important;
+  border: 1px solid var(--lab-border) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+body.sentinela-lab-primary .lab-panel,
+body.sentinela-lab-primary .card,
+body.sentinela-lab-primary .kpi-card,
+body.sentinela-lab-primary .flag-card,
+body.sentinela-lab-primary .conv-card,
+body.sentinela-lab-primary .param-card {
+  padding: 16px !important;
+}
+
+body.sentinela-lab-primary .lab-panel-head,
+body.sentinela-lab-primary .card-title,
+body.sentinela-lab-primary .kpi-label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  color: #405164 !important;
+  font-size: 12px !important;
+  font-weight: 720 !important;
+  text-transform: none !important;
+  margin-bottom: 12px !important;
+}
+
+body.sentinela-lab-primary .lab-panel-head b {
+  color: var(--lab-accent) !important;
+}
+
+body.sentinela-lab-primary .lab-metric-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+body.sentinela-lab-primary .lab-metric-grid span,
+body.sentinela-lab-primary .lab-list span {
+  display: grid !important;
+  gap: 4px !important;
+  padding: 12px !important;
+  border: 1px solid var(--lab-border) !important;
+  border-radius: 8px !important;
+  background: var(--lab-panel-soft) !important;
+}
+
+body.sentinela-lab-primary .lab-metric-grid b {
+  color: var(--lab-text) !important;
+  font-size: 24px !important;
+}
+
+body.sentinela-lab-primary .lab-metric-grid em,
+body.sentinela-lab-primary .lab-list span {
+  color: var(--lab-muted) !important;
+  font-style: normal !important;
+  font-size: 12px !important;
+}
+
+body.sentinela-lab-primary .lab-panel button {
+  width: 100% !important;
+  margin-top: 8px !important;
+}
+
+body.sentinela-lab-primary .kpi-grid,
+body.sentinela-lab-primary .foc-source-kpis {
+  display: none !important;
+}
+
+body.sentinela-lab-primary .foc-deep-dive {
+  margin-top: 16px !important;
+  border: 1px solid var(--lab-border) !important;
+  border-radius: 8px !important;
+  background: var(--lab-panel) !important;
+}
+
+body.sentinela-lab-primary .foc-deep-dive summary {
+  padding: 14px 16px !important;
+  color: var(--lab-text) !important;
+  font-weight: 720 !important;
+  cursor: pointer !important;
+}
+
+body.sentinela-lab-primary .foc-deep-dive summary em {
+  display: block !important;
+  margin-top: 4px !important;
+  color: var(--lab-muted) !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+}
+
+body.sentinela-lab-primary .chart-wrap {
+  background: #fbfcfe !important;
+}
+
+body.sentinela-lab-primary table,
+body.sentinela-lab-primary .foc-participants-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background: var(--lab-panel) !important;
+  color: var(--lab-text) !important;
+}
+
+body.sentinela-lab-primary th,
+body.sentinela-lab-primary td,
+body.sentinela-lab-primary .foc-participants-table th,
+body.sentinela-lab-primary .foc-participants-table td {
+  border-bottom: 1px solid var(--lab-border) !important;
+  color: var(--lab-text) !important;
+  background: #ffffff !important;
+}
+
+body.sentinela-lab-primary th,
+body.sentinela-lab-primary .foc-participants-table th {
+  background: #edf2f7 !important;
+  color: #405164 !important;
+  font-weight: 700 !important;
+}
+
+body.sentinela-lab-primary .badge,
+body.sentinela-lab-primary .chip,
+body.sentinela-lab-primary .flag-tag,
+body.sentinela-lab-primary .pipeline-status {
+  background: #edf2f7 !important;
+  color: #405164 !important;
+  border: 1px solid var(--lab-border) !important;
+  border-radius: 999px !important;
+}
+
+body.sentinela-lab-primary .text-red,
+body.sentinela-lab-primary .flag-tag.critical,
+body.sentinela-lab-primary .flag-tag.high {
+  color: var(--lab-danger) !important;
+}
+
+body.sentinela-lab-primary .text-green {
+  color: var(--lab-ok) !important;
+}
+
+body.sentinela-lab-primary .text-amber {
+  color: var(--lab-warn) !important;
+}
+
+body.sentinela-lab-primary #side-panel-overlay {
+  background: rgba(16, 24, 32, .42) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+body.sentinela-lab-primary #side-panel {
+  background: #ffffff !important;
+  color: var(--lab-text) !important;
+  border: 1px solid var(--lab-border-strong) !important;
+  border-radius: 8px !important;
+}
+
+body.sentinela-lab-primary #side-panel .panel-header {
+  background: var(--lab-sidebar) !important;
+  border-bottom: 1px solid var(--lab-sidebar-hover) !important;
+}
+
+body.sentinela-lab-primary #side-panel .panel-title {
+  color: #f7fbff !important;
+}
+
+body.sentinela-lab-primary #side-panel .panel-body {
+  background: var(--lab-bg) !important;
+}
+
+@media (max-width: 980px) {
+  body.sentinela-lab-primary #app-shell {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.sentinela-lab-primary .header-top {
+    grid-template-columns: 1fr !important;
+    padding: 0 !important;
+  }
+
+  body.sentinela-lab-primary .logo {
+    min-height: 64px !important;
+  }
+
+  body.sentinela-lab-primary .header-actions,
+  body.sentinela-lab-primary .header-meta,
+  body.sentinela-lab-primary .lab-context-strip {
+    padding: 0 18px !important;
+  }
+
+  body.sentinela-lab-primary .nav {
+    position: static !important;
+    width: 100% !important;
+    grid-column: 1 !important;
+    display: flex !important;
+    padding: 12px !important;
+    overflow-x: auto !important;
+  }
+
+  body.sentinela-lab-primary .main {
+    grid-column: 1 !important;
+    padding: 18px !important;
+  }
+
+  body.sentinela-lab-primary .lab-overview,
+  body.sentinela-lab-primary .lab-metric-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

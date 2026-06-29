@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from src.app.auth import ROLE_PERMISSIONS, scoped_id_filter
 from src.app.api import export, product
+from src.app.auth import ROLE_PERMISSIONS, scoped_id_filter
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -111,20 +111,27 @@ def test_phase6_war_room_dashboard_return_does_not_flash_login():
     assert "body.auth-restoring #login-screen" in index
     assert "const INITIAL_SECTION" in index
     assert "navigateTo(INITIAL_SECTION)" in index
-
     assert 'href="/sentinela/?section=overview&from=warroom"' in war_room
     assert "const DASHBOARD_URL = '/sentinela/?section=overview&from=warroom';" in war_room
     assert "window.location.href = '/';" not in war_room
 
 
-def test_phase6_login_transition_uses_authenticated_state_not_inline_display():
+def test_phase6_lab_primary_ui_controls_authenticated_console():
     index = (ROOT / "static" / "index.html").read_text(encoding="utf-8")
-    css = (ROOT / "static" / "sentinela-redesign.css").read_text(encoding="utf-8")
+    redesign_css = (ROOT / "static" / "sentinela-redesign.css").read_text(encoding="utf-8")
+    primary_css = (ROOT / "static" / "sentinela-lab-primary.css").read_text(encoding="utf-8")
+    ux = (ROOT / "static" / "sentinela-ux.js").read_text(encoding="utf-8")
 
     assert "document.body.classList.add('sentinela-authenticated')" in index
     assert "document.body.classList.remove('sentinela-authenticated')" in index
-    assert "body.sentinela-authenticated #login-screen.sentinela-lab-login" in css
-    assert "display: none !important" in css
+    assert "/sentinela/static/sentinela-lab-primary.css" in index
+    assert "body.sentinela-lab-primary" in primary_css
+    assert "SENTINELA_LAB_PRIMARY" in ux
+    assert "ensureLabShell" in ux
+    assert 'panel.className = "ux-decision-panel"' not in ux
+    assert "addDashboardUX" not in ux
+    assert "body.sentinela-authenticated #login-screen.sentinela-lab-login" in redesign_css
+    assert "display: none !important" in redesign_css
     assert "document.getElementById('login-screen').style.display = 'none'" not in index
     assert "document.getElementById('login-screen').style.display = 'flex'" not in index
 
