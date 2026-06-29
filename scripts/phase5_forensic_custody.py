@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -13,8 +13,8 @@ SUPREME_BACKEND = ROOT / "supreme-backend"
 if str(SUPREME_BACKEND) not in sys.path:
     sys.path.insert(0, str(SUPREME_BACKEND))
 
-from src.engine.supreme.algorithm import CURRENT_ALGORITHM_VERSION
-from src.engine.supreme.forensic import (
+from src.engine.supreme.algorithm import CURRENT_ALGORITHM_VERSION  # noqa: E402
+from src.engine.supreme.forensic import (  # noqa: E402
     build_forensic_export,
     build_hash_chain,
     build_integrity_report,
@@ -26,7 +26,7 @@ from src.engine.supreme.forensic import (
     sign_event,
     verify_forensic_export,
 )
-from src.engine.supreme.models import EventRecord
+from src.engine.supreme.models import EventRecord  # noqa: E402
 
 
 OUTPUT_DIR = ROOT / "docs" / "phase5_forensic"

@@ -50,11 +50,12 @@ body.sentinela-lab-primary #app-shell {
   min-height: 100vh !important;
   display: grid !important;
   grid-template-columns: 260px minmax(0, 1fr) !important;
+  grid-template-rows: auto minmax(0, 1fr) !important;
 }
 
 body.sentinela-lab-primary .header {
-  position: sticky !important;
-  top: 0 !important;
+  display: contents !important;
+  position: static !important;
   grid-column: 1 / -1 !important;
   z-index: 20 !important;
   padding: 0 !important;
@@ -65,7 +66,12 @@ body.sentinela-lab-primary .header {
 
 body.sentinela-lab-primary .header-top {
   display: grid !important;
-  grid-template-columns: 260px auto minmax(0, 1fr) auto !important;
+  grid-template-columns: 260px minmax(260px, 1fr) auto auto !important;
+  grid-column: 1 / -1 !important;
+  grid-row: 1 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 30 !important;
   min-height: 76px !important;
   height: auto !important;
   align-items: center !important;
@@ -106,9 +112,10 @@ body.sentinela-lab-primary .header-actions {
 
 body.sentinela-lab-primary .lab-context-strip {
   display: flex !important;
-  flex-wrap: wrap !important;
+  flex-wrap: nowrap !important;
   gap: 8px !important;
   min-width: 0 !important;
+  overflow: hidden !important;
 }
 
 body.sentinela-lab-primary .lab-context-strip span,
@@ -126,15 +133,22 @@ body.sentinela-lab-primary .role-badge {
   background: #ffffff !important;
   color: var(--lab-muted) !important;
   font-size: 12px !important;
+  min-width: 0 !important;
+  max-width: 260px !important;
+  white-space: nowrap !important;
 }
 
 body.sentinela-lab-primary .lab-context-strip b {
   color: var(--lab-accent) !important;
+  white-space: nowrap !important;
 }
 
 body.sentinela-lab-primary .lab-context-strip em {
   font-style: normal !important;
   color: var(--lab-text) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 body.sentinela-lab-primary .header-meta {
@@ -197,11 +211,12 @@ body.sentinela-lab-primary .war-room-link {
 body.sentinela-lab-primary .nav {
   grid-column: 1 !important;
   grid-row: 2 !important;
-  position: fixed !important;
+  position: sticky !important;
   top: 76px !important;
-  bottom: 0 !important;
-  left: 0 !important;
+  align-self: start !important;
   width: 260px !important;
+  min-height: calc(100vh - 76px) !important;
+  max-height: calc(100vh - 76px) !important;
   display: grid !important;
   align-content: start !important;
   gap: 8px !important;
@@ -251,6 +266,8 @@ body.sentinela-lab-primary .sentinela-nav-code {
 
 body.sentinela-lab-primary .main {
   grid-column: 2 !important;
+  grid-row: 2 !important;
+  align-self: start !important;
   width: 100% !important;
   max-width: 1480px !important;
   margin: 0 auto !important;
@@ -485,6 +502,8 @@ body.sentinela-lab-primary #side-panel .panel-body {
   body.sentinela-lab-primary .nav {
     position: static !important;
     width: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
     grid-column: 1 !important;
     display: flex !important;
     padding: 12px !important;

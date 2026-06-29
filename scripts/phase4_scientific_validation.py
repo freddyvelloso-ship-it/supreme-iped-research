@@ -16,11 +16,11 @@ SUPREME_BACKEND = ROOT / "supreme-backend"
 if str(SUPREME_BACKEND) not in sys.path:
     sys.path.insert(0, str(SUPREME_BACKEND))
 
-from src.engine.supreme.algorithm import CURRENT_ALGORITHM_VERSION, algorithm_parameters
-from src.engine.supreme.ieo import compute_ieo
-from src.engine.supreme.models import BaselineParameters, IEORecord, WindowMetrics
-from src.engine.supreme.psi import compute_psi
-from src.engine.supreme.red_flags import PSIWindow, evaluate_red_flags
+from src.engine.supreme.algorithm import CURRENT_ALGORITHM_VERSION, algorithm_parameters  # noqa: E402
+from src.engine.supreme.ieo import compute_ieo  # noqa: E402
+from src.engine.supreme.models import BaselineParameters, IEORecord, WindowMetrics  # noqa: E402
+from src.engine.supreme.psi import compute_psi  # noqa: E402
+from src.engine.supreme.red_flags import PSIWindow, evaluate_red_flags  # noqa: E402
 
 
 VALIDATION_SEED = 424242
@@ -606,7 +606,7 @@ def render_model_card(metrics: dict[str, Any]) -> str:
         "",
         "## Model Identity",
         "",
-        f"- Model/system: SUPREME V4 analytic engine",
+        "- Model/system: SUPREME V4 analytic engine",
         f"- Algorithm version: `{metrics['algorithm_version']}`",
         f"- Validation artifact version: `{metrics['validation_version']}`",
         f"- Seed: `{metrics['seed']}`",

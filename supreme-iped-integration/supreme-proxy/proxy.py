@@ -29,20 +29,18 @@ Uso:
 """
 
 import asyncio
-import hashlib
 import json
 import logging
 import os
 import sys
 import time
-from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
 import httpx
 from fastapi import FastAPI, Request, Response
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import JSONResponse
 
 INTEGRATION_ROOT = Path(__file__).resolve().parents[1]
 if str(INTEGRATION_ROOT) not in sys.path:

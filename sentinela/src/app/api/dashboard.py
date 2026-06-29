@@ -16,11 +16,10 @@ Fixes aplicados:
 """
 from __future__ import annotations
 
-from datetime import date
-from typing import Optional, Literal
+from typing import Literal
 import logging
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, Query
 from pydantic import BaseModel
 from sqlalchemy import text
 
