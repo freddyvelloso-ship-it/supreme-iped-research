@@ -43,6 +43,20 @@ def test_sentinela_lab_primary_layer_is_dominant():
     assert '<div class="biometric-field"' not in index
 
 
+def test_war_room_dashboard_return_does_not_flash_login_shell():
+    index = (ROOT / "sentinela" / "static" / "index.html").read_text(encoding="utf-8")
+    redesign_css = (ROOT / "sentinela" / "static" / "sentinela-redesign.css").read_text(encoding="utf-8")
+    war_room = (ROOT / "sentinela" / "static" / "war_room.html").read_text(encoding="utf-8")
+
+    assert 'href="/sentinela#overview"' in war_room
+    assert "const DASHBOARD_URL = '/sentinela#overview';" in war_room
+    assert "from=warroom" not in war_room
+    assert "document.body.classList.add('auth-restoring');" in index
+    assert "if (restoringLogin) restoringLogin.style.display = 'none';" in index
+    assert "body.auth-restoring #login-screen.sentinela-lab-login" in redesign_css
+    assert "visibility: hidden !important" in redesign_css
+
+
 def test_sentinela_lab_menu_is_not_fixed_or_cut_by_header():
     primary_css = (ROOT / "sentinela" / "static" / "sentinela-lab-primary.css").read_text(encoding="utf-8")
 

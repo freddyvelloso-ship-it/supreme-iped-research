@@ -109,10 +109,13 @@ def test_phase6_war_room_dashboard_return_does_not_flash_login():
 
     assert '<body class="auth-restoring">' in index
     assert "body.auth-restoring #login-screen" in index
+    assert "document.body.classList.add('auth-restoring');" in index
+    assert "if (restoringLogin) restoringLogin.style.display = 'none';" in index
     assert "const INITIAL_SECTION" in index
     assert "navigateTo(INITIAL_SECTION)" in index
-    assert 'href="/sentinela/?section=overview&from=warroom"' in war_room
-    assert "const DASHBOARD_URL = '/sentinela/?section=overview&from=warroom';" in war_room
+    assert 'href="/sentinela#overview"' in war_room
+    assert "const DASHBOARD_URL = '/sentinela#overview';" in war_room
+    assert "from=warroom" not in war_room
     assert "window.location.href = '/';" not in war_room
 
 

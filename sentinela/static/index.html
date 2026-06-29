@@ -77,7 +77,14 @@ body::after {
 }
 
 body.auth-restoring #login-screen {
-  display: none;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body.auth-restoring #app-shell {
+  display: none !important;
 }
 
 /* Bokeh particles canvas */
@@ -3625,6 +3632,11 @@ document.getElementById('history-participant-select').addEventListener('change',
 
 // ── AUTO-START ────────────────────────────────────────────────────────────────
 (async function restoreSession(){
+  document.body.classList.add('auth-restoring');
+  const restoringLogin = document.getElementById('login-screen');
+  const restoringApp = document.getElementById('app-shell');
+  if (restoringLogin) restoringLogin.style.display = 'none';
+  if (restoringApp) restoringApp.style.display = 'none';
   try {
     const res = await fetch(API + '/api/auth/me', { credentials: 'same-origin' });
     if (!res.ok) throw new Error('sem sessao');
