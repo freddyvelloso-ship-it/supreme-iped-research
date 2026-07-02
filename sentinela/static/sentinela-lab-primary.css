@@ -5,8 +5,10 @@
 */
 :root {
   --lab-bg: #f4f6f8;
-  --lab-sidebar: #101820;
-  --lab-sidebar-hover: #1c2a36;
+  --lab-sidebar: #17435a;
+  --lab-sidebar-deep: #0f2f42;
+  --lab-sidebar-hover: #23607a;
+  --lab-sidebar-active: #2f80a0;
   --lab-panel: #ffffff;
   --lab-panel-soft: #fbfcfe;
   --lab-border: #d7dee7;
@@ -221,10 +223,12 @@ body.sentinela-lab-primary .nav {
   align-content: start !important;
   gap: 8px !important;
   padding: 24px !important;
-  background: var(--lab-sidebar) !important;
+  background:
+    linear-gradient(180deg, var(--lab-sidebar), var(--lab-sidebar-deep)) !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
   border: 0 !important;
+  border-right: 1px solid rgba(255, 255, 255, .14) !important;
 }
 
 body.sentinela-lab-primary .nav-tab {
@@ -232,23 +236,34 @@ body.sentinela-lab-primary .nav-tab {
   align-items: center !important;
   gap: 10px !important;
   width: 100% !important;
+  min-height: 46px !important;
   padding: 10px 12px !important;
-  border: 1px solid transparent !important;
+  border: 1px solid rgba(255, 255, 255, .10) !important;
   border-radius: 6px !important;
-  color: #d8e8f8 !important;
-  background: transparent !important;
+  color: #e6f4f7 !important;
+  background: rgba(255, 255, 255, .055) !important;
   font-size: 13px !important;
   font-weight: 600 !important;
+  line-height: 1.25 !important;
+  transition: background .16s ease, border-color .16s ease, transform .16s ease !important;
 }
 
 body.sentinela-lab-primary .nav-tab:hover {
   background: var(--lab-sidebar-hover) !important;
   color: #ffffff !important;
+  border-color: rgba(255, 255, 255, .22) !important;
+  transform: translateX(2px) !important;
 }
 
 body.sentinela-lab-primary .nav-tab.active {
-  background: var(--lab-accent-2) !important;
-  border-color: var(--lab-accent-2) !important;
+  background: #e9f7fb !important;
+  border-color: #b8dce8 !important;
+  color: #12384d !important;
+  transform: none !important;
+}
+
+body.sentinela-lab-primary .nav-tab.active .sentinela-nav-code {
+  background: var(--lab-sidebar-active) !important;
   color: #ffffff !important;
 }
 
@@ -258,8 +273,8 @@ body.sentinela-lab-primary .sentinela-nav-code {
   width: 30px !important;
   height: 30px !important;
   border-radius: 8px !important;
-  background: rgba(255, 255, 255, .12) !important;
-  color: #ffffff !important;
+  background: rgba(255, 255, 255, .16) !important;
+  color: #f7fbff !important;
   font-size: 11px !important;
   font-weight: 760 !important;
 }
@@ -402,6 +417,132 @@ body.sentinela-lab-primary .foc-deep-dive summary em {
   font-weight: 400 !important;
 }
 
+body.sentinela-lab-primary #section-participants .section-sub {
+  max-width: 760px !important;
+  margin-bottom: 16px !important;
+  line-height: 1.55 !important;
+}
+
+body.sentinela-lab-primary #section-participants .foc-participant-workqueue,
+body.sentinela-lab-primary #participants-workqueue {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+  margin: 18px 0 !important;
+}
+
+body.sentinela-lab-primary .foc-person-card {
+  min-height: 264px !important;
+  display: grid !important;
+  grid-template-rows: auto auto auto 1fr auto !important;
+  gap: 14px !important;
+  padding: 16px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%) !important;
+  border: 1px solid var(--lab-border) !important;
+  border-radius: 8px !important;
+  color: var(--lab-text) !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+}
+
+body.sentinela-lab-primary .foc-person-card:hover,
+body.sentinela-lab-primary .foc-person-card:focus-visible {
+  border-color: #9cc8d7 !important;
+  outline: 0 !important;
+  box-shadow: 0 14px 34px rgba(15, 47, 66, .12) !important;
+}
+
+body.sentinela-lab-primary .foc-person-topline {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  gap: 12px !important;
+  align-items: start !important;
+}
+
+body.sentinela-lab-primary .foc-person-topline > div {
+  min-width: 0 !important;
+  display: grid !important;
+  gap: 4px !important;
+}
+
+body.sentinela-lab-primary .foc-person-label {
+  color: var(--lab-muted) !important;
+  font-size: 10px !important;
+  font-weight: 760 !important;
+  text-transform: uppercase !important;
+}
+
+body.sentinela-lab-primary .foc-person-topline strong {
+  min-width: 0 !important;
+  color: var(--lab-accent) !important;
+  font-family: "Cascadia Mono", Consolas, monospace !important;
+  font-size: 14px !important;
+  font-weight: 740 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+body.sentinela-lab-primary .foc-open-dossier {
+  min-height: 34px !important;
+  padding: 7px 10px !important;
+  white-space: nowrap !important;
+}
+
+body.sentinela-lab-primary .foc-person-status,
+body.sentinela-lab-primary .foc-person-flags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+
+body.sentinela-lab-primary .foc-person-profile {
+  min-height: 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+body.sentinela-lab-primary .foc-person-metrics {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+body.sentinela-lab-primary .foc-person-metrics div {
+  min-width: 0 !important;
+  display: grid !important;
+  gap: 4px !important;
+  padding: 10px !important;
+  border: 1px solid var(--lab-border) !important;
+  border-radius: 8px !important;
+  background: #f7fafc !important;
+}
+
+body.sentinela-lab-primary .foc-person-metrics span {
+  color: var(--lab-muted) !important;
+  font-size: 11px !important;
+  font-weight: 650 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+body.sentinela-lab-primary .foc-person-metrics strong {
+  color: var(--lab-text) !important;
+  font-size: 13px !important;
+  font-weight: 760 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+body.sentinela-lab-primary .foc-muted {
+  color: var(--lab-muted) !important;
+}
+
 body.sentinela-lab-primary .chart-wrap {
   background: #fbfcfe !important;
 }
@@ -434,10 +575,42 @@ body.sentinela-lab-primary .badge,
 body.sentinela-lab-primary .chip,
 body.sentinela-lab-primary .flag-tag,
 body.sentinela-lab-primary .pipeline-status {
+  display: inline-flex !important;
+  align-items: center !important;
+  max-width: 100% !important;
+  min-height: 26px !important;
+  padding: 4px 9px !important;
   background: #edf2f7 !important;
   color: #405164 !important;
   border: 1px solid var(--lab-border) !important;
   border-radius: 999px !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  line-height: 1.2 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+body.sentinela-lab-primary .badge.baseline {
+  background: #ecfdf3 !important;
+  border-color: #bbebcd !important;
+  color: #0f6b3d !important;
+}
+
+body.sentinela-lab-primary .badge.residual_burden,
+body.sentinela-lab-primary .badge.high {
+  background: #fff8e6 !important;
+  border-color: #f6d990 !important;
+  color: #825a00 !important;
+}
+
+body.sentinela-lab-primary .flag-tag.reactivity,
+body.sentinela-lab-primary .flag-tag.dissonance,
+body.sentinela-lab-primary .flag-tag.chronicity {
+  background: #fff1f0 !important;
+  border-color: #f3b6b1 !important;
+  color: var(--lab-danger) !important;
 }
 
 body.sentinela-lab-primary .text-red,
@@ -455,28 +628,110 @@ body.sentinela-lab-primary .text-amber {
 }
 
 body.sentinela-lab-primary #side-panel-overlay {
+  display: none !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 8000 !important;
   background: rgba(16, 24, 32, .42) !important;
   backdrop-filter: blur(5px) !important;
 }
 
+body.sentinela-lab-primary.participant-dossier-open {
+  overflow: hidden !important;
+}
+
+body.sentinela-lab-primary.participant-dossier-open #side-panel-overlay {
+  display: block !important;
+}
+
 body.sentinela-lab-primary #side-panel {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 8001 !important;
+  width: min(1180px, calc(100vw - 48px)) !important;
+  max-width: calc(100vw - 48px) !important;
+  height: min(88vh, 920px) !important;
+  max-height: calc(100vh - 48px) !important;
+  display: none !important;
+  flex-direction: column !important;
   background: #ffffff !important;
   color: var(--lab-text) !important;
   border: 1px solid var(--lab-border-strong) !important;
   border-radius: 8px !important;
+  box-shadow: 0 28px 90px rgba(15, 23, 42, .22) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  transform: translate(-50%, calc(-50% + 20px)) scale(.985) !important;
+  transition: opacity .18s ease, transform .18s ease !important;
+}
+
+body.sentinela-lab-primary #side-panel.open {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translate(-50%, -50%) scale(1) !important;
 }
 
 body.sentinela-lab-primary #side-panel .panel-header {
-  background: var(--lab-sidebar) !important;
+  min-height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  padding: 12px 16px !important;
+  flex: 0 0 auto !important;
+  background:
+    linear-gradient(145deg, rgba(120, 212, 197, .14), transparent 42%),
+    linear-gradient(180deg, var(--lab-sidebar), var(--lab-sidebar-deep)) !important;
   border-bottom: 1px solid var(--lab-sidebar-hover) !important;
 }
 
 body.sentinela-lab-primary #side-panel .panel-title {
   color: #f7fbff !important;
+  max-width: min(840px, calc(100vw - 180px)) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+body.sentinela-lab-primary #side-panel .panel-close {
+  width: 36px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  flex: 0 0 auto !important;
+  display: grid !important;
+  place-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-color: rgba(255, 255, 255, .24) !important;
+  background: rgba(255, 255, 255, .08) !important;
+  color: #f7fbff !important;
 }
 
 body.sentinela-lab-primary #side-panel .panel-body {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  padding: 18px !important;
   background: var(--lab-bg) !important;
+}
+
+body.sentinela-lab-primary #side-panel .grid-2 {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+body.sentinela-lab-primary #side-panel .chart-wrap {
+  min-height: 260px !important;
+}
+
+body.sentinela-lab-primary #side-panel table {
+  min-width: 760px !important;
 }
 
 @media (max-width: 980px) {
@@ -519,4 +774,71 @@ body.sentinela-lab-primary #side-panel .panel-body {
   body.sentinela-lab-primary .lab-metric-grid {
     grid-template-columns: 1fr !important;
   }
+
+  body.sentinela-lab-primary #participants-workqueue,
+  body.sentinela-lab-primary .foc-person-metrics {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/*
+  Participant dossier safety override.
+  Loaded last so the dossier cannot fall back to the old lateral drawer and
+  leave the interface blurred without visible content.
+*/
+body.sentinela-authenticated #participants-workqueue,
+body.sentinela-lab-primary #participants-workqueue {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+}
+
+body.sentinela-authenticated #side-panel-overlay,
+body.sentinela-lab-primary #side-panel-overlay {
+  display: none !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 8000 !important;
+  background: rgba(16, 24, 32, .42) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+body.sentinela-authenticated.participant-dossier-open,
+body.sentinela-lab-primary.participant-dossier-open {
+  overflow: hidden !important;
+}
+
+body.sentinela-authenticated.participant-dossier-open #side-panel-overlay,
+body.sentinela-lab-primary.participant-dossier-open #side-panel-overlay {
+  display: block !important;
+}
+
+body.sentinela-authenticated #side-panel,
+body.sentinela-lab-primary #side-panel {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 8001 !important;
+  width: min(1180px, calc(100vw - 48px)) !important;
+  max-width: calc(100vw - 48px) !important;
+  height: min(88vh, 920px) !important;
+  max-height: calc(100vh - 48px) !important;
+  display: none !important;
+  flex-direction: column !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  transform: translate(-50%, calc(-50% + 20px)) scale(.985) !important;
+  transition: opacity .18s ease, transform .18s ease !important;
+}
+
+body.sentinela-authenticated #side-panel.open,
+body.sentinela-lab-primary #side-panel.open {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translate(-50%, -50%) scale(1) !important;
 }

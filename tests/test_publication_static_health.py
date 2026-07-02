@@ -43,6 +43,20 @@ def test_sentinela_lab_primary_layer_is_dominant():
     assert '<div class="biometric-field"' not in index
 
 
+def test_war_room_dashboard_return_does_not_flash_login_shell():
+    index = (ROOT / "sentinela" / "static" / "index.html").read_text(encoding="utf-8")
+    redesign_css = (ROOT / "sentinela" / "static" / "sentinela-redesign.css").read_text(encoding="utf-8")
+    war_room = (ROOT / "sentinela" / "static" / "war_room.html").read_text(encoding="utf-8")
+
+    assert 'href="/sentinela#overview"' in war_room
+    assert "const DASHBOARD_URL = '/sentinela#overview';" in war_room
+    assert "from=warroom" not in war_room
+    assert "document.body.classList.add('auth-restoring');" in index
+    assert "if (restoringLogin) restoringLogin.style.display = 'none';" in index
+    assert "body.auth-restoring #login-screen.sentinela-lab-login" in redesign_css
+    assert "visibility: hidden !important" in redesign_css
+
+
 def test_sentinela_lab_menu_is_not_fixed_or_cut_by_header():
     primary_css = (ROOT / "sentinela" / "static" / "sentinela-lab-primary.css").read_text(encoding="utf-8")
 
@@ -52,6 +66,20 @@ def test_sentinela_lab_menu_is_not_fixed_or_cut_by_header():
     assert "position: fixed !important" not in nav_block
     assert "grid-row: 2 !important" in nav_block
     assert "grid-row: 2 !important" in main_block
+    assert "--lab-sidebar: #17435a;" in primary_css
+    assert "--lab-sidebar-deep: #0f2f42;" in primary_css
+    assert "linear-gradient(180deg, var(--lab-sidebar), var(--lab-sidebar-deep))" in nav_block
+    assert "background: #e9f7fb !important;" in primary_css
+
+
+def test_sentinela_participants_cards_are_readable():
+    primary_css = (ROOT / "sentinela" / "static" / "sentinela-lab-primary.css").read_text(encoding="utf-8")
+
+    assert "body.sentinela-lab-primary .foc-person-card" in primary_css
+    assert "min-height: 264px !important;" in primary_css
+    assert "grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;" in primary_css
+    assert "body.sentinela-lab-primary .foc-person-metrics" in primary_css
+    assert "body.sentinela-lab-primary .foc-person-status" in primary_css
 
 
 def test_login_i18n_has_no_fixed_hero_title():

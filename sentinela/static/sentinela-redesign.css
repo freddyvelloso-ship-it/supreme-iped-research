@@ -3657,6 +3657,18 @@ body.sentinela-authenticated #login-screen.sentinela-lab-login {
   display: none !important;
 }
 
+body.auth-restoring #login-screen,
+body.auth-restoring #login-screen.sentinela-lab-login {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body.auth-restoring #app-shell {
+  display: none !important;
+}
+
 #login-screen.sentinela-lab-login *,
 #login-screen.sentinela-lab-login *::before,
 #login-screen.sentinela-lab-login *::after {
