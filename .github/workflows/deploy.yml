@@ -35,4 +35,4 @@ jobs:
       - name: Rebuild and restart affected services
         run: |
           ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
-            "cd /opt/supreme-iped && docker compose up -d --build supreme-api supreme-worker sentinela"
+            "cd /opt/supreme-iped && docker compose up -d --build supreme-api supreme-worker sentinela && docker compose restart nginx"
