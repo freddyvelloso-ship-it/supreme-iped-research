@@ -1,3 +1,6 @@
+# Local deploy staging (generated secrets, certs, rendered env files)
+.deploy-stage/
+
 # Secrets and environment files
 .env
 *.env

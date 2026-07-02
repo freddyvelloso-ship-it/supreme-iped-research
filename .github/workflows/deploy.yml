@@ -1,0 +1,37 @@
+name: Deploy to Hetzner
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'supreme-backend/**'
+      - 'sentinela/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Sync application code to server
+        run: |
+          rsync -avz --delete \
+            --exclude '.env.production' --exclude '.env' \
+            -e "ssh -i ~/.ssh/deploy_key" \
+            supreme-backend/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/opt/supreme-iped/supreme-backend/
+          rsync -avz --delete \
+            --exclude '.env.production' --exclude '.env' \
+            -e "ssh -i ~/.ssh/deploy_key" \
+            sentinela/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/opt/supreme-iped/sentinela/
+
+      - name: Rebuild and restart affected services
+        run: |
+          ssh -i ~/.ssh/deploy_key ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
+            "cd /opt/supreme-iped && docker compose up -d --build supreme-api supreme-worker sentinela"
