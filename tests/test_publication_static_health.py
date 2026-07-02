@@ -57,6 +57,38 @@ def test_war_room_dashboard_return_does_not_flash_login_shell():
     assert "visibility: hidden !important" in redesign_css
 
 
+def test_war_room_is_isolated_from_global_side_panel_css():
+    war_room = (ROOT / "sentinela" / "static" / "war_room.html").read_text(encoding="utf-8")
+
+    assert "/sentinela/static/sentinela-redesign.css" not in war_room
+    assert 'class="war-side-panel"' in war_room
+    assert 'class="war-side-panel-overlay"' in war_room
+    assert ".war-side-panel:not(.open)" in war_room
+    assert "visibility: hidden;" in war_room
+    assert 'class="side-panel"' not in war_room
+    assert 'class="side-panel-overlay"' not in war_room
+
+
+def test_war_room_i18n_covers_visible_kpis_and_empty_states():
+    war_room = (ROOT / "sentinela" / "static" / "war_room.html").read_text(encoding="utf-8")
+
+    for text in [
+        "Real-time KPIs",
+        "Convergence distribution",
+        "Not enough data in this window",
+        "KPIs en tiempo real",
+        "Distribución de convergencia",
+        "No hay datos suficientes en esta ventana",
+        "KPIs em tempo real",
+        "Distribuição de convergência",
+        "Sem dados suficientes nesta janela",
+    ]:
+        assert text in war_room
+
+    assert "data-war-i18n=\"chartEmpty\"" in war_room
+    assert "applyWarRoomLocale();" in war_room
+
+
 def test_sentinela_lab_menu_is_not_fixed_or_cut_by_header():
     primary_css = (ROOT / "sentinela" / "static" / "sentinela-lab-primary.css").read_text(encoding="utf-8")
 

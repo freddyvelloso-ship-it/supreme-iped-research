@@ -477,6 +477,26 @@ body::after {
 
 .chart-wrap.tall { height: 300px; }
 
+.chart-wrap.is-empty canvas {
+  display: none;
+}
+
+.chart-empty {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  border: 1px dashed rgba(122,132,168,0.32);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  background: rgba(255,255,255,0.025);
+}
+
+.chart-wrap.is-empty .chart-empty {
+  display: flex;
+}
+
 /* ── TABLE ── */
 .data-table-wrap {
   background: var(--surface);
@@ -583,7 +603,7 @@ body::after {
 .filter-btn.active { background: rgba(26,111,255,0.15); border-color: rgba(26,111,255,0.4); color: var(--accent2); }
 
 /* ── SIDE PANEL ── */
-.side-panel-overlay {
+.war-side-panel-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
@@ -592,9 +612,9 @@ body::after {
   backdrop-filter: blur(4px);
 }
 
-.side-panel-overlay.open { display: block; }
+.war-side-panel-overlay.open { display: block; }
 
-.side-panel {
+.war-side-panel {
   position: fixed;
   right: 0;
   top: 0;
@@ -609,9 +629,19 @@ body::after {
   transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
-.side-panel.open { transform: translateX(0); }
+.war-side-panel:not(.open) {
+  display: block;
+  pointer-events: none;
+  visibility: hidden;
+}
 
-.side-panel-header {
+.war-side-panel.open {
+  transform: translateX(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.war-side-panel-header {
   position: sticky;
   top: 0;
   background: var(--bg2);
@@ -623,7 +653,7 @@ body::after {
   z-index: 1;
 }
 
-.side-panel-title {
+.war-side-panel-title {
   font-family: 'Syne', sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -646,7 +676,7 @@ body::after {
 
 .close-btn:hover { color: var(--text); background: rgba(255,255,255,0.1); }
 
-.side-panel-body { padding: 24px; }
+.war-side-panel-body { padding: 24px; }
 
 /* ── MODAL ── */
 .modal-overlay {
@@ -1090,7 +1120,6 @@ tr.participant-inactive td.action-cell { opacity: 1; }
   .signature-field { border-top-color: #aaa !important; color: #666 !important; }
 }
 </style>
-<link rel="stylesheet" href="/sentinela/static/sentinela-redesign.css">
 <script defer src="/sentinela/static/sentinela-ux.js?v=foc-20260626-i18n2"></script>
 </head>
 <body>
@@ -1127,7 +1156,7 @@ tr.participant-inactive td.action-cell { opacity: 1; }
   <div id="alertBanners"></div>
 
   <!-- Pipeline -->
-  <div class="section-title">Pipeline de Dados</div>
+  <div class="section-title" data-war-i18n="pipelineTitle">Pipeline de Dados</div>
   <div class="pipeline" id="pipeline">
     <div class="pipeline-step unknown">
       <div class="pipeline-icon">🗂</div>
@@ -1161,7 +1190,7 @@ tr.participant-inactive td.action-cell { opacity: 1; }
   </div>
 
   <!-- KPIs -->
-  <div class="section-title">KPIs em Tempo Real</div>
+  <div class="section-title" data-war-i18n="kpisTitle">KPIs em Tempo Real</div>
   <div class="kpi-grid" id="kpiGrid">
     <div class="kpi-card accent-blue">
       <div class="kpi-label">Participantes Ativos</div>
@@ -1186,7 +1215,7 @@ tr.participant-inactive td.action-cell { opacity: 1; }
   </div>
 
   <!-- Convergence -->
-  <div class="section-title">Distribuição de Convergência</div>
+  <div class="section-title" data-war-i18n="convergenceTitle">Distribuição de Convergência</div>
   <div class="convergence-grid" id="convergenceGrid">
     <div class="conv-card baseline">
       <div class="conv-icon">🟢</div>
@@ -1219,11 +1248,12 @@ tr.participant-inactive td.action-cell { opacity: 1; }
   </div>
 
   <!-- Mini IEO×PSI chart -->
-  <div class="section-title">Série Temporal IEO × PSI</div>
+  <div class="section-title" data-war-i18n="timeSeriesTitle">Série Temporal IEO × PSI</div>
   <div class="chart-container">
-    <div class="chart-title">Evolução IEO e PSI médios por janela</div>
+    <div class="chart-title" data-war-i18n="timeSeriesChart">Evolução IEO e PSI médios por janela</div>
     <div class="chart-wrap">
       <canvas id="chartMissaoSeries"></canvas>
+      <div class="chart-empty" data-war-i18n="chartEmpty">Sem dados suficientes nesta janela</div>
     </div>
   </div>
 </div>
@@ -1234,10 +1264,10 @@ tr.participant-inactive td.action-cell { opacity: 1; }
   <div class="filters-bar" id="participFilters">
     <span style="font-size:12px;color:var(--muted);font-weight:600;">Filtrar:</span>
     <button class="filter-btn active" onclick="filterParticipants('all', this)" data-war-i18n="all">Todos</button>
-    <button class="filter-btn" onclick="filterParticipants('baseline', this)">Baseline</button>
-    <button class="filter-btn" onclick="filterParticipants('residual_burden', this)">Carga Residual</button>
-    <button class="filter-btn" onclick="filterParticipants('convergence', this)">Convergência</button>
-    <button class="filter-btn" onclick="filterParticipants('divergence', this)">Divergência</button>
+    <button class="filter-btn" onclick="filterParticipants('baseline', this)" data-war-i18n="filterBaseline">Baseline</button>
+    <button class="filter-btn" onclick="filterParticipants('residual_burden', this)" data-war-i18n="filterResidual">Carga Residual</button>
+    <button class="filter-btn" onclick="filterParticipants('convergence', this)" data-war-i18n="filterConvergence">Convergência</button>
+    <button class="filter-btn" onclick="filterParticipants('divergence', this)" data-war-i18n="filterDivergence">Divergência</button>
     <button class="filter-btn" id="filterInactiveBtn" onclick="toggleShowInactive(this)" data-war-i18n="showInactive" style="border-color:rgba(249,115,22,0.3);color:var(--amber)">Mostrar Inativos</button>
     <span style="flex:1"></span>
     <span style="font-size:11px;color:var(--muted);">Clique em ↑↓ para ordenar · Clique em linha para detalhe</span>
@@ -1349,15 +1379,13 @@ tr.participant-inactive td.action-cell { opacity: 1; }
 </div>
 
 <!-- ══════════════════════════ SIDE PANEL (detalhe participante) ══ -->
-<div class="side-panel-overlay" id="sidePanelOverlay" onclick="closeSidePanel()"></div>
-<div class="side-panel" id="sidePanel">
-  <div class="side-panel-header">
-    <div class="side-panel-title" id="sidePanelTitle">Participante</div>
+<div class="war-side-panel-overlay" id="sidePanelOverlay" onclick="closeSidePanel()"></div>
+<div class="war-side-panel" id="sidePanel">
+  <div class="war-side-panel-header">
+    <div class="war-side-panel-title" id="sidePanelTitle">Participante</div>
     <button class="close-btn" onclick="closeSidePanel()">×</button>
   </div>
-  <div class="side-panel-body" id="sidePanelBody">
-    <div class="spinner"></div>
-  </div>
+  <div class="war-side-panel-body" id="sidePanelBody"></div>
 </div>
 
 <!-- ══════════════════════════════════════ MODAL RELATÓRIO ══ -->
@@ -1481,6 +1509,261 @@ const WAR_ROOM_I18N = {
   },
 };
 
+const WAR_ROOM_STATIC_COPY = {
+  "pt-BR": {
+    dashboard: "← Visão Geral",
+    mission: "MISSÃO",
+    participants: "PARTICIPANTES",
+    longitudinal: "LONGITUDINAL",
+    report: "RELATÓRIO",
+    all: "Todos",
+    showInactive: "Mostrar Inativos",
+    hideInactive: "Ocultar Inativos",
+    copy: "Copiar Texto",
+    print: "Imprimir / PDF",
+    close: "Fechar",
+    pipelineTitle: "Pipeline de Dados",
+    activeParticipants: "Participantes Ativos",
+    totalStudy: "total no estudo",
+    avgIeo: "IEO Médio (última janela)",
+    ieoSub: "Índice de Exposição Ocupacional",
+    avgPsi: "PSI Médio (última janela)",
+    psiSub: "Pressão Psicométrica Integrada",
+    activeFlags: "Red Flags Ativas",
+    flagsSub: "flags em monitoramento",
+    convergenceTitle: "Distribuição de Convergência",
+    baseline: "BASELINE",
+    residualLoad: "CARGA RESIDUAL",
+    convergence: "CONVERGÊNCIA",
+    divergence: "DIVERGÊNCIA",
+    timeSeriesTitle: "Série Temporal IEO × PSI",
+    timeSeriesChart: "Evolução IEO e PSI médios por janela",
+    filter: "Filtrar:",
+    filterHint: "Clique em ↑↓ para ordenar · Clique em linha para detalhe",
+    loadingParticipants: "Carregando participantes...",
+    studyProgress: "Progresso do Estudo",
+    ieoWindowChart: "IEO Médio por Janela",
+    psiWindowChart: "PSI Médio + Instrumentos Psicométricos",
+    flagsWindowChart: "Red Flags por Janela",
+    windowSummary: "Resumo de Janelas",
+    reportTitle: "Relatório Técnico SUPREME V4",
+    reportBody: "Gera um relatório técnico completo baseado em todos os dados reais do estudo, com laudo narrativo, análise por participante, red flags e recomendações.",
+    generateReport: "Gerar Relatório Completo",
+    reportHint: "Carrega todos os endpoints e monta o relatório automaticamente",
+    participant: "Participante",
+    actionTitle: "Ações",
+  },
+  "en-US": {
+    dashboard: "← Overview",
+    mission: "MISSION",
+    participants: "PARTICIPANTS",
+    longitudinal: "LONGITUDINAL",
+    report: "REPORT",
+    all: "All",
+    showInactive: "Show inactive",
+    hideInactive: "Hide inactive",
+    copy: "Copy Text",
+    print: "Print / PDF",
+    close: "Close",
+    pipelineTitle: "Data Pipeline",
+    activeParticipants: "Active Participants",
+    totalStudy: "total in study",
+    avgIeo: "Average IEO (latest window)",
+    ieoSub: "Occupational Exposure Index",
+    avgPsi: "Average PSI (latest window)",
+    psiSub: "Integrated Psychometric Pressure",
+    activeFlags: "Active Red Flags",
+    flagsSub: "flags under monitoring",
+    convergenceTitle: "Convergence Distribution",
+    baseline: "BASELINE",
+    residualLoad: "RESIDUAL LOAD",
+    convergence: "CONVERGENCE",
+    divergence: "DIVERGENCE",
+    timeSeriesTitle: "IEO × PSI Time Series",
+    timeSeriesChart: "Average IEO and PSI evolution by window",
+    filter: "Filter:",
+    filterHint: "Click ↑↓ to sort · Click row for detail",
+    loadingParticipants: "Loading participants...",
+    studyProgress: "Study Progress",
+    ieoWindowChart: "Average IEO by Window",
+    psiWindowChart: "Average PSI + Psychometric Instruments",
+    flagsWindowChart: "Red Flags by Window",
+    windowSummary: "Window Summary",
+    reportTitle: "SUPREME V4 Technical Report",
+    reportBody: "Generates a complete technical report based on real study data, with narrative report, participant analysis, red flags and recommendations.",
+    generateReport: "Generate Full Report",
+    reportHint: "Loads all endpoints and builds the report automatically",
+    participant: "Participant",
+    actionTitle: "Actions",
+  },
+  "es-ES": {
+    dashboard: "← Vista General",
+    mission: "MISIÓN",
+    participants: "PARTICIPANTES",
+    longitudinal: "LONGITUDINAL",
+    report: "INFORME",
+    all: "Todos",
+    showInactive: "Mostrar inactivos",
+    hideInactive: "Ocultar inactivos",
+    copy: "Copiar Texto",
+    print: "Imprimir / PDF",
+    close: "Cerrar",
+    pipelineTitle: "Pipeline de Datos",
+    activeParticipants: "Participantes Activos",
+    totalStudy: "total en el estudio",
+    avgIeo: "IEO Promedio (última ventana)",
+    ieoSub: "Índice de Exposición Ocupacional",
+    avgPsi: "PSI Promedio (última ventana)",
+    psiSub: "Presión Psicométrica Integrada",
+    activeFlags: "Red Flags Activas",
+    flagsSub: "flags en monitoreo",
+    convergenceTitle: "Distribución de Convergencia",
+    baseline: "LÍNEA BASE",
+    residualLoad: "CARGA RESIDUAL",
+    convergence: "CONVERGENCIA",
+    divergence: "DIVERGENCIA",
+    timeSeriesTitle: "Serie Temporal IEO × PSI",
+    timeSeriesChart: "Evolución de IEO y PSI promedio por ventana",
+    filter: "Filtrar:",
+    filterHint: "Haga clic en ↑↓ para ordenar · Haga clic en una fila para detalle",
+    loadingParticipants: "Cargando participantes...",
+    studyProgress: "Progreso del Estudio",
+    ieoWindowChart: "IEO Promedio por Ventana",
+    psiWindowChart: "PSI Promedio + Instrumentos Psicométricos",
+    flagsWindowChart: "Red Flags por Ventana",
+    windowSummary: "Resumen de Ventanas",
+    reportTitle: "Informe Técnico SUPREME V4",
+    reportBody: "Genera un informe técnico completo basado en todos los datos reales del estudio, con informe narrativo, análisis por participante, red flags y recomendaciones.",
+    generateReport: "Generar Informe Completo",
+    reportHint: "Carga todos los endpoints y monta el informe automáticamente",
+    participant: "Participante",
+    actionTitle: "Acciones",
+  },
+};
+
+Object.assign(WAR_ROOM_STATIC_COPY["pt-BR"], {
+  dashboard: "← Visão Geral",
+  mission: "MISSÃO",
+  participants: "PARTICIPANTES",
+  longitudinal: "LONGITUDINAL",
+  report: "RELATÓRIO",
+  copy: "Copiar texto",
+  print: "Imprimir / PDF",
+  kpisTitle: "KPIs em tempo real",
+  percentOfTotal: "do total",
+  activeParticipants: "Participantes ativos",
+  totalStudy: "total no estudo",
+  avgIeo: "IEO médio (última janela)",
+  ieoSub: "Índice de Exposição Ocupacional",
+  avgPsi: "PSI médio (última janela)",
+  psiSub: "Pressão Psicométrica Integrada",
+  activeFlags: "Red flags ativas",
+  flagsSub: "flags em monitoramento",
+  convergenceTitle: "Distribuição de convergência",
+  baseline: "BASELINE",
+  residualLoad: "CARGA RESIDUAL",
+  convergence: "CONVERGÊNCIA",
+  divergence: "DIVERGÊNCIA",
+  baselineDesc: "IEO normal · PSI normal",
+  residualDesc: "IEO normal · PSI elevado",
+  convergenceDesc: "IEO alto + PSI alto",
+  divergenceDesc: "IEO alto · PSI suprimido",
+  timeSeriesTitle: "Série temporal IEO × PSI",
+  timeSeriesChart: "Evolução IEO e PSI médios por janela",
+  chartEmpty: "Sem dados suficientes nesta janela",
+  filterBaseline: "Baseline",
+  filterResidual: "Carga residual",
+  filterConvergence: "Convergência",
+  filterDivergence: "Divergência",
+  filterHint: "Clique em ↑↓ para ordenar · clique em uma linha para detalhe",
+  participantHeaders: ["ID Hash", "Janelas", "Último IEO", "Último PSI", "Convergência", "Tendência", "Flags", "Status", "Ações"],
+  participantLoadingError: "Erro ao carregar trajetória",
+  participantLoading: "Carregando trajetória...",
+  processedWindows: "janelas processadas",
+});
+
+Object.assign(WAR_ROOM_STATIC_COPY["en-US"], {
+  dashboard: "← Overview",
+  mission: "MISSION",
+  participants: "PARTICIPANTS",
+  longitudinal: "LONGITUDINAL",
+  report: "REPORT",
+  copy: "Copy text",
+  print: "Print / PDF",
+  kpisTitle: "Real-time KPIs",
+  percentOfTotal: "of total",
+  activeParticipants: "Active participants",
+  totalStudy: "total in study",
+  avgIeo: "Average IEO (latest window)",
+  ieoSub: "Occupational Exposure Index",
+  avgPsi: "Average PSI (latest window)",
+  psiSub: "Integrated Psychometric Pressure",
+  activeFlags: "Active red flags",
+  flagsSub: "flags under monitoring",
+  convergenceTitle: "Convergence distribution",
+  baseline: "BASELINE",
+  residualLoad: "RESIDUAL LOAD",
+  convergence: "CONVERGENCE",
+  divergence: "DIVERGENCE",
+  baselineDesc: "Normal IEO · normal PSI",
+  residualDesc: "Normal IEO · elevated PSI",
+  convergenceDesc: "High IEO + high PSI",
+  divergenceDesc: "High IEO · suppressed PSI",
+  timeSeriesTitle: "IEO × PSI time series",
+  timeSeriesChart: "Average IEO and PSI evolution by window",
+  chartEmpty: "Not enough data in this window",
+  filterBaseline: "Baseline",
+  filterResidual: "Residual load",
+  filterConvergence: "Convergence",
+  filterDivergence: "Divergence",
+  filterHint: "Click ↑↓ to sort · click a row for detail",
+  participantHeaders: ["Hash ID", "Windows", "Latest IEO", "Latest PSI", "Convergence", "Trend", "Flags", "Status", "Actions"],
+  participantLoadingError: "Error loading trajectory",
+  participantLoading: "Loading trajectory...",
+  processedWindows: "processed windows",
+});
+
+Object.assign(WAR_ROOM_STATIC_COPY["es-ES"], {
+  dashboard: "← Vista general",
+  mission: "MISIÓN",
+  participants: "PARTICIPANTES",
+  longitudinal: "LONGITUDINAL",
+  report: "INFORME",
+  copy: "Copiar texto",
+  print: "Imprimir / PDF",
+  kpisTitle: "KPIs en tiempo real",
+  percentOfTotal: "del total",
+  activeParticipants: "Participantes activos",
+  totalStudy: "total en el estudio",
+  avgIeo: "IEO promedio (última ventana)",
+  ieoSub: "Índice de Exposición Ocupacional",
+  avgPsi: "PSI promedio (última ventana)",
+  psiSub: "Presión Psicométrica Integrada",
+  activeFlags: "Red flags activas",
+  flagsSub: "flags en monitoreo",
+  convergenceTitle: "Distribución de convergencia",
+  baseline: "LÍNEA BASE",
+  residualLoad: "CARGA RESIDUAL",
+  convergence: "CONVERGENCIA",
+  divergence: "DIVERGENCIA",
+  baselineDesc: "IEO normal · PSI normal",
+  residualDesc: "IEO normal · PSI elevado",
+  convergenceDesc: "IEO alto + PSI alto",
+  divergenceDesc: "IEO alto · PSI suprimido",
+  timeSeriesTitle: "Serie temporal IEO × PSI",
+  timeSeriesChart: "Evolución de IEO y PSI promedio por ventana",
+  chartEmpty: "No hay datos suficientes en esta ventana",
+  filterBaseline: "Línea base",
+  filterResidual: "Carga residual",
+  filterConvergence: "Convergencia",
+  filterDivergence: "Divergencia",
+  filterHint: "Haga clic en ↑↓ para ordenar · haga clic en una fila para detalle",
+  participantHeaders: ["ID Hash", "Ventanas", "Último IEO", "Último PSI", "Convergencia", "Tendencia", "Flags", "Estado", "Acciones"],
+  participantLoadingError: "Error al cargar trayectoria",
+  participantLoading: "Cargando trayectoria...",
+  processedWindows: "ventanas procesadas",
+});
+
 function activeWarLocale() {
   return window.SENTINELA_ACTIVE_LOCALE || document.documentElement.lang || "pt-BR";
 }
@@ -1494,11 +1777,46 @@ function reportCopy() {
 }
 
 function applyWarRoomLocale() {
-  const c = warCopy();
+  const c = { ...warCopy(), ...(WAR_ROOM_STATIC_COPY[activeWarLocale()] || WAR_ROOM_STATIC_COPY["pt-BR"]) };
   document.querySelectorAll("[data-war-i18n]").forEach((el) => {
     const key = el.getAttribute("data-war-i18n");
     if (c[key]) el.textContent = c[key];
   });
+  const set = (selector, value) => {
+    const el = document.querySelector(selector);
+    if (el && value) el.textContent = value;
+  };
+  const setAll = (selector, values) => {
+    document.querySelectorAll(selector).forEach((el, index) => {
+      if (values[index]) el.textContent = values[index];
+    });
+  };
+  set("#apiStatusText", c.checking);
+  set(".refresh-counter", `${c.refreshIn || "refresh in"} 60s`);
+  setAll("#kpiGrid .kpi-label", [c.activeParticipants, c.avgIeo, c.avgPsi, c.activeFlags]);
+  setAll("#kpiGrid .kpi-sub", [c.totalStudy, c.ieoSub, c.psiSub, c.flagsSub]);
+  setAll("#convergenceGrid .conv-name", [c.baseline, c.residualLoad, c.convergence, c.divergence]);
+  setAll("#convergenceGrid .conv-desc", [c.baselineDesc, c.residualDesc, c.convergenceDesc, c.divergenceDesc]);
+  document.querySelectorAll("#convergenceGrid .conv-pct").forEach((el) => {
+    const n = (el.textContent || "").match(/\d+/)?.[0] || "0";
+    el.textContent = `${n}% ${c.percentOfTotal}`;
+  });
+  const missionChartTitle = document.querySelector("#chartMissaoSeries")?.closest(".chart-container")?.querySelector(".chart-title");
+  if (missionChartTitle) missionChartTitle.textContent = c.timeSeriesChart;
+  set("#participFilters > span:first-child", c.filter);
+  set("#participFilters > span:last-child", c.filterHint);
+  setAll("#participFilters .filter-btn:not(#filterInactiveBtn)", [c.all, c.filterBaseline, c.filterResidual, c.filterConvergence, c.filterDivergence]);
+  setAll("#participantsTable thead th", (c.participantHeaders || []).map((label, index) => index < 4 || index === 5 ? `${label} ↕` : label));
+  set("#participantsBody .empty-state p", c.loadingParticipants);
+  set("#studyProgress .progress-bar-label span:first-child", c.studyProgress);
+  setAll("#panel-longitudinal .chart-title", [c.ieoWindowChart, c.psiWindowChart, c.flagsWindowChart]);
+  set("#panel-longitudinal .section-title", c.windowSummary);
+  set("#panel-relatorio h2", c.reportTitle);
+  set("#panel-relatorio p:first-of-type", c.reportBody);
+  set("#panel-relatorio .btn-generate", c.generateReport);
+  set("#panel-relatorio p:last-of-type", c.reportHint);
+  set("#sidePanelTitle", c.participant);
+  document.querySelectorAll(".chart-empty").forEach((el) => { el.textContent = c.chartEmpty; });
 }
 
 // ══════════════════════════════════════════════════════════
@@ -1708,19 +2026,31 @@ function renderOverview(data) {
   const setConv = (key, elId, pctId) => {
     const val = dist[key] ?? 0;
     document.getElementById(elId).textContent = val;
-    document.getElementById(pctId).textContent = `${Math.round(val/total*100)}% do total`;
+    const c = { ...warCopy(), ...(WAR_ROOM_STATIC_COPY[activeWarLocale()] || WAR_ROOM_STATIC_COPY["pt-BR"]) };
+    document.getElementById(pctId).textContent = `${Math.round(val/total*100)}% ${c.percentOfTotal}`;
   };
   setConv('baseline', 'convBaseline', 'convBaselinePct');
   setConv('residual_burden', 'convResidual', 'convResidualPct');
   setConv('convergence', 'convConvergence', 'convConvergencePct');
   setConv('divergence', 'convDivergence', 'convDivergencePct');
+  applyWarRoomLocale();
 }
 
 // ══════════════════════════════════════════════════════════
 // MISSÃO CHART
 // ══════════════════════════════════════════════════════════
 function renderMissaoChart(series) {
-  if (!series || !series.length) return;
+  const wrap = document.getElementById('chartMissaoSeries')?.closest('.chart-wrap');
+  if (!series || !series.length) {
+    if (chartMissaoSeries) {
+      chartMissaoSeries.destroy();
+      chartMissaoSeries = null;
+    }
+    if (wrap) wrap.classList.add('is-empty');
+    applyWarRoomLocale();
+    return;
+  }
+  if (wrap) wrap.classList.remove('is-empty');
   const labels = series.map(d => formatWindowDate(d.window_start));
   const ieo = series.map(d => d.avg_ieo !== undefined ? Number(d.avg_ieo).toFixed(3) : null);
   const psi = series.map(d => d.avg_psi !== undefined ? Number(d.avg_psi).toFixed(3) : null);
@@ -1780,7 +2110,8 @@ function filterParticipants(filter, btn) {
 function toggleShowInactive(btn) {
   showInactive = !showInactive;
   btn.classList.toggle('active', showInactive);
-  btn.textContent = showInactive ? 'Ocultar Inativos' : 'Mostrar Inativos';
+  const c = { ...warCopy(), ...(WAR_ROOM_STATIC_COPY[activeWarLocale()] || WAR_ROOM_STATIC_COPY["pt-BR"]) };
+  btn.textContent = showInactive ? c.hideInactive : c.showInactive;
   applyParticipantFilters();
 }
 
@@ -1990,8 +2321,9 @@ function showToast(msg, color = 'green') {
 // SIDE PANEL — PARTICIPANT DETAIL
 // ══════════════════════════════════════════════════════════
 async function openParticipant(idHash) {
-  document.getElementById('sidePanelTitle').textContent = `Participante ${idHash ? idHash.substring(0,16)+'…' : ''}`;
-  document.getElementById('sidePanelBody').innerHTML = '<div style="display:flex;justify-content:center;padding:40px;"><div class="spinner"></div></div>';
+  const c = { ...warCopy(), ...(WAR_ROOM_STATIC_COPY[activeWarLocale()] || WAR_ROOM_STATIC_COPY["pt-BR"]) };
+  document.getElementById('sidePanelTitle').textContent = `${c.participant} ${idHash ? idHash.substring(0,16)+'…' : ''}`;
+  document.getElementById('sidePanelBody').innerHTML = `<div style="display:flex;justify-content:center;gap:10px;align-items:center;padding:40px;color:var(--muted);"><div class="spinner"></div><span>${c.participantLoading}</span></div>`;
 
   const overlay = document.getElementById('sidePanelOverlay');
   const panel = document.getElementById('sidePanel');
@@ -2002,13 +2334,14 @@ async function openParticipant(idHash) {
     const data = await apiFetch(`/api/dashboard/participant/${idHash}/trajectory`);
     renderSidePanel(data);
   } catch(e) {
-    document.getElementById('sidePanelBody').innerHTML = `<div class="empty-state"><div class="empty-icon">❌</div><p>Erro ao carregar trajetória: ${e.message}</p></div>`;
+    document.getElementById('sidePanelBody').innerHTML = `<div class="empty-state"><div class="empty-icon">!</div><p>${c.participantLoadingError}: ${e.message}</p></div>`;
   }
 }
 
 function closeSidePanel() {
   document.getElementById('sidePanelOverlay').classList.remove('open');
   document.getElementById('sidePanel').classList.remove('open');
+  document.getElementById('sidePanelBody').innerHTML = '';
   if (sidePanelChartIeo) { sidePanelChartIeo.destroy(); sidePanelChartIeo = null; }
   if (sidePanelChartPsi) { sidePanelChartPsi.destroy(); sidePanelChartPsi = null; }
 }

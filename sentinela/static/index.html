@@ -1327,7 +1327,7 @@ tbody td {
 </style>
 <link rel="stylesheet" href="/sentinela/static/sentinela-redesign.css?v=lab-login-final-20260629"/>
 <link rel="stylesheet" href="/sentinela/static/sentinela-lab-primary.css?v=lab-shell-fix-20260629"/>
-<script defer src="/sentinela/static/sentinela-ux.js?v=lab-shell-fix-20260629"></script>
+<script defer src="/sentinela/static/sentinela-ux.js?v=i18n-foc-fix-20260702"></script>
 </head>
 <body class="auth-restoring">
 
@@ -2065,6 +2065,456 @@ function uxCopy() {
   return typeof window.SENTINELA_UX_COPY === 'function' ? window.SENTINELA_UX_COPY() : {};
 }
 
+const RUNTIME_FALLBACK_COPY = {
+  'pt-BR': {
+    loginLoading: 'Entrando...',
+    invalidCredentials: 'Credenciais inválidas',
+    loginEmailPlaceholder: 'pesquisador@email.com',
+    loginPasswordPlaceholder: 'Chave de acesso',
+    overviewSectionSub: 'Indicadores globais do estudo · última janela processada',
+    totalInStudy: 'total no estudo',
+    averageIeo: 'IEO Médio',
+    averagePsi: 'PSI Médio',
+    latestWindow: 'Última Janela',
+    activeFlags: 'Red Flags Ativos',
+    pendingFlags: 'flags pendentes',
+    lastWindow: 'última janela',
+    pipelineStatus: 'Status',
+    pipelineIeoWindows: 'Janelas IEO',
+    pipelinePsychometrics: 'Psicometria',
+    pipelineRedFlags: 'Red Flags',
+    dataQualitySectionSub: 'Cobertura, metadados e janelas com baixa qualidade no escopo atual',
+    windows: 'Janelas',
+    dqAverage: 'DQ médio',
+    lowQuality: 'Baixa qualidade',
+    missingMetadata: 'Metadados ausentes',
+    algorithmVersions: 'Versões de algoritmo',
+    exportsTitle: 'Exportação Científica',
+    exportsSub: 'Arquivos gerados pelo backend com assinatura e dicionário de dados',
+    exportFormat: 'Formato',
+    exportUse: 'Uso',
+    exportFile: 'Arquivo',
+    downloadCsv: 'Baixar CSV',
+    downloadJson: 'Baixar JSON',
+    downloadParquet: 'Baixar Parquet',
+    openDictionary: 'Abrir dicionário',
+    openHtml: 'Abrir HTML',
+    downloadPdf: 'Baixar PDF',
+    quickAudit: 'R, planilhas e auditoria rápida',
+    technicalReplay: 'Integrações e replay técnico',
+    scientificScale: 'Análise científica em escala',
+    fieldContract: 'Contrato dos campos exportados',
+    signedSummary: 'Resumo assinado no backend',
+    signedPdf: 'PDF assinado no backend',
+    flagsSub: 'Alertas ativos por tipo · clique para expandir detalhes',
+    reactivity: 'Reatividade',
+    dissonance: 'Dissonância',
+    chronicity: 'Cronicidade',
+    flagsByWindow: 'Red Flags por Janela (empilhadas)',
+    flagsList: 'Lista de Flags',
+    psychoSub: 'Evolução dos instrumentos de avaliação ao longo do estudo',
+    psychoOverlay: 'Overlay Normalizado (todos os instrumentos)',
+    historySub: 'Trajetória individual por participante',
+    participantLabel: 'Participante:',
+    selectParticipant: '— selecione —',
+    historyTimeline: 'Timeline IEO (área colorida por convergência)',
+    historyComponents: 'Componentes por Janela (z_t · z_e · z_v · z_d)',
+    psychometricHistory: 'Histórico Psicométrico',
+    fullWindowTable: 'Tabela Completa de Janelas',
+    window: 'Janela',
+    convergence: 'Convergência',
+    baselineSub: 'Parâmetros de grupo e classificação de convergência',
+    meanZT: 'Média Z_T (Tônus)',
+    meanZE: 'Média Z_E (Energia)',
+    meanZV: 'Média Z_V (Valência)',
+    meanZD: 'Média Z_D (Dissonância)',
+    baselineCard: 'Linha de Base',
+    baselineDef: 'IEO normal + PSI normal. Funcionamento dentro do esperado.',
+    residualBurden: 'Carga Residual',
+    residualDef: 'IEO normal + PSI elevado. Sobrecarga sem correlato interoceptivo.',
+    convergenceDef: 'IEO↑ + PSI↑. Ambos elevados — sinal integrativo de risco.',
+    divergenceDef: 'IEO↑ + PSI normal. Sinal interoceptivo mascarado.',
+    scatterIeoPsi: 'Scatter IEO × PSI (por classe de convergência)',
+    participantsByClass: 'Participantes por Classe',
+    currentIeo: 'IEO Atual',
+    currentPsi: 'PSI Atual',
+    classLabel: 'Classe',
+    longitudinalSub: 'Evolução do grupo ao longo de todas as janelas',
+    processedWindows: 'Janelas Processadas',
+    generalAverageIeo: 'IEO Médio Geral',
+    generalAveragePsi: 'PSI Médio Geral',
+    lastParticipants: 'Participantes (última)',
+    longitudinalIeoChart: 'IEO Médio (média ± 1 DP) ao longo das janelas',
+    longitudinalPsyChart: 'Instrumentos Psicométricos Normalizados (sobreposição)',
+    reportSub: 'Laudo completo de exposição ocupacional · formato PGR · imprimível em A4',
+    loadingData: 'Carregando dados...',
+    printPdf: 'Imprimir / PDF',
+    copyText: 'Copiar texto',
+    close: 'Fechar',
+    expertProfileTitle: 'Perfil Longitudinal do Perito Digital',
+    profileDefault: 'Classificação operacional longitudinal calculada pelo SUPREME. Não é diagnóstico clínico.',
+    ieoTrajectory: 'Trajetória IEO',
+    psiTrajectory: 'Trajetória PSI',
+    windowsZComponents: 'Janelas — Componentes Z',
+    participantFlags: 'Red Flags do Participante',
+    confidence: 'Confiança',
+    classifiedAt: 'Classificado em',
+    operationalBase: 'Base operacional',
+    noClinicalProfile: 'Classificação operacional longitudinal calculada pelo SUPREME; não é diagnóstico clínico nem nexo causal automático.',
+    noVersion: 'sem versão',
+    longitudinalEvidence: 'evidência longitudinal recebida',
+    roleNames: { master: 'Master', pesquisador: 'Pesquisador', auditor: 'Auditor', operador: 'Operador', leitura_agregada: 'Leitura agregada' },
+  },
+  'en-US': {
+    loginLoading: 'Entering...',
+    invalidCredentials: 'Invalid credentials',
+    loginEmailPlaceholder: 'researcher@email.com',
+    loginPasswordPlaceholder: 'Access key',
+    overviewSectionSub: 'Global study indicators · latest processed window',
+    totalInStudy: 'total in study',
+    averageIeo: 'Average IEO',
+    averagePsi: 'Average PSI',
+    latestWindow: 'Latest Window',
+    activeFlags: 'Active Red Flags',
+    pendingFlags: 'pending flags',
+    lastWindow: 'latest window',
+    pipelineStatus: 'Status',
+    pipelineIeoWindows: 'IEO windows',
+    pipelinePsychometrics: 'Psychometrics',
+    pipelineRedFlags: 'Red Flags',
+    dataQualitySectionSub: 'Coverage, metadata and low-quality windows in the current scope',
+    windows: 'Windows',
+    dqAverage: 'Average DQ',
+    lowQuality: 'Low quality',
+    missingMetadata: 'Missing metadata',
+    algorithmVersions: 'Algorithm versions',
+    exportsTitle: 'Scientific Export',
+    exportsSub: 'Backend-generated files with signature and data dictionary',
+    exportFormat: 'Format',
+    exportUse: 'Use',
+    exportFile: 'File',
+    downloadCsv: 'Download CSV',
+    downloadJson: 'Download JSON',
+    downloadParquet: 'Download Parquet',
+    openDictionary: 'Open dictionary',
+    openHtml: 'Open HTML',
+    downloadPdf: 'Download PDF',
+    quickAudit: 'R, spreadsheets and quick audit',
+    technicalReplay: 'Integrations and technical replay',
+    scientificScale: 'Scientific analysis at scale',
+    fieldContract: 'Exported field contract',
+    signedSummary: 'Backend-signed summary',
+    signedPdf: 'Backend-signed PDF',
+    flagsSub: 'Active alerts by type · click to expand details',
+    reactivity: 'Reactivity',
+    dissonance: 'Dissonance',
+    chronicity: 'Chronicity',
+    flagsByWindow: 'Red Flags by Window (stacked)',
+    flagsList: 'Flag list',
+    psychoSub: 'Assessment instrument evolution throughout the study',
+    psychoOverlay: 'Normalized overlay (all instruments)',
+    historySub: 'Individual trajectory by participant',
+    participantLabel: 'Participant:',
+    selectParticipant: '— select —',
+    historyTimeline: 'IEO timeline (colored by convergence)',
+    historyComponents: 'Components by Window (z_t · z_e · z_v · z_d)',
+    psychometricHistory: 'Psychometric history',
+    fullWindowTable: 'Complete Window Table',
+    window: 'Window',
+    convergence: 'Convergence',
+    baselineSub: 'Group parameters and convergence classification',
+    meanZT: 'Mean Z_T (Tone)',
+    meanZE: 'Mean Z_E (Energy)',
+    meanZV: 'Mean Z_V (Valence)',
+    meanZD: 'Mean Z_D (Dissonance)',
+    baselineCard: 'Baseline',
+    baselineDef: 'Normal IEO + normal PSI. Functioning within expected range.',
+    residualBurden: 'Residual Load',
+    residualDef: 'Normal IEO + elevated PSI. Overload without interoceptive correlate.',
+    convergenceDef: 'IEO high + PSI high. Both elevated — integrative risk signal.',
+    divergenceDef: 'IEO high + normal PSI. Masked interoceptive signal.',
+    scatterIeoPsi: 'IEO × PSI scatter (by convergence class)',
+    participantsByClass: 'Participants by Class',
+    currentIeo: 'Current IEO',
+    currentPsi: 'Current PSI',
+    classLabel: 'Class',
+    longitudinalSub: 'Group evolution across all windows',
+    processedWindows: 'Processed Windows',
+    generalAverageIeo: 'Overall Average IEO',
+    generalAveragePsi: 'Overall Average PSI',
+    lastParticipants: 'Participants (latest)',
+    longitudinalIeoChart: 'Average IEO (mean ± 1 SD) across windows',
+    longitudinalPsyChart: 'Normalized Psychometric Instruments (overlay)',
+    reportSub: 'Complete occupational exposure report · PGR format · A4 printable',
+    loadingData: 'Loading data...',
+    printPdf: 'Print / PDF',
+    copyText: 'Copy text',
+    close: 'Close',
+    expertProfileTitle: 'Digital Forensics Expert Longitudinal Profile',
+    profileDefault: 'Longitudinal operational classification calculated by SUPREME. It is not a clinical diagnosis.',
+    ieoTrajectory: 'IEO Trajectory',
+    psiTrajectory: 'PSI Trajectory',
+    windowsZComponents: 'Windows — Z Components',
+    participantFlags: 'Participant Red Flags',
+    confidence: 'Confidence',
+    classifiedAt: 'Classified at',
+    operationalBase: 'Operational base',
+    noClinicalProfile: 'Longitudinal operational classification calculated by SUPREME; it is not a clinical diagnosis or automatic causal link.',
+    noVersion: 'no version',
+    longitudinalEvidence: 'longitudinal evidence received',
+    roleNames: { master: 'Master', pesquisador: 'Researcher', auditor: 'Auditor', operador: 'Operator', leitura_agregada: 'Aggregate read-only' },
+  },
+  'es-ES': {
+    loginLoading: 'Entrando...',
+    invalidCredentials: 'Credenciales inválidas',
+    loginEmailPlaceholder: 'investigador@email.com',
+    loginPasswordPlaceholder: 'Clave de acceso',
+    overviewSectionSub: 'Indicadores globales del estudio · última ventana procesada',
+    totalInStudy: 'total en el estudio',
+    averageIeo: 'IEO promedio',
+    averagePsi: 'PSI promedio',
+    latestWindow: 'Última Ventana',
+    activeFlags: 'Red Flags Activas',
+    pendingFlags: 'flags pendientes',
+    lastWindow: 'última ventana',
+    pipelineStatus: 'Estado',
+    pipelineIeoWindows: 'Ventanas IEO',
+    pipelinePsychometrics: 'Psicometría',
+    pipelineRedFlags: 'Red Flags',
+    dataQualitySectionSub: 'Cobertura, metadatos y ventanas de baja calidad en el alcance actual',
+    windows: 'Ventanas',
+    dqAverage: 'DQ promedio',
+    lowQuality: 'Baja calidad',
+    missingMetadata: 'Metadatos ausentes',
+    algorithmVersions: 'Versiones de algoritmo',
+    exportsTitle: 'Exportación Científica',
+    exportsSub: 'Archivos generados por el backend con firma y diccionario de datos',
+    exportFormat: 'Formato',
+    exportUse: 'Uso',
+    exportFile: 'Archivo',
+    downloadCsv: 'Descargar CSV',
+    downloadJson: 'Descargar JSON',
+    downloadParquet: 'Descargar Parquet',
+    openDictionary: 'Abrir diccionario',
+    openHtml: 'Abrir HTML',
+    downloadPdf: 'Descargar PDF',
+    quickAudit: 'R, hojas de cálculo y auditoría rápida',
+    technicalReplay: 'Integraciones y replay técnico',
+    scientificScale: 'Análisis científico a escala',
+    fieldContract: 'Contrato de los campos exportados',
+    signedSummary: 'Resumen firmado por el backend',
+    signedPdf: 'PDF firmado por el backend',
+    flagsSub: 'Alertas activas por tipo · haga clic para expandir detalles',
+    reactivity: 'Reactividad',
+    dissonance: 'Disonancia',
+    chronicity: 'Cronicidad',
+    flagsByWindow: 'Red Flags por Ventana (apiladas)',
+    flagsList: 'Lista de Flags',
+    psychoSub: 'Evolución de los instrumentos de evaluación durante el estudio',
+    psychoOverlay: 'Overlay normalizado (todos los instrumentos)',
+    historySub: 'Trayectoria individual por participante',
+    participantLabel: 'Participante:',
+    selectParticipant: '— seleccione —',
+    historyTimeline: 'Timeline IEO (coloreado por convergencia)',
+    historyComponents: 'Componentes por Ventana (z_t · z_e · z_v · z_d)',
+    psychometricHistory: 'Histórico psicométrico',
+    fullWindowTable: 'Tabla Completa de Ventanas',
+    window: 'Ventana',
+    convergence: 'Convergencia',
+    baselineSub: 'Parámetros de grupo y clasificación de convergencia',
+    meanZT: 'Media Z_T (Tono)',
+    meanZE: 'Media Z_E (Energía)',
+    meanZV: 'Media Z_V (Valencia)',
+    meanZD: 'Media Z_D (Disonancia)',
+    baselineCard: 'Línea Base',
+    baselineDef: 'IEO normal + PSI normal. Funcionamiento dentro de lo esperado.',
+    residualBurden: 'Carga Residual',
+    residualDef: 'IEO normal + PSI elevado. Sobrecarga sin correlato interoceptivo.',
+    convergenceDef: 'IEO alto + PSI alto. Ambos elevados — señal integrativa de riesgo.',
+    divergenceDef: 'IEO alto + PSI normal. Señal interoceptiva enmascarada.',
+    scatterIeoPsi: 'Scatter IEO × PSI (por clase de convergencia)',
+    participantsByClass: 'Participantes por Clase',
+    currentIeo: 'IEO Actual',
+    currentPsi: 'PSI Actual',
+    classLabel: 'Clase',
+    longitudinalSub: 'Evolución del grupo a lo largo de todas las ventanas',
+    processedWindows: 'Ventanas Procesadas',
+    generalAverageIeo: 'IEO Promedio General',
+    generalAveragePsi: 'PSI Promedio General',
+    lastParticipants: 'Participantes (última)',
+    longitudinalIeoChart: 'IEO promedio (media ± 1 DE) a lo largo de las ventanas',
+    longitudinalPsyChart: 'Instrumentos Psicométricos Normalizados (sobreposición)',
+    reportSub: 'Informe completo de exposición ocupacional · formato PGR · imprimible en A4',
+    loadingData: 'Cargando datos...',
+    printPdf: 'Imprimir / PDF',
+    copyText: 'Copiar texto',
+    close: 'Cerrar',
+    expertProfileTitle: 'Perfil Longitudinal del Perito Digital',
+    profileDefault: 'Clasificación operacional longitudinal calculada por SUPREME. No es diagnóstico clínico.',
+    ieoTrajectory: 'Trayectoria IEO',
+    psiTrajectory: 'Trayectoria PSI',
+    windowsZComponents: 'Ventanas — Componentes Z',
+    participantFlags: 'Red Flags del Participante',
+    confidence: 'Confianza',
+    classifiedAt: 'Clasificado en',
+    operationalBase: 'Base operacional',
+    noClinicalProfile: 'Clasificación operacional longitudinal calculada por SUPREME; no es diagnóstico clínico ni nexo causal automático.',
+    noVersion: 'sin versión',
+    longitudinalEvidence: 'evidencia longitudinal recibida',
+    roleNames: { master: 'Master', pesquisador: 'Investigador', auditor: 'Auditor', operador: 'Operador', leitura_agregada: 'Lectura agregada' },
+  },
+};
+
+Object.assign(RUNTIME_FALLBACK_COPY['pt-BR'], {
+  entryRuntime: 'runtime IPED',
+  entryConsole: 'console de gestão',
+  entryGate: 'produção bloqueada',
+  contextSupreme: 'IPED Research',
+  contextStatus: 'STATUS',
+  contextGuardrails: 'GUARDRAILS',
+  contextGuardrailsText: 'sem diagnóstico · sem ranking',
+  ieoTitle: 'Análise IEO',
+  ieoSub: 'Z-scores por componente, distribuições e heatmap de atividade',
+  ieoRadar: 'Z-Scores por Componente (média do grupo)',
+  ieoHistogram: 'Histograma IEO Score',
+  ieoComponents: 'Evolução dos Componentes (z_t, z_e, z_v, z_d)',
+  ieoOverlay: 'Overlay IEO × PSI',
+  studiesTitle: 'Estudos e Casos',
+  studiesSub: 'Recorte operacional por instituição, estudo, caso e versão algorítmica',
+  rawMatrix: 'Matriz técnica',
+  openFullTable: 'abrir tabela completa',
+  studiesHeaders: ['Instituição', 'Estudo', 'Caso', 'Perito responsável', 'Status da coleta', 'Participantes', 'Sessões IPED', 'Último evento', 'Integridade', 'Ações'],
+  participantsHeaders: ['ID Hash', 'Setor/Grupo', 'Psicometria', 'Comportamental', 'Perfil', 'Red Flags', 'Qualidade', 'Última sessão', 'Janelas', 'Ação'],
+  dataQualityTitle: 'Qualidade de Dados',
+  pipelineTitle: 'Saúde do Pipeline',
+  reportTitle: 'Relatório Técnico',
+  reportCardTitle: 'Relatório Técnico SUPREME V4',
+  reportCardBody: 'Gera laudo narrativo completo com dados reais do estudo: IEO, PSI, red flags, distribuição de convergência, análise por participante e recomendações.',
+  reportHint: 'Busca dados de todos os endpoints · gera laudo narrativo · exportável como PDF',
+  reportModalTitle: 'Relatório Técnico — SUPREME V4',
+  reportModalSub: 'Programa de Pesquisa · Exposição Ocupacional em Perícia Digital',
+  loadingTrajectory: 'Carregando trajetória...',
+  operationalStatus: 'Status operacional',
+  pipelineNominal: 'Pipeline nominal',
+  participantsMetric: 'participantes',
+  redFlagsMetric: 'red flags',
+  currentWindowMetric: 'janela atual',
+  nextActions: 'Próximas ações',
+  humanReview: 'humano',
+  reviewParticipant: 'Revisar participante',
+  criticalFlags: 'Red flags críticas',
+  generateReportShort: 'Gerar relatório',
+  custodyIntegrity: 'Integridade',
+  verifiable: 'verificável',
+  chainOk: 'hash chain íntegra',
+  manifestValid: 'Manifesto válido',
+  signatureVerified: 'Assinatura verificada',
+});
+
+Object.assign(RUNTIME_FALLBACK_COPY['en-US'], {
+  entryRuntime: 'IPED runtime',
+  entryConsole: 'management console',
+  entryGate: 'production locked',
+  contextSupreme: 'IPED Research',
+  contextStatus: 'STATUS',
+  contextGuardrails: 'GUARDRAILS',
+  contextGuardrailsText: 'no diagnosis · no ranking',
+  ieoTitle: 'IEO Analysis',
+  ieoSub: 'Component z-scores, distributions and activity heatmap',
+  ieoRadar: 'Component Z-Scores (group mean)',
+  ieoHistogram: 'IEO Score Histogram',
+  ieoComponents: 'Component Evolution (z_t, z_e, z_v, z_d)',
+  ieoOverlay: 'IEO × PSI Overlay',
+  studiesTitle: 'Studies and Cases',
+  studiesSub: 'Operational scope by institution, study, case and algorithm version',
+  rawMatrix: 'Technical matrix',
+  openFullTable: 'open full table',
+  studiesHeaders: ['Institution', 'Study', 'Case', 'Responsible expert', 'Collection status', 'Participants', 'IPED sessions', 'Last event', 'Integrity', 'Actions'],
+  participantsHeaders: ['Hash ID', 'Sector/Group', 'Psychometrics', 'Behavioral', 'Profile', 'Red Flags', 'Quality', 'Last session', 'Windows', 'Action'],
+  dataQualityTitle: 'Data Quality',
+  pipelineTitle: 'Pipeline Health',
+  reportTitle: 'Technical Report',
+  reportCardTitle: 'SUPREME V4 Technical Report',
+  reportCardBody: 'Generates a narrative report with study data: IEO, PSI, red flags, convergence distribution, participant analysis and recommendations.',
+  reportHint: 'Fetches all endpoints · generates a narrative report · exportable as PDF',
+  reportModalTitle: 'Technical Report — SUPREME V4',
+  reportModalSub: 'Research Program · Occupational Exposure in Digital Forensics',
+  loadingTrajectory: 'Loading trajectory...',
+  operationalStatus: 'Operational status',
+  pipelineNominal: 'Pipeline nominal',
+  participantsMetric: 'participants',
+  redFlagsMetric: 'red flags',
+  currentWindowMetric: 'current window',
+  nextActions: 'Next actions',
+  humanReview: 'human',
+  reviewParticipant: 'Review participant',
+  criticalFlags: 'Critical red flags',
+  generateReportShort: 'Generate report',
+  custodyIntegrity: 'Integrity',
+  verifiable: 'verifiable',
+  chainOk: 'Hash chain intact',
+  manifestValid: 'Valid manifest',
+  signatureVerified: 'Signature verified',
+});
+
+Object.assign(RUNTIME_FALLBACK_COPY['es-ES'], {
+  entryRuntime: 'runtime IPED',
+  entryConsole: 'consola de gestión',
+  entryGate: 'producción bloqueada',
+  contextSupreme: 'IPED Research',
+  contextStatus: 'ESTADO',
+  contextGuardrails: 'GUARDRAILS',
+  contextGuardrailsText: 'sin diagnóstico · sin ranking',
+  ieoTitle: 'Análisis IEO',
+  ieoSub: 'Z-scores por componente, distribuciones y heatmap de actividad',
+  ieoRadar: 'Z-Scores por Componente (media del grupo)',
+  ieoHistogram: 'Histograma IEO Score',
+  ieoComponents: 'Evolución de Componentes (z_t, z_e, z_v, z_d)',
+  ieoOverlay: 'Overlay IEO × PSI',
+  studiesTitle: 'Estudios y Casos',
+  studiesSub: 'Recorte operacional por institución, estudio, caso y versión algorítmica',
+  rawMatrix: 'Matriz técnica',
+  openFullTable: 'abrir tabla completa',
+  studiesHeaders: ['Institución', 'Estudio', 'Caso', 'Perito responsable', 'Estado de recolección', 'Participantes', 'Sesiones IPED', 'Último evento', 'Integridad', 'Acciones'],
+  participantsHeaders: ['ID Hash', 'Sector/Grupo', 'Psicometría', 'Comportamental', 'Perfil', 'Red Flags', 'Calidad', 'Última sesión', 'Ventanas', 'Acción'],
+  dataQualityTitle: 'Calidad de Datos',
+  pipelineTitle: 'Salud del Pipeline',
+  reportTitle: 'Informe Técnico',
+  reportCardTitle: 'Informe Técnico SUPREME V4',
+  reportCardBody: 'Genera un informe narrativo con datos del estudio: IEO, PSI, red flags, distribución de convergencia, análisis por participante y recomendaciones.',
+  reportHint: 'Consulta todos los endpoints · genera informe narrativo · exportable como PDF',
+  reportModalTitle: 'Informe Técnico — SUPREME V4',
+  reportModalSub: 'Programa de Investigación · Exposición Ocupacional en Pericia Digital',
+  loadingTrajectory: 'Cargando trayectoria...',
+  operationalStatus: 'Estado operacional',
+  pipelineNominal: 'Pipeline nominal',
+  participantsMetric: 'participantes',
+  redFlagsMetric: 'red flags',
+  currentWindowMetric: 'ventana actual',
+  nextActions: 'Próximas acciones',
+  humanReview: 'humano',
+  reviewParticipant: 'Revisar participante',
+  criticalFlags: 'Red flags críticas',
+  generateReportShort: 'Generar informe',
+  custodyIntegrity: 'Integridad',
+  verifiable: 'verificable',
+  chainOk: 'Hash chain íntegra',
+  manifestValid: 'Manifiesto válido',
+  signatureVerified: 'Firma verificada',
+});
+
+function runtimeCopy() {
+  return uxCopy().runtime || RUNTIME_FALLBACK_COPY[activeLocale()] || RUNTIME_FALLBACK_COPY['pt-BR'];
+}
+
+function t(key, fallback) {
+  const c = uxCopy();
+  const r = runtimeCopy();
+  if (Object.prototype.hasOwnProperty.call(r, key)) return r[key];
+  if (Object.prototype.hasOwnProperty.call(c, key)) return c[key];
+  return fallback ?? key;
+}
+
 function activeLocale() {
   return window.SENTINELA_ACTIVE_LOCALE || document.documentElement.lang || 'pt-BR';
 }
@@ -2131,6 +2581,114 @@ function workspaceCopy() {
   };
 }
 
+function setText(selector, value) {
+  const el = document.querySelector(selector);
+  if (el && value != null) el.textContent = value;
+}
+
+function setAllText(selector, values) {
+  document.querySelectorAll(selector).forEach((el, index) => {
+    if (values[index] != null) el.textContent = values[index];
+  });
+}
+
+function setPlaceholder(id, value) {
+  const el = document.getElementById(id);
+  if (el && value != null) el.placeholder = value;
+}
+
+function applyRuntimeLocaleText() {
+  const r = runtimeCopy();
+  if (!Object.keys(r).length) return;
+
+  setPlaceholder('login-email', r.loginEmailPlaceholder);
+  setPlaceholder('login-password', r.loginPasswordPlaceholder);
+  setAllText('.entry-status-grid strong', [r.entryRuntime, r.entryConsole, r.entryGate]);
+  setAllText('#lab-context-strip span:nth-child(1) em', [r.contextSupreme]);
+  setAllText('#lab-context-strip span:nth-child(2) em', [uxCopy().topbarTitle || r.contextSentinela || '']);
+  setAllText('#lab-context-strip span:nth-child(3) b', [r.contextStatus]);
+  setAllText('#lab-context-strip span:nth-child(3) em', [r.pipelineNominal || uxCopy().foc?.pipelineNominal || '']);
+  setAllText('#lab-context-strip span:nth-child(4) b', [r.contextGuardrails]);
+  setAllText('#lab-context-strip span:nth-child(4) em', [r.contextGuardrailsText]);
+  const foc = uxCopy().foc || {};
+  setText('#lab-overview .lab-panel:nth-child(1) .lab-panel-head span', r.operationalStatus || foc.operationalStatus);
+  setText('#lab-overview .lab-panel:nth-child(1) .lab-panel-head b', r.pipelineNominal || foc.pipelineNominal);
+  setAllText('#lab-overview .lab-panel:nth-child(1) .lab-metric-grid em', [r.participantsMetric || foc.participants, 'IEO/OEI', 'PSI', r.redFlagsMetric || foc.redFlags, r.currentWindowMetric || foc.currentWindow]);
+  setText('#lab-overview .lab-panel:nth-child(2) .lab-panel-head span', r.nextActions || foc.nextActions);
+  setText('#lab-overview .lab-panel:nth-child(2) .lab-panel-head b', r.humanReview || foc.human);
+  setAllText('#lab-overview .lab-panel:nth-child(2) button', [r.reviewParticipant || foc.reviewParticipant, r.criticalFlags || foc.criticalFlags, r.generateReportShort || foc.generateReport]);
+  setText('#lab-overview .lab-panel:nth-child(3) .lab-panel-head span', r.custodyIntegrity || foc.custodyIntegrity);
+  setText('#lab-overview .lab-panel:nth-child(3) .lab-panel-head b', r.verifiable || foc.verifiable);
+  setAllText('#lab-overview .lab-panel:nth-child(3) .lab-list span', [r.chainOk || foc.chainOk, r.manifestValid || foc.manifestValid, r.signatureVerified || foc.signatureVerified]);
+  setText('#section-overview .section-sub', r.overviewSectionSub);
+  setAllText('#section-overview .kpi-card .kpi-label', [uxCopy().tabs?.participants || 'Participantes', r.averageIeo, r.averagePsi, r.activeFlags, r.latestWindow]);
+  setAllText('#section-overview .kpi-card .kpi-sub', [r.totalInStudy, r.lastWindow, r.lastWindow, r.pendingFlags, r.lastWindow]);
+  setText('#section-ieo .section-title', r.ieoTitle);
+  setText('#section-ieo .section-sub', r.ieoSub);
+  setAllText('#section-ieo .card-title', [r.ieoRadar, r.ieoHistogram, r.ieoComponents, r.ieoOverlay]);
+  setText('#section-studies .section-title', r.studiesTitle);
+  setText('#section-studies .section-sub', r.studiesSub);
+  setAllText('#section-studies thead th', r.studiesHeaders || []);
+  setAllText('#section-participants thead th', r.participantsHeaders || []);
+  setText('#section-participants details.foc-participant-raw-table summary span', r.rawMatrix);
+  setText('#section-participants details.foc-participant-raw-table summary em', r.openFullTable);
+  setText('#section-pipeline .section-title', r.pipelineTitle);
+  setAllText('#section-pipeline .kpi-card .kpi-label', [r.pipelineStatus, r.pipelineIeoWindows, r.pipelinePsychometrics, r.pipelineRedFlags]);
+  setText('#section-pipeline .card-title', uxCopy().pipeline?.checks || r.pipelineStatus);
+  setText('#section-dataquality .section-title', r.dataQualityTitle);
+  setText('#section-dataquality .section-sub', r.dataQualitySectionSub);
+  setAllText('#section-dataquality .kpi-card .kpi-label', [r.windows, r.dqAverage, r.lowQuality, r.missingMetadata]);
+  setText('#section-dataquality .card-title', r.algorithmVersions);
+  setText('#section-exports .section-title', r.exportsTitle);
+  setText('#section-exports .section-sub', r.exportsSub);
+  setAllText('#section-exports th', [r.exportFormat, r.exportUse, r.exportFile]);
+  setAllText('#section-exports tbody td:nth-child(2)', [r.quickAudit, r.technicalReplay, r.scientificScale, r.fieldContract, r.signedSummary, r.signedPdf]);
+  setAllText('#section-exports a', [r.downloadCsv, r.downloadJson, r.downloadParquet, r.openDictionary, r.openHtml, r.downloadPdf]);
+  setText('#section-flags .section-sub', r.flagsSub);
+  setAllText('#section-flags .flag-card-label', [`⚡ ${r.reactivity}`, `🔀 ${r.dissonance}`, `🔁 ${r.chronicity}`]);
+  setAllText('#section-flags .card-title', [r.flagsByWindow, r.flagsList]);
+  setText('#section-psycho .section-sub', r.psychoSub);
+  setText('#section-psycho .card:last-child .card-title', r.psychoOverlay);
+  setText('#section-history .section-sub', r.historySub);
+  setText('#section-history .participant-selector label', r.participantLabel);
+  const firstHistoryOption = document.querySelector('#history-participant-select option[value=""]');
+  if (firstHistoryOption) firstHistoryOption.textContent = r.selectParticipant;
+  setAllText('#section-history .card-title', [r.historyTimeline, r.historyComponents, r.psychometricHistory, r.fullWindowTable]);
+  setAllText('#section-history th', [r.window, 'IEO', 'PSI', 'z_t', 'z_e', 'z_v', 'z_d', 'DQ', r.convergence]);
+  setText('#section-baseline .section-sub', r.baselineSub);
+  setAllText('#section-baseline .param-card-label', [r.meanZT, r.meanZE, r.meanZV, r.meanZD]);
+  setAllText('#section-baseline .conv-card-name', [r.baselineCard, r.residualBurden, r.convergence, r.dissonance]);
+  setAllText('#section-baseline .conv-card-def', [r.baselineDef, r.residualDef, r.convergenceDef, r.divergenceDef]);
+  setAllText('#section-baseline .card-title', [r.scatterIeoPsi, r.participantsByClass]);
+  setAllText('#section-baseline th', ['ID Hash', r.currentIeo, r.currentPsi, r.classLabel]);
+  setText('#section-longitudinal .section-sub', r.longitudinalSub);
+  setAllText('#section-longitudinal .kpi-card .kpi-label', [r.processedWindows, r.generalAverageIeo, r.generalAveragePsi, r.lastParticipants]);
+  setAllText('#section-longitudinal .card-title', [r.longitudinalIeoChart, r.longitudinalPsyChart]);
+  setText('#section-report .section-title', r.reportTitle);
+  setText('#section-report .section-sub', r.reportSub);
+  setText('[data-report-card-title]', r.reportCardTitle);
+  setText('[data-report-card-body]', r.reportCardBody);
+  setText('[data-report-generate]', uxCopy().report?.generate || r.reportTitle);
+  setText('[data-report-hint]', r.reportHint);
+  setText('#rpt-head .rpt-title', r.reportModalTitle);
+  setText('#rpt-ts', r.reportModalSub);
+  setText('#rpt-body p', r.loadingData);
+  setText('#rpt-foot button:nth-child(1)', `🖨 ${r.printPdf}`);
+  setText('#rpt-foot button:nth-child(2)', `📋 ${r.copyText}`);
+  setText('#rpt-foot button:nth-child(3)', r.close);
+  setText('#panel-profile-card .card-title', r.expertProfileTitle);
+  setText('#panel-profile-content', r.profileDefault);
+  setAllText('#side-panel .grid-2 .card-title', [r.ieoTrajectory, r.psiTrajectory]);
+  setText('#side-panel .panel-body > .card:nth-of-type(2) .card-title', r.windowsZComponents);
+  setText('#panel-flags-card .card-title', r.participantFlags);
+  document.querySelectorAll('.loading-msg').forEach((el) => {
+    const spinner = el.querySelector('.spinner');
+    el.textContent = '';
+    if (spinner) el.appendChild(spinner);
+    el.append(` ${r.loadingData || 'Carregando dados...'}`);
+  });
+}
+
 function applyWorkspaceText() {
   const w = workspaceCopy();
   const set = (selector, value) => {
@@ -2148,6 +2706,7 @@ function applyWorkspaceText() {
   document.querySelectorAll('#section-participants thead th').forEach((th, i) => {
     if (w.participantsHeaders?.[i]) th.textContent = w.participantsHeaders[i];
   });
+  applyRuntimeLocaleText();
 }
 
 function makeChart(id, config) {
@@ -2195,6 +2754,43 @@ function hasAuthenticatedSession() {
   return Boolean(role && email);
 }
 
+function getBrowserCookie(name) {
+  return document.cookie
+    .split(';')
+    .map(item => item.trim())
+    .find(item => item.startsWith(name + '='))
+    ?.split('=')[1];
+}
+
+function setBrowserCookie(name, value, maxAge = 31536000) {
+  document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=${maxAge}; samesite=strict`;
+}
+
+function deleteBrowserCookie(name) {
+  document.cookie = `${name}=; path=/; max-age=0; samesite=strict`;
+}
+
+function applyRememberedLogin() {
+  const emailEl = document.getElementById('login-email');
+  const rememberEl = document.getElementById('remember-me');
+  if (!emailEl || !rememberEl) return;
+  const savedEmail = decodeURIComponent(getBrowserCookie('sentinela_saved_login') || '');
+  if (savedEmail) {
+    emailEl.value = savedEmail;
+    rememberEl.checked = true;
+  }
+}
+
+function persistRememberedLogin(emailValue) {
+  const rememberEl = document.getElementById('remember-me');
+  if (!rememberEl) return;
+  if (rememberEl.checked && emailValue) {
+    setBrowserCookie('sentinela_saved_login', emailValue);
+  } else {
+    deleteBrowserCookie('sentinela_saved_login');
+  }
+}
+
 async function doLogin() {
   const emailVal = document.getElementById('login-email').value.trim();
   const passVal  = document.getElementById('login-password').value.trim();
@@ -2203,7 +2799,7 @@ async function doLogin() {
 
   errEl.style.display = 'none';
   btn.disabled = true;
-  btn.textContent = 'Entrando...';
+  btn.textContent = t('loginLoading', 'Entrando...');
 
   try {
     const res = await fetch(API + '/api/auth/login', {
@@ -2215,12 +2811,13 @@ async function doLogin() {
 
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
-      throw new Error(data.detail || 'Credenciais inválidas');
+      throw new Error(res.status === 401 ? t('invalidCredentials', 'Credenciais inválidas') : (data.detail || t('invalidCredentials', 'Credenciais inválidas')));
     }
 
     const data = await res.json();
     role  = data.role || 'leitura_agregada';
     email = data.email || emailVal;
+    persistRememberedLogin(emailVal);
 
     initApp();
   } catch (e) {
@@ -2247,7 +2844,7 @@ function initApp() {
 
   document.getElementById('user-email-label').textContent = email;
   const rb = document.getElementById('user-role-badge');
-  const roleNames = {
+  const roleNames = runtimeCopy().roleNames || {
     master: 'Master',
     pesquisador: 'Pesquisador',
     auditor: 'Auditor',
@@ -2658,7 +3255,7 @@ async function loadParticipants() {
     // Populate history selector too
     const sel = document.getElementById('history-participant-select');
     const prevVal = sel.value;
-    sel.innerHTML = '<option value="">— selecione —</option>';
+    sel.innerHTML = `<option value="">${esc(t('selectParticipant', '— selecione —'))}</option>`;
     data.forEach(p => {
       const o = document.createElement('option');
       o.value = p.id_hash;
@@ -2748,10 +3345,10 @@ async function openParticipantPanel(id) {
   panel.querySelector('.panel-body')?.scrollTo({ top: 0 });
 
   document.getElementById('panel-participant-id').textContent = id;
-  document.getElementById('panel-participant-class').textContent = 'Carregando trajetória...';
-  document.getElementById('panel-profile-content').innerHTML = 'Classificação operacional longitudinal calculada pelo SUPREME. Não é diagnóstico clínico.';
+  document.getElementById('panel-participant-class').textContent = t('loadingTrajectory', t('loadingData', 'Carregando dados...'));
+  document.getElementById('panel-profile-content').innerHTML = esc(t('profileDefault', 'Classificacao operacional longitudinal calculada pelo SUPREME. Nao e diagnostico clinico.'));
   document.getElementById('panel-windows-tbody').innerHTML = '';
-  document.getElementById('panel-flags-list').innerHTML = '<div class="loading-msg"><div class="spinner"></div> Carregando...</div>';
+  document.getElementById('panel-flags-list').innerHTML = `<div class="loading-msg"><div class="spinner"></div> ${esc(t('loadingData', 'Carregando dados...'))}</div>`;
 
   try {
     const traj = await apiFetch(`/api/dashboard/participant/${id}/trajectory`);
@@ -2964,7 +3561,7 @@ async function loadHistorySection() {
     const data = await apiFetch('/api/dashboard/participants');
     const sel = document.getElementById('history-participant-select');
     const prevVal = sel.value;
-    sel.innerHTML = '<option value="">— selecione —</option>';
+    sel.innerHTML = `<option value="">${esc(t('selectParticipant', '— selecione —'))}</option>`;
     data.forEach(p => {
       const o = document.createElement('option');
       o.value = p.id_hash;
@@ -3558,22 +4155,23 @@ function buildProfileDetail(profile) {
   if (!profile) {
     return `<span class="foc-muted">${esc(workspaceCopy().noProfile)}</span>`;
   }
+  const r = runtimeCopy();
   const evidence = profile.profile_evidence || {};
-  const reason = evidence.reason || 'evidência longitudinal recebida';
+  const reason = evidence.reason || r.longitudinalEvidence || 'evidencia longitudinal recebida';
   const classifiedAt = profile.classified_at ? fmtDate(profile.classified_at) : '—';
   const conf = profile.profile_confidence != null ? (Number(profile.profile_confidence) * 100).toFixed(0) + '%' : '—';
   return `
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px">
       ${profileBadge(profile.profile_class, profile.profile_label, profile.profile_confidence)}
-      <span class="badge">${escHtml(profile.algorithm_version || 'sem versão')}</span>
+      <span class="badge">${escHtml(profile.algorithm_version || r.noVersion || 'sem versao')}</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px">
-      <div><span class="foc-muted">Confiança</span><br><strong>${conf}</strong></div>
+      <div><span class="foc-muted">${escHtml(r.confidence || 'Confianca')}</span><br><strong>${conf}</strong></div>
       <div><span class="foc-muted">Baseline</span><br><strong>v${profile.baseline_version ?? '—'}</strong></div>
-      <div><span class="foc-muted">Classificado em</span><br><strong>${classifiedAt}</strong></div>
-      <div><span class="foc-muted">Base operacional</span><br><strong>${escHtml(reason)}</strong></div>
+      <div><span class="foc-muted">${escHtml(r.classifiedAt || 'Classificado em')}</span><br><strong>${classifiedAt}</strong></div>
+      <div><span class="foc-muted">${escHtml(r.operationalBase || 'Base operacional')}</span><br><strong>${escHtml(reason)}</strong></div>
     </div>
-    <div style="margin-top:10px;font-size:12px;color:var(--muted)">Classificação operacional longitudinal calculada pelo SUPREME; não é diagnóstico clínico nem nexo causal automático.</div>
+    <div style="margin-top:10px;font-size:12px;color:var(--muted)">${escHtml(r.noClinicalProfile || 'Classificacao operacional longitudinal calculada pelo SUPREME; nao e diagnostico clinico nem nexo causal automatico.')}</div>
   `;
 }
 
@@ -3613,7 +4211,12 @@ document.getElementById('btn-login').addEventListener('click', doLogin);
   const rememberEl = document.getElementById('remember-me');
   if (!emailEl || !rememberEl) return;
 
-  rememberEl.checked = false;
+  applyRememberedLogin();
+  applyRuntimeLocaleText();
+  rememberEl.addEventListener('change', () => persistRememberedLogin(emailEl.value.trim()));
+  emailEl.addEventListener('input', () => {
+    if (rememberEl.checked) persistRememberedLogin(emailEl.value.trim());
+  });
 })();
 document.getElementById('login-password').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 document.getElementById('login-email').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('login-password').focus(); });
@@ -3621,9 +4224,9 @@ document.getElementById('btn-logout').addEventListener('click', logout);
 document.getElementById('panel-close').addEventListener('click', closeSidePanel);
 document.getElementById('side-panel-overlay').addEventListener('click', closeSidePanel);
 window.addEventListener('sentinela:locale-changed', () => {
+  applyRuntimeLocaleText();
   if (!hasAuthenticatedSession()) return;
   applyWorkspaceText();
-  loadSection(currentSection);
 });
 
 document.getElementById('history-participant-select').addEventListener('change', e => {
